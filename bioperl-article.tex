@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.10 2002-03-21 21:50:04 jason Exp $
+% $Id: bioperl-article.tex,v 1.11 2002-03-24 20:49:13 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.10  2002/03/21 21:50:04  jason
+% reworked abstract for GR and moved examples around.  Reworked abstract for GR and moved examples around.  Added statistics about tests and number of modulesTable for Modules rather than list.
+%
 % Revision 1.9  2002/03/19 10:58:47  heikki
 % fixing examples, lot's of typos in the docs, minor changes
 %
@@ -15,23 +18,6 @@
 % Author list still incomplete and need to move acknowledgements
 % around some more
 %
-
-% conventions -
-%
-% Interfaces are in italics
-% Module names in Bold
-% method names in bold italics
-%
-% when describing the bioperl objects, list all
-% the applicable interfaces and objects at the beginning
-% of the subsection like
-% Objects: Object1 Object2
-% Interfaces: Interface1 Interface2
-
-% Things that have not been discussed
-
-% EWAN - Let's Add Pfam, Sanger, and EnsEMBL examples 
-% in here if possible
 
 \usepackage { listings,url,cite,layouts,graphics,keyval,fullpage,
  doublespace }
@@ -54,31 +40,8 @@ $^4$ \small{\textit{Cold Spring Harbor Laboratories, Cold Spring Harbor, NY USA 
 \maketitle
 \begin{abstract}
 
-  The growth of biological sequence data in the public databanks has
-been exponentially since their inception.  Automated methods are
-needed to sift through the data to provide researchers with
-informative answers to directed questions.  Computer software allows
-one to efficiently search data for specific criteria, but often the
-searches need to be coupled with additional analyses in an automated
-fashion.  By learning to write computer programs, biologists can be in
-control of creating the software to search for items of specific
-interest and automate analyses to ask questions in a genomic context
-rather than on an individual gene basis.  One programming language,
-Perl, is by far the most widely used programming language in
-bioinformatics, and is commonly thought of as the language most easily
-grasped by newcomers to the field.  Perl has been extremely successful
-for connecting programs together into sequence analysis pipelines,
-converting file formats, and extracting information from the output of
-analysis programs and other text files.  However, a significant part
-of the code of Perl bioinformatics applications, and consequently of
-the development time spent, consists of recurrent tasks, leading to a
-high extent of code duplication in the bioinformatics community.
-Novice Perl programmers in the field are often unfamiliar with
-software engineering concepts directed at alleviating the problem,
-such as modular design building generic modules from re-usable
-components.  
-
-Here we report on the Bioperl project, an international open source
+[BEING REWORKED AGAIN]
+The Bioperl project, an international open source
 collaboration of biologists, bioinformaticists, and computer
 scientists that has evolved over the last 7 years into the most
 comprehensive library of object-oriented Perl modules for manipulating
@@ -87,15 +50,15 @@ easy-to-use, mature, stable, and consistent programming interface for
 bioinformatics application programmers.  Bioperl has been successfully
 and repeatedly used to achieve otherwise complex tasks with only a few
 lines of code.  The Bioperl object model has been proven to be
-flexible enough to support enterprise-level applications like EnsEMBL,
+flexible enough to support enterprise-level applications such as EnsEMBL,
 while at the same time keeping an easy learning curve for novice Perl
 programmers.  Bioperl is also capable of interoperating with other
 programming languages like Python and Java through the evolving
 BioCORBA bridge and the accessing common data storage through the
-BioSQL and OBDA projects.  The successful development of Bioperl
-depended in a large part on the open source nature of the project.  We
-outline how this approach is a valuable mechanism for collaborative
-projects.
+BioSQL and Open Bioinformatics Database Access (OBDA) projects.  The
+successful development of Bioperl depended in a large part on the open
+source nature of the project.  We outline how this approach is a
+valuable mechanism for collaborative projects.
 
 [ Bioperl is available as open source software free of charge licensed
 under the Perl artistic license at \url{http://www.bioperl.org/}. ]
@@ -106,84 +69,99 @@ under the Perl artistic license at \url{http://www.bioperl.org/}. ]
 
 \section{Introduction}
 
+  Biological sequence data in public databanks has grown exponentially
+since their inception making it necessary to use automated methods to
+of sifting through the data.  Computer software allows one to
+efficiently search data for specific criteria, but often the searches
+need to be coupled with additional analyses in an automated fashion.
+[NEED BETTER TRANSITION HERE TO THE NEXT 2 paragraphs]
+By learning to write computer programs, biologists can control
+the creation of the software to complete the tasks and automate analyses to ask questions in a genomic context rather than on
+an individual gene basis.  
+
+One programming language, Perl, is by far
+the most widely used programming language in bioinformatics, and is
+commonly thought of as the language most easily grasped by newcomers
+to the field.  Perl has been extremely successful for connecting
+programs together into sequence analysis pipelines, converting file
+formats, and extracting information from the output of analysis
+programs and other text files.  However, a significant part of the
+code of Perl bioinformatics applications, and consequently of the
+development time spent, consists of recurrent tasks, leading to a high
+extent of code duplication in the bioinformatics community.  Novice
+Perl programmers in the field are often unfamiliar with software
+engineering concepts directed at alleviating the problem, such as
+modular design building generic modules from re-usable components.
+
 At the time of Bioperl's inception in 1995 \cite{chervitz-bits} there
 were few programming toolkits for manipulating biological data and
 results from sequence analysis programs.  Although Perl had already
 gained widespread popularity in the bioinformatics community for its
-efficient support of text processing and pattern matching tasks
-biological, there were in fact no biological toolkits available in
-this language.  Non-programmers have found Perl to be easy to learn
+efficient support of text processing and pattern matching tasks, there were in fact no biological toolkits available in
+this language.  Non-programmers have found Perl to be easy to learn,
 making it a great way to put the power of the computer directly into
-the hands of the biologist, and removing their dependence on a
+the hands of the biologist and removing their dependence on a
 computer programmer to provide the solution.
 
 While most compute-intensive analysis algorithms are implemented as
 stand-alone programs in compiled languages like C for efficiency
 reasons, scripting languages are ideal for interpreting and combining
 results from these analysis programs.  Much of the work in
-bioinformatics is applying logic to combining these outputs and
-presenting the summaries to users.  
+bioinformatics is applying logic to filter and combine outputs in
+order to present summaries to users.  
  
-Much of the initial work in bioinformatics involved writing scripts to
-run and parse output from programs in C-language packages such as GCG
-\cite{Devereux1984}. Because GCG supported a common file format
+[POSSIBLY DELETE]
+Much of the initial efforts in bioinformatics involved writing scripts
+to run and parse output from programs in C-language packages such as
+GCG \cite{Devereux1984}.  Because GCG supported a common file format
 between many of its components, these scripts had full generality
 across the GCG suite.  However, as more sequence analysis packages
-became available, this homogenity broke down or it now became
-difficult to use the same script with multiple tools; additionally
-these scripts bore the responsibility of maintaining an intimite
-knowledge of the programs' parameters, and how the parameters had to
-be changed to achieve the desired behavior.  Scripts became dependent
-on the particular program being run, not on the type of underlying
-algorithm.  The output from different analysis programs for the same
+became available, this homogenity broke down so that it became
+difficult to use the same script with multiple tools.  Additionally
+the programmer bore the responsibility of maintaining and adapting
+scripts whenever program parameters or formats changed.  
+The output from different analysis programs for the same
 purpose, like different alignment programs, represented similar
 information in different formats.  Hence it was impossible to create
 generic scripts to treat external programs as pluggable components.
+[/POSSIBLY DELETE]
 
-The Bioperl project grew out of the following observations.  First,
-even though file formats of different analysis programs are different,
-the information they represent is the same.  For example, a pair-wise alignment
-is always between two sequences and has common properties such as
-length, score, fraction of identities, start and end of the aligned
-sequences, and so forth. 
+The Bioperl project grew out of the following observations.  
+\begin{itemized}
 
-Second, the number of data structures needed to represent the
-information flow is limited, and common to most applications, like
+\item First, Even though file formats of different analysis programs
+are different, the information they represent is the same.  For
+example, a pair-wise alignment is always between two sequences and has
+common properties such as length, score, fraction of identities, start
+and end of the aligned sequences, and so forth.
+
+\item Second, the number of data structures needed to represent
+information flow is limited, and common to most applications, such as
 sequences, annotation, features, and alignments.  This permits a small
 set of modules to be reused for variety of purposes and avoids
 creating a confusing hierarchy of components.
 
-Third, a large number of operations performed are common between
-applications, like parsing a data entity out of an input stream,
-writing manipulated entities, filtering a stream of data entities to
-screen for certain criteria, etc. 
+\item Third, a set of operations is performed on these data structures
+that are useful for a variety of tasks.  This include reading and
+writing information to a file, querying a sequence for its features,
+and translating a gene coding sequence into protein.  
 
-This scenario naturally lends itself to the principle of object
-oriented programming, which Perl emulates with modules.  A module
-corresponds to the notion of a 'class' in object-oriented languages.
-Hence, the mission of Bioperl is to provide an easy-to-use
+This scenario naturally lends itself to the principle of
+object-oriented programming, which Perl emulates with modules.  A
+module corresponds to the notion of a 'class' in object-oriented
+languages.  Hence, the mission of Bioperl is to provide an easy-to-use
 object-oriented Perl library that encapsulates data structures and
 operations commonly used in the life sciences as clean, generic, and
-re-usable modules.  The goal is that an application programmer using
-Bioperl can focus on the problems specific to his or her application,
-because Bioperl provides ready-to-use solutions for those common data
-types and operations.  An additional goal is to design a data and
-object model that is easy to learn even for Perl novices, and at the
-same time flexible enough to build enterprise applications on top of.
+re-usable modules.  The goal of Bioperl is to help programmers focus
+on the problems of their specific application because Bioperl provides
+ready-to-use solutions for those common data types and operations.  An
+additional goal is to design a data and object model that is easy for
+Perl novices to learn while also being flexible enough to use in
+enterprise applications.
 
-Over time Bioperl has evolved into the most comprehensive toolkit for
+Over time, Bioperl has evolved into the most comprehensive toolkit for
 bioinformatics available in Perl.  The programming interface is stable
-and mature in our recent release of version 1.0.  This paper
-describes Bioperl as of its production release 1.0.
-
-The rest of the paper is organized as follows.  First we describe the
-data and object model as originally conceived, followed by an
-elaboration on Bioperl's interoperability with bioinformatics toolkits
-written in other programming languages.  Subsequently we discuss the
-strengths and deficiencies of the design and the implementation of the
-library, with respect to other packages available in the field.  We
-conclude with a summary of the key benefits of the toolkit for the
-Perl bioinformatics programming community.
+and mature in the recent release of version 1.0.
 
 \section{Systems and Methods}
 
@@ -193,8 +171,8 @@ for cross-platform compatibility on most UNIX and UNIX-like operating
 systems in addition to Macintosh OS X and Microsoft Windows operating
 systems.  Since the toolkit is run through the Perl interpreter
 specific issues are often due to compatibility between different
-versions of Perl.  Specific bugs and their solutions are available
-from the Bioperl website. 
+versions of Perl.  Descriptions of specific bugs and their solutions
+are available from the Bioperl website.
 
 In addition to pure Perl solutions to bioinformatics problems, Bioperl
 can take advantage of external data analysis packages.  Currently the
@@ -204,20 +182,19 @@ toolkit supports the EMBOSS \cite{emboss} suite, NCBI BLAST
 external package is not available Bioperl will fall back to using a
 slower method, either emulating the package in pure Perl or by
 invoking a network based analysis service such as the NCBI BLAST
-analysis queue.  Additional work is in progress to interface with
-remote analysis services at the EBI and Pasteur Institutes to provide
-users with the capability of many software applications without
-requiring a locally installed copy.
+analysis queue.  Additional work is in progress to incorporate remote
+analysis services at the EBI and Pasteur Institutes in order to add
+the capability of many software applications without requiring a
+locally installed copy.
 
 \section{Object and Data Model}
 
 At present the objects and operations in Bioperl center around
 biological sequence analysis and annotation.  Genomic sequencing
-projects have been one of the primary use cases for building analysis
-pipelines and database interfaces on top of Bioperl.   Additional
-objects to handle Multiple Sequence Alignments, Phylogenetic Trees,
-Protein Structure data, Bibliographic queries and data, and relational
-Database interfaces.
+projects have used Bioperl to build analysis pipelines and database
+access interfaces.  Additional objects to handle multiple sequence
+alignments, phylogenetic trees, protein structure data, bibliographic
+queries and data, and relational database interfaces.
 
 \subsection{Object hierarchy}
 
@@ -226,7 +203,7 @@ over 160,000 lines of code and embedded documentation.  These include
 modules which handle sequence, analysis, phylogenetic trees, protein
 structure, maps, and bibliographic references.  The perl modules are
 organized by logical names so that, for example, the Bio::Search
-namespace contains modules related to database searches and
+hierarchy contains modules related to database searches and
 Bio::Graphics contains modules that are related to drawing.
 
 
@@ -262,34 +239,33 @@ Bio::Graphics & Graphical displays of sequences \\
 \subsection{Design principles}
 
 When designing the library's object hierarchy, our objective was to
-provide a programming interface that is very easy to use, but that at
+provide a programming interface that is very easy to use but that at
 the same time could be easily extended in its capabilities and behaviour
-through code-reuse.  While object-oriented programming naturally lends
-itself to code-reuse through the principle of inheritance, to make
-this work in practice we found it wise to observe certain design principles.  
+through code reuse.  Using the object-oriented paradigm to design
+our modules we followed certain design principles.  
 
 \begin{itemize}
 
 \item Separating the interface from the implementation.  The key
-information about an object class for a programmer wishing to use it
-is the list of arguments to pass to the object's methods.  By
-putting this information into its own module, called an interface, the actual
-implementation can be provided by multiple independent libraries
-without risk of clashes.  This is preferable to requiring that each
-implementation inherit from a common base class, which has
-scaleability problems as object classes become increasingly complex.
+information about an object class is the list of arguments to pass to
+the object's methods.  By putting this information into its own
+module, called an interface, the actual implementation can be provided
+by multiple independent libraries without risk of clashes.  This is
+preferable to requiring that each implementation inherit from a common
+base class, which has scaleability problems as object classes become
+increasingly complex.
 
 \item Generalize common routines into a module.  When many modules
 follow the same route to accessing data it is useful to group those
 routines together.  A good example of this is data Input/Output (IO).
 A toplevel IO object called Bio::Root::IO was created to manage basic
 access to files and data streams.  All modules that need data access
-inherit from the IO module and have access to the necessary read and
-write functions without having to re-implement these routines.  This
-approach also lends itself to consistency across the entire package; any
-module that accesses data with the IO module accesses data in the
-same manner making it easy for developers to evaluate each other's
-code. 
+inherit from the IO module and use the same read and write functions.
+This approach lends itself to consistency across the entire package;
+all implementations using the IO module will do so consistently making
+it easy for developers to evaluate each other's code.  It is also ease
+share any enhancements to the common methods because any changes made
+in the parent module will be inherited by the child modules.
 
 \end{itemize}
 
@@ -337,106 +313,32 @@ changes to the source code changes into a central repository.  The
 ability to share code easily and quickly is one of the primary
 building blocks in establishing a successful open source project.
 
-\section{Interoperability}
-
-% Need help cutting down
-
-While Perl is an ideal language for both novices, experienced
-programmers, and bioinformatics specialists a like, one may want to take
-advantage of the properties of other languages such as the graphical
-capabilities of Java or the speed of C programs.  Numerous methods are
-possible for utilizing other languages depending on where one wanted
-to partition the problem and build layers into a system.  Database
-layers provide data abstraction while network layers can provide
-process abstraction.  This partitioning of data, objects, or
-processes is a powerful means for leveraging resources in different
-environments.  Typically this is best done by communicating through
-a standard data exchange language.  
-
-The Extensible Markup Language (XML) provides a means for creating
-data in a language and platform independent manner.  Previous work has
-outlined scenarios where XML has been useful in a biological context
-\cite{xml_bioinformatics}.  Bioperl supports several XML standards for
-biological data including BSML and (read only) GAME (read/write)
-sequence markup formats.  Bioperl can parse NCBI BLAST
-XML format in addition to the standard blast text format.  Finally
-we support medline XML (read only) as provided by the European
-Bioinformatics Institute's Bibliographic Query Service (BQS) and
-Entrez Pubmed XML format.
-
-The Common Object Request Broker Architecture (CORBA) allows a
-programmer to develop client-server applications in different
-languages and to build components of a program, or objects in separate
-languages.  These objects live in the space of a running process on a
-machine, but a programmer can execute methods on objects on different
-machines, even written in a different language.  CORBA was designed
-with distributed objects as the primary goal, however we can take
-advantage of this technology to create applications which utilize
-objects written in different languages to take advantage of that
-language's functionalities.
-
-This cross-language interoperability is leveraged by creating a common
-set of object interface definitions, written for CORBA in the
-Interface Design Language (IDL).  IDL is a general way to create
-interface definitions and is useful for describing the minimal set of
-method or data objects must have.  Once this contract for interfaces
-has been established developers can implement the interfaces and
-provide services which utilize these objects. 
-
-For example, the bioperl project has created a robust set of sequence
-parsing routines which a C programmer may want to take advantage of
-rather than writing his or her own parser from scratch.  However C is a
-better optimized language for predicting secondary structure of an RNA
-sequence or calculating sequence overlaps in a contig assembly.  By
-utilizing CORBA, C code can be written to simply obtain a sequence
-object and query the object for the sequence bases as a string, and
-apply an algorithm calculating minimal energy.  Similarly if one was
-interested in integrating analysis from a new dynamic programming
-toolkit written in Java into a Perl based application, the necessary
-components can be accessed through an interface and the CORBA layer.
-
-The BioCORBA project is a sister project of Bioperl coordinated with
-BioJava \cite{biojava} and Biopython \cite{biopython} which has
-developed a standard IDL describing biological data.  Collaboration
-between the BioCORBA and Object Management Group's (OMG) Life Science
-Research (LSR) group has yielded a joint IDL useful for the scope of
-sequence analysis which will we have implemented as the BioCORBA IDL
-\cite{biocorba}.
-
-This interoperability has also been applied to the EnsEMBL project
-\cite{ensembl-nar}.  The EnsEMBL (v. 4) software layer is a
-collection of perl modules built on top of the Bioperl library.
-Using an EnsEMBL-CORBA interface derived from BioCORBA, a perl EnsEMBL
-CORBA server has been written which is accessible to C, Java, and
-Python clients, and therefore making the EnsEMBL data and algorithms
-programatically available to these languages.
-
 \section{Results}
 
 Bioperl has 10 active developers led by a core of 5 primary developers
 who insure that standards are met, prepare code releases, and set the
 vision for the project.  The mailing lists for the project include
 1300 subscribers and about 10,000 unique visitors to our website each
-month.  The project has seen application in genome sequence,
-annotation, sequence variation,  disease gene discovery, and comparative
-genomics.
+month.  The project has been used in variety of endeavors including
+genome sequencing, annotation, sequence variation elucidation, disease
+gene discovery, and comparative genomics.
 
 \subsubsection{Applications built with Bioperl}
 
 By far the most advanced use of the Bioperl toolkit has come through
-the EnsEMBL project.  The basic sequence handling, file format
-parsing, and sequence features for annotation model has been utilized
-as the building blocks for automatically annotating the \textit{Homo sapiens},
-\textit{Drosophila melanogastor}, \textit{Fugu ripes}, and 
-\textit{Mus musculus} genomes.
+the EnsEMBL\cite{ensembl-nar} project.  The basic sequence handling,
+file format parsing, and sequence features for annotation model have
+been used as building blocks for automatically annotating the
+\textit{Homo sapiens}, \textit{Drosophila melanogastor}, \textit{Fugu
+ripes}, and \textit{Mus musculus} genomes.
 
 Additionally the Genquire\cite{genquire} annotation package makes use
 of the Bioperl object model and stores sequence and annotation data in
 a persistent database model.  The sequence rendering capabilities are
-partitioned into a specific bioperl package called bioperl-gui.  The
+partitioned into a specific Bioperl package called bioperl-gui.  The
 database model used by Genquire has been updated to utilize the new
-BioSQL\cite{biosql} schema, a newly formed OBF project, which
-will allow the other Bio\{*\} toolkits to access data written by the
+BioSQL(\url{http://obda.open-bio.org}} sequence database design, which
+will allow the other OBF toolkits to access data written by the
 Genquire system.
 
 The Generic Model Organism Browser (GMOD) \cite{gmod}, Distributed
@@ -451,6 +353,63 @@ representation by matrix profiles, with associated methods for searching
 the sequences for the occurence of patterns, pattern storage, and
 generation of new patterns. The implementation uses bioperl sequence,
 alignment, sequence feature and feature pair objects.
+
+\subsection{Interoperability}
+
+% Need help cutting down
+
+Sometimes the best solution for a bioinformatics problem is a hybrid
+of multiple tools.  These tools, written in different programming
+languages such as C, Java, and Python, can be used within a Perl
+script simply by invoking them (a process often called "shelling
+out").  In some situations these tools require that data be available
+in a certain format or within a certain database.  Bioperl provides
+software layers which can, for example, populate a database with
+sequence information which can be accessed and used to generate an
+interactive graphical interface provided by the BioJava toolkit.
+In other cases, Bioperl is used to create files in a format recognized
+by other programs so that they can perform their analyses. 
+
+The Extensible Markup Language (XML) provides a means for creating
+data in a language and platform independent manner.  Previous work has
+outlined scenarios where XML has been useful in a biological context
+\cite{xml_bioinformatics}.  Bioperl supports several XML standards for
+biological data including BSML and (read only) GAME (read/write)
+sequence markup formats.  Bioperl can parse NCBI BLAST XML format in
+addition to the standard blast text format.  It also supports Medline
+XML (read only) provided by the European Bioinformatics Institute's
+Bibliographic Query Service (BQS) and Entrez Pubmed XML format.
+
+The Common Object Request Broker Architecture (CORBA)\cite{corba}
+allows a programmer to share components developed in different
+languages.  This is achieved by first agreeing upon the names of
+functions and data the components will contain.  Developers write the
+software for the components in their favorite language and run a
+program called a server where the components can be accessed from.  A
+simple example of this is a component to retrieve sequences from a
+database.  It is written in the Perl and is loaded into a server
+program.  A programmer will then write software in Java which connects
+to the server program and requests a specific sequence by its
+accession number.  The Perl component will do its job and find the
+sequence and return it to the Java program.  Using these types of
+building blocks larger and more complex bioinformatics solutions can
+be built which can maximize the strengths of various programming
+languages and environments.  An example of a proposed standard for
+CORBA components for biological processes is the BioCORBA
+(\url{http://www.biocorba.org}) project.  It is a collaborative
+project which has involved members of the Bioperl, BioJava
+(\url{http://www.biojava.org}), and Biopython
+(\url{http://www.biopython.org}) projects as well as the Object
+Management Group's Life Science Research group
+(\url{http://lsr.ebi.ac.uk}).
+
+This interoperability has also been applied to the EnsEMBL project.
+The EnsEMBL (v. 4) software layer is a collection of perl modules
+built on top of the Bioperl library.  Using an EnsEMBL-CORBA interface
+derived from BioCORBA, a perl EnsEMBL CORBA server has been written
+which is accessible to C, Java, and Python clients, and therefore
+making the EnsEMBL data and algorithms programatically available to
+these languages.
 
 \subsubsection{Users}
 
@@ -477,7 +436,7 @@ databank with the accession number U14680 and write the sequence out
 in GenBank format to the screen.  One could replace Bio::DB::EMBL with
 Bio::DB::GenBank and instead retrieve the sequence from NCBI.
 
-In the second example, shown in Figure \ref{example2}, a blast report
+In the second example, shown in Figure \ref{example2}, a BLAST report
 is parsed and only certain hits meeting an e-value and length
 threshold are saved.  In this case any hit with evalue greater than
 0.001 or length less than 120 residues will be excluded.  Once the
@@ -551,7 +510,7 @@ foreach my $hit ( @HitsToSave ) {
 Bioperl will continue to evolve in order to address more issues in
 bioinformatics.  We have plans to create objects to manage sequence
 assembly information, haplotype maps, gene expression, and protein
-interaction data.  Additionally, project focusing on multi-species
+interaction data.  Additionally, projects focusing on multi-species
 comparisions are building Perl modules to manage the alignment and
 syntenic information.  We are creating software layers to interact
 with BioSQL project\cite{biosql} databases, developing an analysis
@@ -571,12 +530,12 @@ an extensible manner has made Bioperl an excellent platform for Perl
 bioinformatics software development.  This open sharing of ideas that
 embodies the scientific spirit is successful in the world of software
 development for scientific purposes as well and has permitted the
-toolkit to grow in directions directly needed(pertinent?) to its users.
+toolkit to grow in directions pertinent to its users.
 
 \section{Acknowledgements}
 
 The Bioperl Core is Jason Stajich, Hilmar Lapp, Heikki Lehväslaiho,
-Lincon Stein, and Ewan Birney.  The project has seen signifigant
+Lincoln Stein, and Ewan Birney.  The project has seen signifigant
 contributions from the following people David Block, Kris Boulez,
 Steven Brenner, Brad Chapman, Steve Chervitz, Michele Clamp, Tony Cox,
 James Cuff, Chris Dagdigian, Andrew Dalke, Allen Day, Arne Elofsson,
@@ -605,6 +564,8 @@ Microsystems, and we graciously accept donated bandwith and computer
 server space from Wyeth.
 
 J.E.S is supported by NIH Genetics training grant \#T32GM07754-22.
+Thanks to F.Dietrich, M.DeLong, M.Hahn for comments and suggestion.
+
 \bibliography{bioperl}
 \bibliographystyle{plain} 
 
