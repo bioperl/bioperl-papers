@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.32 2002-05-04 20:32:43 jason Exp $
+% $Id: bioperl-article.tex,v 1.33 2002-07-16 19:18:36 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.32  2002/05/04 20:32:43  jason
+% submitted version
+%
 % Revision 1.31  2002/04/22 17:14:53  jason
 % spelling mistakes corrected
 %
@@ -85,7 +88,7 @@
 %
 
 \usepackage {pxfonts,listings,hyperref,url,genomeres,layouts,
-	     	pstricks, epsfig,graphicx,keyval,fancyhdr,
+	    pstricks, epsfig,graphicx,keyval,fancyhdr,
 	     setspace,fullpage }
 
 \begin{document}
@@ -371,16 +374,21 @@ defines that implementations support the operation
 \textit{next\_seq()}, returning the next sequence in the stream as a
 Bio::PrimarySeqI compliant object. Various parsers for the different
 sequence formats implement this method, thereby providing one
-consistent interface to sequence streams irregardless of the
-format.  At the same time, Bio::SeqIO acts as a factory by
-instantiating the parser appropriate for a particular format without
-the caller having to know which module is capable of parsing the
-desired format. We implemented the same concept for databank search
-result parsers in Bio::SearchIO. The Bio::Factory hierarchy contains
-other factories, which can instantiate classes implementing a
-particular contract for a desired specialization.
+consistent interface to sequence streams irregardless of the format.
+At the same time, Bio::SeqIO acts as a factory by instantiating the
+parser appropriate for a particular format without the caller having
+to know which module is capable of parsing the desired format. We
+implemented the same concept for databank search result parsers in
+Bio::SearchIO. The Bio::Factory hierarchy contains other factories,
+which can instantiate classes implementing a particular contract for a
+desired specialization.  \textbf{The purpose of factories is to simplify the
+interface to the data so that client code, which uses a factory
+object, can be written generally, without needing to know if it is
+processing a sequence file in GenBank, EMBL, SwissProt, or BSML
+format.}
 
 \end{itemize}
+
 
 Bioperl is written purely in Perl and requires at least version 5.005
 of the Perl interpreter (the current stable version of Perl as of the
@@ -424,7 +432,7 @@ module's documentation.  We use the Perl embedded documentation format
 the source code.  This documentation can be converted to text, TeX, or
 HTML.  We have used the Pdoc (\url{http://pdoc.sourceforge.net}) tool to
 generate colored and hyperlinked documentation in HTML for easy
-online browsing.
+online browsing \textbf{ available at \url{http://doc.bioperl.org}.}
 
 The development process involves integrated and comprehensive
 unit-testing of the code.  We accomplished this by ensuring that each
@@ -489,16 +497,19 @@ objects.
 \subsection{Interoperability}
 
 Sometimes the best solution for a bioinformatics problem is a hybrid
-of multiple tools.  These tools, written in different programming
-languages such as C, Java, and Python, can be used within a Perl
-program simply by invoking them (a process often called ``shelling
-out'').  In some situations these tools require that data be available
-in a certain format or within a certain database.  Bioperl provides
-software layers which can, for example, populate a database with
-sequence information which can be accessed and used to generate an
-interactive graphical interface provided by the Biojava toolkit.
-In other cases, Bioperl is used to create files in a format recognized
-by other programs so that they can perform their analyses. 
+of multiple tools.  \textbf{Providing interoperability between languages
+allows a programmer using the toolkit to build components using
+work done in other languages and projects.} 
+These tools, written in different programming languages such as C,
+Java, and Python, can be used within a Perl program simply by invoking
+them (a process often called ``shelling out'').  In some situations
+these tools require that data be available in a certain format or
+within a certain database.  Bioperl provides software layers which
+can, for example, populate a database with sequence information which
+can be accessed and used to generate an interactive graphical
+interface provided by the Biojava toolkit.  In other cases, Bioperl is
+used to create files in a format recognized by other programs so that
+they can perform their analyses.
 
 Bioperl also supports a number of Extensible Markup Language (XML)
 standard data exchange formats accepted in the Bioinformatics
@@ -512,7 +523,11 @@ Bioinformatics Sequence Markup Language (BSML;
 for BLAST reports, and the bibliographic standards Medline XML
 provided by the European Bioinformatics Institute's Bibliographic
 Query Service (BQS; \url{http://industry.ebi.ac.uk/openBQS/}) and
-Entrez Pubmed XML format \cite{entrez}.
+Entrez Pubmed XML format \cite{entrez}.\textbf{  By supporting these formats
+programs written with Bioperl will be able to easily process data from
+these standard data sources and the extensible nature of XML will
+allow new features to be added to the data formats without breaking
+existing parsers and code. }
 
 Software can interoperate not only through the invocation of external
 programs, but also through invoking methods on remote components
@@ -535,6 +550,8 @@ consideration for adoption by the Object Management Group's Life
 Science Research group (\url{http://lsr.ebi.ac.uk}) and is included in
 the proposed Open Bioinformatics Database Access (OBDA;
 \url{http://obda.open-bio.org}) standard for sequence data access.
+These proposed standards permit Bioperl to be integrated with existing
+software projects either as **
 
 \section{Discussion}
 
@@ -590,7 +607,22 @@ the guiding principle to get working products written in an extensible
 manner have made Bioperl an excellent platform for Perl bioinformatics
 software development.  The open sharing and discussion of ideas that
 embodies the scientific spirit has proven to be successful in the
-world of scientific software development as well.
+world of scientific software development as well.  
+
+\textbf{
+There are some drawbacks to the open source approach which we have
+discovered through the lifetime of the project.  Component development
+is often only focused on what individuals find useful for their own
+work.  The typical audience for the toolkit had been programmers and
+developers and as such the code documentation and tutorials have been
+geared towards these types of advanced users.  Parts of the project
+have often been neglected or phased out as the developer working on it
+has left the project.  We have sought to address these issues through
+strong leadership which will establish guidelines for contributions
+and insure quality of released code.  We "gracefully" retire
+unmaintained components by providing warnings about deprecation in the
+releases prior to its removal from the toolkit.
+}
 
 In the future, Bioperl will continue to evolve, addressing more domains
 of bioinformatics.  We plan to create objects to manage sequence
@@ -620,23 +652,26 @@ mailing list members.  Some parts of the object model, especially
 locations, were adopted from the excellent work of the Biojava project
 and its leaders Thomas Down and Matthew Pocock.
 
-We would like to especially acknowledge the individuals who helped
-establish project in the early years, Ewan Birney, Steven Brenner,
-Steve Chervitz, Chris Dagdigian, and Georg Fuellen.  Thanks to Brian
-Osborne and Peter Schattner for their documentation and tutorial work,
-and Chris Dagdigian for his tremendous support as computer systems
-administrator for the OBF.
+%This was the 1st submission text we go back to the original
+%as Steven/Steve/Georg/Ewan agreed
+%We would like to especially acknowledge the individuals who helped
+%establish project in the early years, Ewan Birney, Steven Brenner,
+%Steve Chervitz, Chris Dagdigian, and Georg Fuellen.  Thanks to Brian
+%Osborne and Peter Schattner for their documentation and tutorial work,
+%and Chris Dagdigian for his tremendous support as computer systems
+%administrator for the OBF.
 
 % alternative that we won't use at this point
 % 
-%We would like to especially acknowledge the former project
-%coordinators, in chronological order: Steven Brenner, Chris Dagdigian,
-%Georg Fuellen, Steve Chervitz, and Ewan Birney as well as initial
-%contributors Jong Park and Richard Resnick who provided help
-%establishing the project.  Thanks to Brian Osborne and Peter Schattner
-%for their documentation and tutorial work, and Chris Dagdigian for his
-%tremendous support as computer systems administrator for the OBF.
-
+\textbf{(see TeX for comments about why this changed)
+We would like to especially acknowledge the former project
+coordinators, in chronological order: Steven Brenner, Chris Dagdigian,
+Georg Fuellen, Steve Chervitz, and Ewan Birney as well as initial
+contributors Jong Park and Richard Resnick who provided help
+establishing the project.  Thanks to Brian Osborne and Peter Schattner
+for their documentation and tutorial work, and Chris Dagdigian for his
+tremendous support as computer systems administrator for the OBF.
+}
 The Bioperl project and its sister projects (commonly referred to as
 the Bio\{*\} projects) are supported under the umbrella of the Open
 Bioinformatics Foundation (\url{http://www.open-bio.org}).  OBF has
@@ -645,7 +680,8 @@ graciously accept donated bandwidth and computer server space from
 Wyeth Research.
 
 J.E.S is supported by an NIH Genetics training grant.  Thanks to
-F.Dietrich, M.DeLong, and M.Hahn for their comments on this manuscript.
+F.Dietrich, M.DeLong, M.Hahn, and two anonymous reviewers for their
+comments on this manuscript.
 
 \bibliography{bioperl}
 \bibliographystyle{genomeres} 
@@ -663,6 +699,7 @@ F.Dietrich, M.DeLong, and M.Hahn for their comments on this manuscript.
 \url{http://www.biojava.org}, Biojava Project. \\
 \url{http://www.bioperl.org}, Bioperl Project. \\
 \url{http://www.biopython.org}, Biopython Project. \\
+\url{http://doc.bioperl.org}, Bioperl code documentation page \\
 \url{http://www.fruitfly.org}, Berkeley Drosophila Genome Project.\\
 \url{http://www.bioxml.org/dtds/index.html},  GAME - Genome
 Annotation Markup Elements. \\ 
