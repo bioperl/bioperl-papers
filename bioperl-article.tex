@@ -196,7 +196,8 @@ Ace, GCG, SCF, GAME, BSML, and raw format.
 \item Phylogenetic trees.
 \item Protein structure data.
 \item Generic biological maps (genetic, physical).
-\item Distributed Annotation Sever (DAS) toolkit and database \cite{das}.
+\item Bibliographic references
+\item Distributed Annotation Server (DAS) toolkit and database \cite{das}.
 \end{itemize}
 
 \subsection{Design principles}
@@ -318,6 +319,9 @@ their research.
 \subsection{Examples}
 
 \subsubsection{Short Scripts}
+
+[FIXME: add pointers to fully functional scripts?]
+
 \begin{itemize}
 \item Local Index and sequence retrieval
 
@@ -403,7 +407,59 @@ while( my $result = $search->next_result ) {
 \end{verbatim}
 \end{scriptsize}
 
-\item Heikki's get flanking seq for SNP stuff
+\item Extract a subsequence flanking a SNP position
+\begin{scriptsize}
+\begin{verbatim}
+use Bio::PrimarySeq;
+use Bio::SeqIO;
+use Bio::DB::EMBL;
+use strict;
+
+my $acc = 'J00231';		# sequence id
+my $snppos = 200;		# position in the sequence
+my $flanklen = 50;		# returned sequence length 2*50+1
+my $strand = -1;		# reverse strand
+my $out_format = 'FASTA';	# output format, going into STDOUT
+
+my ($seq, $out_seq);
+eval {
+    my $gb = new Bio::DB::EMBL;
+    $seq = $gb->get_Seq_by_acc($acc);
+};
+die "Could not find sequence $acc" if $@;
+
+my $out = Bio::SeqIO->new('-format' => $out_format);
+
+my $five_start = $snppos - $flanklen;
+$five_start = 1 if $five_start < 1;
+my $three_end = $snppos + $flanklen;
+$three_end = $seq->length if $snppos + $flanklen > $seq->length;
+
+my $five_prime = lc $seq->subseq($five_start , $snppos - 1);
+my $snp = uc $seq->subseq($snppos, $snppos);
+my $three_prime = lc $seq->subseq($snppos + 1, $three_end); 
+my $locpos = length($five_prime) + 1;
+
+my $fastaid = "$acc oripos=$snppos strand=$strand allelepos=$locpos";
+
+if (defined $strand and $strand == -1) {
+    my $five_prime_seq = new Bio::PrimarySeq(-seq=>$five_prime);
+    my $snp_seq = new Bio::PrimarySeq(-seq=>$snp);
+    my $three_prime_seq = new Bio::PrimarySeq(-seq=>$three_prime);
+
+    my $str = $three_prime_seq->revcom->seq. 
+	$snp_seq->revcom->seq. $five_prime_seq->revcom->seq;
+    $out_seq = new Bio::PrimarySeq (-id => $fastaid,
+				    -seq => $str );
+} else {
+    my $str = $five_prime. $snp. $three_prime;
+    $out_seq = new Bio::PrimarySeq (-id => $fastaid,
+				    -seq => $str );
+}
+$out->write_seq($out_seq);
+
+\end{verbatim}
+\end{scriptsize}
 
 \end{itemize}
 
