@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.30 2002-04-22 17:02:57 jason Exp $
+% $Id: bioperl-article.tex,v 1.31 2002-04-22 17:14:53 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.30  2002/04/22 17:02:57  jason
+% changes to let figure2 be submitted separately and include a little more clarity in discussion
+%
 % Revision 1.29  2002/04/19 03:56:04  lapp
 % Mostly typographical corrections. Some little polishing of the discussion
 % section about others' failures.
@@ -479,10 +482,10 @@ their own research and software production is a side project to assist
 in a specific task.  Previous collaborative efforts have produced
 unsatisfactory results due mostly to lack of commitment to open source
 principles for the development.  BioWidgets, an early attempt to
-create a toolkit was ultimately unsuccesful because the particpants did
+create a toolkit was ultimately unsuccessful because the participants did
 not commit to open source policies for the software.  Software was
 eventually withdrawn from the project because of intellectual property
-disputes (N. Goodman, personal communication).  The NCBI tookit
+disputes (N. Goodman, personal communication).  The NCBI toolkit
 (\url{ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/}), a powerful and highly functional C-language based
 toolkit, does not have the widespread usage that it deserves
 because of acknowledged deficiencies in its documentation and a closed
@@ -498,7 +501,7 @@ We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
 new functionality for the benefit of all users.  Contributors are part
 of academic, governmental, non-profit, pharmaceutical, and
-commerical bioinformatics groups on every continent.  This collaboration and
+commercial bioinformatics groups on every continent.  This collaboration and
 the guiding principle to get working products written in an extensible
 manner have made Bioperl an excellent platform for Perl bioinformatics
 software development.  The open sharing and discussion of ideas that
@@ -627,9 +630,9 @@ Bio::Graphics & Graphical displays of sequences \\
 \rhead{Stajich\_Figure1\_caption}
 
 Figure 1. This image, which was produced by the Bio::Graphics module,
-represents a 20 kb segment of the C. elegans genome. It shows
-annotated genes, a cross-species alignment (C. elegans to
-C. briggsae), EST alignments, SNPs, PCR primer pairs, a GC content
+represents a 20 kb segment of the \textit{C. elegans} genome. It shows
+annotated genes, a cross-species alignment (\textit{C. elegans} to
+\textit{C. briggsae}), EST alignments, SNPs, PCR primer pairs, a GC content
 histogram, and other features.  The module is also suitable for
 illustrating the extent of protein domains, physical maps, and other
 horizontal maps.
@@ -648,9 +651,9 @@ diagram is the sequence feature interface (SeqFeatureI) and its
 implementations Similarity (manage similarity information),
 FeaturePair (paired feature information), and SimilarityPair (paired
 similarity information such as a pairwise alignment information).
-Additionally the location objects which manage simple (start, end, and
-strand information), split (multiple start and end spots on a sequence
-such as a set of exons), and so-called fuzzy locations (start, end or span
+Additionally the location objects which manage Simple (start, end, and
+strand information), Split (multiple start and end spots on a sequence
+such as a set of exons), and so-called Fuzzy locations (start, end or span
 is not exact) for sequence features.
 
 \newpage
