@@ -1,0 +1,126 @@
+\documentclass{article}
+
+\usepackage {
+ fullpage,fancyheadings,lscape,rotating,
+ float,longtable,epsfig,psfig,layouts
+}
+
+\begin{document}
+
+\begin{twocolumn}
+\title{The Bioperl Project}
+\author{The BioPerl Project Team, http://bio.perl.org}
+\maketitle
+
+\begin{abstract}
+The Bioperl project is an open-source collaboration of biologists,
+computation biologist, bioinformaticians, and computer programmers.
+The mission of the project is to provide an accessible programming
+toolkit for manipulating and managing life science information.
+\end{abstract}
+
+\section{Introduction and History}
+
+In this paper we'll describe the history of the Bioperl project, the
+initial goals and how we've met them, examples of Bioperl modules at
+work in other projects, and future directions for the project.
+
+In 1995 there were few programmimg toolkits for manipulating
+biological data and results from sequence analysis and there were
+certainly none in Perl.  The GCG package \cite{GCG} was used for
+analyzing sequence data and determining phylogenetic trees.  Users
+could automate analysis by writing scripts to pass files between GCG
+programs.  However, a specific file format was required and
+integration of results from different sequence analysis packages was
+difficult to do computationally. Other tools such as the NCBI toolkit,
+were being developed to provide applications for running sequence
+comparision and database searching on a biologist's local machine.
+The difficulty with all these packages is they required and intimate
+knowledge of the command line arguments and which parameters to change
+for desired.  Additionally the output from all the analysis packages
+represented similar information but in different formats.  A user
+attempting to compare results across environments found it difficult
+to produce a simple summary table because of the sophisticated parsing
+script he might have to write. \\
+
+The Bioperl project grew out of a need to manipulate biological data
+in many different file formats and sources.  Perl was an ideal
+language because it can be used to write quick throw away scripts as
+well as reusable code libraries.  While Perl does have limitations, it
+provides an easy platform for writing simple bioinformatics solutions
+for neophyte computer programming biologists and advanced
+computational biologists alike.
+
+\section{Project Goals} 
+
+The goals of the Bioperl project are to provide simple interfaces for
+manipulating life science data.  The project attempts to provide these
+interfaces as compact perl library modules which are  
+
+\subsection{Early History}
+
+The origin of the bioperl project can be traced back to the Fall of
+1995 in which a small group of people primarily made up of Steven
+Brenner, Georg Fullen, Richard Resnick, and XXX began a mailing list
+\cite{oldbioperlmaillist} to discuss building biological modules 
+In the Fall of 1995, Steve Brenner along with other graduates (Georg
+Fullen) of the University of Bielefeld course in bioinformatics
+decided to build a set of perl modules that would help them unify a
+representation of a biological sequence in all their programs.  They
+wrote simple reusable operations for this object such as reverse
+complement or protein translation of an exon sequence.  Additional
+modules were begun to handle parsing different sequence file formats
+to read sequences in from different sources and additionally write
+them out again in various sequence file formats.  Other modules began
+to accumulate after Steve and Georg contributing their own modules and
+implementations of solutions to common bioinformatic problems.
+
+\subsection{Modern History}
+% Chris D: need Help here  -jason
+In the XX of 199X money was obtained from ?? to buy an alpha linux
+server for bioperl source code repository and mail/ftp/web server space.
+Through the hard work of Chris Dagdigian - running out of his home for
+X months before the Genetics Institute donated server room space and
+bandwith to the project.  Since then we have grown to 5 projects
+including the BioJava and BioPython 'language' projects and BioXML and
+BioCORBA standards projects.  These will be discussed later in this
+paper. 
+\\ % Is this even relevant. -jason
+The project was first coordinated in a 'benevolent dictator' style and
+such great leaders as Steve Chervitz and Ewan Birney.  Later the
+leadership was expanded to a core group of 4 developers and a sysadmin
+(Ewan with Chris Dadigian, Hilmar Lapp, Heikki Lehvaslaiho and Jason
+Stajich)
+
+
+\section{Design}
+
+\section{Development Process}
+
+\section{Use Cases}
+
+\section{Related projects}
+
+\section{Contributors}
+
+The primary contributors of the Bioperl project include the following
+people along with others listed at http://bio.perl.org.
+% I don't know where the contributor list should go or who should be
+% on it, here is the start -jason
+
+% Ewan Birney, David Block, Steve Brenner, Kris Boulez, Brad Chapman,
+% Steve Chervitz, Chris Dagdigian, Georg Fullen, James Gilbert, Joseph
+% Insana, Arek K., Hilmar Lapp, Heikki Lehvaslaiho, Aaron Mackey, 
+% Matthew Pocock, Richard Resnick, Peter Schattner, 
+% Jason Stajich, Lincoln Stein, Elia Stupka, Peter van Heuston, Mark Wilkinson
+
+% other original contributors
+% Lorenz? 
+% (new) Arne?
+
+\end{twocolumn}
+
+\end{document}
+
+
+

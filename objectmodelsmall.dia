@@ -1,0 +1,5443 @@
+<?xml version="1.0"?>
+<diagram xmlns:dia="http://www.lysator.liu.se/~alla/dia/">
+  <diagramdata>
+    <attribute name="background">
+      <color val="#ffffff"/>
+    </attribute>
+    <attribute name="paper">
+      <composite type="paper">
+        <attribute name="name">
+          <string>#A4#</string>
+        </attribute>
+        <attribute name="tmargin">
+          <real val="2.8222"/>
+        </attribute>
+        <attribute name="bmargin">
+          <real val="2.8222"/>
+        </attribute>
+        <attribute name="lmargin">
+          <real val="2.8222"/>
+        </attribute>
+        <attribute name="rmargin">
+          <real val="2.8222"/>
+        </attribute>
+        <attribute name="is_portrait">
+          <boolean val="false"/>
+        </attribute>
+        <attribute name="scaling">
+          <real val="0.187788"/>
+        </attribute>
+        <attribute name="fitto">
+          <boolean val="true"/>
+        </attribute>
+        <attribute name="fitwidth">
+          <int val="1"/>
+        </attribute>
+        <attribute name="fitheight">
+          <int val="1"/>
+        </attribute>
+      </composite>
+    </attribute>
+    <attribute name="grid">
+      <composite type="grid">
+        <attribute name="width_x">
+          <real val="1"/>
+        </attribute>
+        <attribute name="width_y">
+          <real val="1"/>
+        </attribute>
+        <attribute name="visible_x">
+          <int val="1"/>
+        </attribute>
+        <attribute name="visible_y">
+          <int val="1"/>
+        </attribute>
+      </composite>
+    </attribute>
+    <attribute name="guides">
+      <composite type="guides">
+        <attribute name="hguides"/>
+        <attribute name="vguides"/>
+      </composite>
+    </attribute>
+  </diagramdata>
+  <layer name="Background" visible="true">
+    <object type="UML - Generalization" version="0" id="O0">
+      <attribute name="obj_pos">
+        <point val="37.1876,9.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="29.1529,8.35;38.0376,25.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="37.1876,9.2"/>
+        <point val="37.1876,18"/>
+        <point val="30.0029,18"/>
+        <point val="30.0029,25"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O143" connection="6"/>
+        <connection handle="1" to="O1" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O1">
+      <attribute name="obj_pos">
+        <point val="16,25"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="15.95,23.15;44.0559,54.05"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="16,25"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="28.0059"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="29"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Location#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O2">
+      <attribute name="obj_pos">
+        <point val="45,25"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="44.95,23.15;69.05,39.05"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="45,25"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="24"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="14"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqFeature#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O3">
+      <attribute name="obj_pos">
+        <point val="42.7067,1"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="42.6567,-0.85;73.4567,14.772"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="42.7067,1"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="30.7"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="13.722"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqIO#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O4">
+      <attribute name="obj_pos">
+        <point val="70,28"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="69.95,26.15;94.6934,38.2643"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="70,28"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="24.6434"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="10.2143"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqFeature::Gene#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - Class" version="0" id="O5">
+      <attribute name="obj_pos">
+        <point val="54,-8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="53.95,-8.05;62.6068,-5.75"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="54,-8"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.5568"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Root::RootI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O6">
+      <attribute name="obj_pos">
+        <point val="20,-1"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="19.95,-1.05;27.0918,1.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="20,-1"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.0418"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Root::IO#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O7">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="22.6709,-6.65;59.1284,-0.15"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3"/>
+        <point val="23.5209,-3"/>
+        <point val="23.5209,-1"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O6" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O8">
+      <attribute name="obj_pos">
+        <point val="7.5328,-0.94998"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="7.4828,-0.99998;16.4426,1.30002"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="7.5328,-0.94998"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.8598"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::PrimarySeqI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O9">
+      <attribute name="obj_pos">
+        <point val="4,15"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="3.95,14.95;12.6977,17.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="4,15"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.6477"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::PrimarySeq#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O10">
+      <attribute name="obj_pos">
+        <point val="14,15"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="13.95,14.95;19.2132,17.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="14,15"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.1632"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O11">
+      <attribute name="obj_pos">
+        <point val="14,19"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="13.95,18.95;18.9405,21.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="14,19"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.8905"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Seq#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O12">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="11.1127,-6.65;59.1284,-0.09998"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3"/>
+        <point val="11.9627,-3"/>
+        <point val="11.9627,-0.94998"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O8" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O13">
+      <attribute name="obj_pos">
+        <point val="11.9627,1.25002"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="7.47385,0.40002;12.8127,15.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="11.9627,1.25002"/>
+        <point val="11.9627,3.3096"/>
+        <point val="8.32385,3.3096"/>
+        <point val="8.32385,15"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O8" connection="6"/>
+        <connection handle="1" to="O9" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O14">
+      <attribute name="obj_pos">
+        <point val="11.9627,1.25002"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="11.1127,0.40002;17.4316,15.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="11.9627,1.25002"/>
+        <point val="11.9627,3.3096"/>
+        <point val="16.5816,3.3096"/>
+        <point val="16.5816,15"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O8" connection="6"/>
+        <connection handle="1" to="O10" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O15">
+      <attribute name="obj_pos">
+        <point val="16.5816,17.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="15.5953,16.35;17.4316,19.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="16.5816,17.2"/>
+        <point val="16.5816,18.7096"/>
+        <point val="16.4453,18.7096"/>
+        <point val="16.4453,19"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O10" connection="6"/>
+        <connection handle="1" to="O11" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O16">
+      <attribute name="obj_pos">
+        <point val="54,3"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="53.95,2.95;59.9707,5.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="54,3"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.9207"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqIO#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O17">
+      <attribute name="obj_pos">
+        <point val="47.2626,8.63826"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="47.2126,8.58826;50.4457,10.8883"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="47.2626,8.63826"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.1331"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#fasta#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O18">
+      <attribute name="obj_pos">
+        <point val="49.2676,11.9232"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="49.2176,11.8732;54.2081,14.1732"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="49.2676,11.9232"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.8905"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#genbank#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O19">
+      <attribute name="obj_pos">
+        <point val="44.3324,11.8732"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="44.2824,11.8232;47.5155,14.1232"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="44.3324,11.8732"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.1331"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#embl#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O20">
+      <attribute name="obj_pos">
+        <point val="64.4849,8.44439"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="64.4349,8.39439;68.1225,10.6944"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="64.4849,8.44439"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.5876"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#swiss#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O21">
+      <attribute name="obj_pos">
+        <point val="67.5074,11.5732"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="67.4574,11.5232;70.0845,13.8232"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="67.5074,11.5732"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.5271"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#raw#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O22">
+      <attribute name="obj_pos">
+        <point val="52.7324,8.42326"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="52.6824,8.37326;56.1882,10.6733"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="52.7324,8.42326"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.4058"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#game#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O23">
+      <attribute name="obj_pos">
+        <point val="62.3349,11.5943"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="62.2849,11.5443;64.9423,13.8443"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="62.3349,11.5943"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.5574"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#gcg#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O24">
+      <attribute name="obj_pos">
+        <point val="46.5184,2.81423"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="46.4684,2.76423;51.6407,5.06423"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="46.5184,2.81423"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.0723"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#FTHelper#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O25">
+      <attribute name="obj_pos">
+        <point val="57.6255,8.32326"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.5755,8.27326;63.172,10.5733"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="57.6255,8.32326"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.4965"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#largefasta#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O26">
+      <attribute name="obj_pos">
+        <point val="56,12"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="55.95,11.95;58.1226,14.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="56,12"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.0726"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#pir#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O27">
+      <attribute name="obj_pos">
+        <point val="43.1531,8.22326"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="43.1031,8.17326;45.6393,10.4733"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="43.1531,8.22326"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.4362"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#ace#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Dependency" version="0" id="O28">
+      <attribute name="obj_pos">
+        <point val="54,3"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="48.2046,0.89632;54.85,3.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="54,3"/>
+        <point val="54,1.74632"/>
+        <point val="49.0546,1.74632"/>
+        <point val="49.0546,2.81423"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="draw_arrow">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="0"/>
+        <connection handle="1" to="O24" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O29">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="43.5212,4.35;57.8103,9.07326"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="44.3712,7"/>
+        <point val="44.3712,8.22326"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O27" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O30">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="53.5853,4.35;57.8103,9.27326"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="54.4353,7"/>
+        <point val="54.4353,8.42326"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O22" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O31">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="45.049,4.35;57.8103,12.7232"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="45.899,7"/>
+        <point val="45.899,11.8732"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O19" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O32">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="47.9792,4.35;57.8103,9.48826"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="48.8292,7"/>
+        <point val="48.8292,8.63826"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O17" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O33">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="50.8629,4.35;57.8103,12.7732"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="51.7129,7"/>
+        <point val="51.7129,11.9232"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O18" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O34">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.1103,4.35;57.8863,12.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="57.0363,7"/>
+        <point val="57.0363,12"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O26" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O35">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.1103,4.35;61.2238,9.17326"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="60.3738,7"/>
+        <point val="60.3738,8.32326"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O25" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O36">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.1103,4.35;64.4636,12.4443"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="63.6136,7"/>
+        <point val="63.6136,11.5943"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O23" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O37">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.1103,4.35;67.1287,9.29439"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="66.2787,7"/>
+        <point val="66.2787,8.44439"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O20" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O38">
+      <attribute name="obj_pos">
+        <point val="56.9603,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.1103,4.35;69.621,12.4232"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="56.9603,5.2"/>
+        <point val="56.9603,7"/>
+        <point val="68.771,7"/>
+        <point val="68.771,11.5732"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="6"/>
+        <connection handle="1" to="O21" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O39">
+      <attribute name="obj_pos">
+        <point val="61.8354,2.57952"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="61.7854,2.52952;66.4123,4.82952"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="61.8354,2.57952"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.5269"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Multifile#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Dependency" version="0" id="O40">
+      <attribute name="obj_pos">
+        <point val="59.9207,3.7"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="59.0707,0.89632;64.9489,4.55"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="59.9207,3.7"/>
+        <point val="59.9207,1.74632"/>
+        <point val="64.0989,1.74632"/>
+        <point val="64.0989,2.57952"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="draw_arrow">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O16" connection="4"/>
+        <connection handle="1" to="O39" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O41">
+      <attribute name="obj_pos">
+        <point val="25.3865,26.2805"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="25.3365,26.2305;32.9025,28.5305"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="25.3865,26.2805"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.466"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::LocationI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O42">
+      <attribute name="obj_pos">
+        <point val="33.1548,31.7964"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="33.1048,31.7464;41.1253,34.0464"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="33.1548,31.7964"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.9205"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#FuzzyLocationI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O43">
+      <attribute name="obj_pos">
+        <point val="17.4464,31.8431"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="17.3964,31.7931;24.8412,34.0931"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="17.4464,31.8431"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.3448"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#SplitLocationI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O44">
+      <attribute name="obj_pos">
+        <point val="19.6437,39.0428"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="19.5937,38.9928;22.645,41.2928"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="19.6437,39.0428"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.9513"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Split#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O45">
+      <attribute name="obj_pos">
+        <point val="35.3054,39.1831"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="35.2554,39.1331;38.9733,41.4331"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="35.3054,39.1831"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.6179"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Fuzzy#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O46">
+      <attribute name="obj_pos">
+        <point val="29.1195,28.4805"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="20.2688,27.6305;29.9695,32.6931"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="29.1195,28.4805"/>
+        <point val="29.1195,30.6224"/>
+        <point val="21.1188,30.6224"/>
+        <point val="21.1188,31.8431"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O41" connection="6"/>
+        <connection handle="1" to="O43" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O47">
+      <attribute name="obj_pos">
+        <point val="29.1195,28.4805"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="28.2695,27.6305;37.9651,32.6464"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="29.1195,28.4805"/>
+        <point val="29.1195,30.6486"/>
+        <point val="37.1151,30.6486"/>
+        <point val="37.1151,31.7964"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O41" connection="6"/>
+        <connection handle="1" to="O42" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O48">
+      <attribute name="obj_pos">
+        <point val="27.0772,32.1846"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="27.0272,32.1346;31.1996,34.4346"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="27.0772,32.1846"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.0724"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Simple#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O49">
+      <attribute name="obj_pos">
+        <point val="29.1195,28.4805"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="28.2634,27.6305;29.9695,33.0346"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="29.1195,28.4805"/>
+        <point val="29.1195,30.72"/>
+        <point val="29.1134,30.72"/>
+        <point val="29.1134,32.1846"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O41" connection="6"/>
+        <connection handle="1" to="O48" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O50">
+      <attribute name="obj_pos">
+        <point val="29.1134,34.3846"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="20.2694,33.5346;29.9634,39.8928"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="29.1134,34.3846"/>
+        <point val="29.1134,37.7286"/>
+        <point val="21.1194,37.7286"/>
+        <point val="21.1194,39.0428"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O48" connection="6"/>
+        <connection handle="1" to="O44" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O51">
+      <attribute name="obj_pos">
+        <point val="29.1134,34.3846"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="28.2634,33.5346;37.9644,40.0331"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="29.1134,34.3846"/>
+        <point val="29.1134,37.7104"/>
+        <point val="37.1144,37.7104"/>
+        <point val="37.1144,39.1831"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O48" connection="6"/>
+        <connection handle="1" to="O45" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O52">
+      <attribute name="obj_pos">
+        <point val="27.03,43.7779"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="26.98,43.7279;36.3034,46.0279"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="27.03,43.7779"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="9.2234"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#CoordinatePolicyI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O53">
+      <attribute name="obj_pos">
+        <point val="25.8405,50.75"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="25.7905,50.7;37.4773,53"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="25.8405,50.75"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="11.5868"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#AvWidthinCoordPolicy#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O54">
+      <attribute name="obj_pos">
+        <point val="33.6466,47.928"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="33.5966,47.878;43.6472,50.178"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="33.6466,47.928"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="9.9506"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#WidestCoordPolicy#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O55">
+      <attribute name="obj_pos">
+        <point val="17.7176,47.728"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="17.6676,47.678;29.3544,49.978"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="17.7176,47.728"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="11.5868"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#NarrowestCoordPolicy#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O56">
+      <attribute name="obj_pos">
+        <point val="31.6417,45.9779"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="30.7917,45.1279;39.4719,48.778"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="31.6417,45.9779"/>
+        <point val="31.6417,46.957"/>
+        <point val="38.6219,46.957"/>
+        <point val="38.6219,47.928"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O52" connection="6"/>
+        <connection handle="1" to="O54" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O57">
+      <attribute name="obj_pos">
+        <point val="31.6417,45.9779"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="30.7839,45.1279;32.4917,51.6"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="31.6417,45.9779"/>
+        <point val="31.6417,47.7544"/>
+        <point val="31.6339,47.7544"/>
+        <point val="31.6339,50.75"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O52" connection="6"/>
+        <connection handle="1" to="O53" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O58">
+      <attribute name="obj_pos">
+        <point val="31.6417,45.9779"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="22.661,45.1279;32.4917,48.578"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="31.6417,45.9779"/>
+        <point val="31.6417,46.957"/>
+        <point val="23.511,46.957"/>
+        <point val="23.511,47.728"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O52" connection="6"/>
+        <connection handle="1" to="O55" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O59">
+      <attribute name="obj_pos">
+        <point val="53.865,25.5176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="53.815,25.4676;62.6536,27.7676"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="53.865,25.5176"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.7386"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::SeqFeatureI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O60">
+      <attribute name="obj_pos">
+        <point val="48.3793,29.9748"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="48.3293,29.9248;52.8956,32.2248"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="48.3793,29.9748"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.4663"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Generic#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O61">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="49.7625,26.8676;59.0843,30.8248"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2005"/>
+        <point val="50.6125,29.2005"/>
+        <point val="50.6125,29.9748"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#ISA#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O60" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O62">
+      <attribute name="obj_pos">
+        <point val="70.5396,30.5"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="70.4896,30.45;78.5404,32.75"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="70.5396,30.5"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.9508"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GeneStructureI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O63">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.3843,26.8676;75.365,31.35"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2005"/>
+        <point val="74.515,29.2005"/>
+        <point val="74.515,30.5"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O62" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O64">
+      <attribute name="obj_pos">
+        <point val="61.35,30.0433"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="61.3,29.9933;67.654,32.2933"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="61.35,30.0433"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.254"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#FeaturePair#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O65">
+      <attribute name="obj_pos">
+        <point val="57,36"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="56.95,35.95;64.2433,38.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="57,36"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.1933"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#SimilarityPair#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O66">
+      <attribute name="obj_pos">
+        <point val="64.477,32.2433"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="59.7466,31.3933;65.327,36.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="64.477,32.2433"/>
+        <point val="64.477,35"/>
+        <point val="60.5966,35"/>
+        <point val="60.5966,36"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O64" connection="6"/>
+        <connection handle="1" to="O65" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O67">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.3843,26.8676;65.327,30.8933"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2005"/>
+        <point val="64.477,29.2005"/>
+        <point val="64.477,30.0433"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O64" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O68">
+      <attribute name="obj_pos">
+        <point val="54.0765,30.0576"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="54.0265,30.0076;59.4412,32.3076"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="54.0765,30.0576"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.3147"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Similarity#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O69">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="55.8838,26.8676;59.0843,30.9076"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2005"/>
+        <point val="56.7338,29.2005"/>
+        <point val="56.7338,30.0576"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#ISA#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O68" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Association" version="0" id="O70">
+      <attribute name="obj_pos">
+        <point val="60.5966,36"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="55.2838,30.8076;62.0466,37.6"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="60.5966,36"/>
+        <point val="60.5966,35"/>
+        <point val="56.7338,35"/>
+        <point val="56.7338,32.2576"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#has a#</string>
+      </attribute>
+      <attribute name="direction">
+        <enum val="2"/>
+      </attribute>
+      <attribute name="ends">
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string>#1#</string>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string>#2#</string>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O65" connection="1"/>
+        <connection handle="1" to="O68" connection="6"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O71">
+      <attribute name="obj_pos">
+        <point val="81.6,30.2857"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="81.55,30.2357;85.1467,32.5357"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="81.6,30.2857"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.4967"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#ExonI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O72">
+      <attribute name="obj_pos">
+        <point val="81.743,34.8571"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="81.693,34.8071;85.0473,37.1071"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="81.743,34.8571"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.2543"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Exon#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O73">
+      <attribute name="obj_pos">
+        <point val="70.6429,34.8571"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="70.5929,34.8071;78.371,37.1071"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="70.6429,34.8571"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="7.6781"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GeneStructure#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O74">
+      <attribute name="obj_pos">
+        <point val="74.515,32.7"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="73.632,31.85;75.365,35.7071"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="74.515,32.7"/>
+        <point val="74.515,33.6428"/>
+        <point val="74.482,33.6428"/>
+        <point val="74.482,34.8571"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O62" connection="6"/>
+        <connection handle="1" to="O73" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O75">
+      <attribute name="obj_pos">
+        <point val="83.3484,32.4857"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="82.4984,31.6357;84.2202,35.7071"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="83.3484,32.4857"/>
+        <point val="83.3484,33.5714"/>
+        <point val="83.3702,33.5714"/>
+        <point val="83.3702,34.8571"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O71" connection="6"/>
+        <connection handle="1" to="O72" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Association" version="0" id="O76">
+      <attribute name="obj_pos">
+        <point val="19.1632,15.7"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="17.7132,14.25;58.45,26.45"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="19.1632,15.7"/>
+        <point val="19.1632,16.3"/>
+        <point val="57,16.3"/>
+        <point val="57,25"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#has a#</string>
+      </attribute>
+      <attribute name="direction">
+        <enum val="1"/>
+      </attribute>
+      <attribute name="ends">
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string>#1#</string>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string>#n#</string>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O10" connection="4"/>
+        <connection handle="1" to="O2" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O77">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.3843,26.8676;84.1984,31.1357"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2198"/>
+        <point val="83.3484,29.2198"/>
+        <point val="83.3484,30.2857"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O71" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O78">
+      <attribute name="obj_pos">
+        <point val="88,30"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="87.95,29.95;93.9707,32.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="88,30"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.9207"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#TranscriptI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O79">
+      <attribute name="obj_pos">
+        <point val="88,35"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="87.95,34.95;93.7283,37.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="88,35"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.6783"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Transcript#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O80">
+      <attribute name="obj_pos">
+        <point val="90.9604,32.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="89.9892,31.35;91.8103,35.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="90.9604,32.2"/>
+        <point val="90.9604,34"/>
+        <point val="90.8392,34"/>
+        <point val="90.8392,35"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O78" connection="6"/>
+        <connection handle="1" to="O79" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O81">
+      <attribute name="obj_pos">
+        <point val="58.2343,27.7176"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.3843,26.8676;91.8103,30.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2343,27.7176"/>
+        <point val="58.2343,29.2198"/>
+        <point val="90.9604,29.2198"/>
+        <point val="90.9604,30"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O59" connection="6"/>
+        <connection handle="1" to="O78" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Realizes" version="0" id="O82">
+      <attribute name="obj_pos">
+        <point val="21.1188,34.0431"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="18.5951,33.1931;23.6431,39.8928"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="21.1188,34.0431"/>
+        <point val="21.1188,36"/>
+        <point val="21.1194,36"/>
+        <point val="21.1194,39.0428"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#implements#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O43" connection="6"/>
+        <connection handle="1" to="O44" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Realizes" version="0" id="O83">
+      <attribute name="obj_pos">
+        <point val="37.1151,33.9964"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="34.5907,33.1464;39.6387,40.0331"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="37.1151,33.9964"/>
+        <point val="37.1151,36"/>
+        <point val="37.1144,36"/>
+        <point val="37.1144,39.1831"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#implements#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O42" connection="6"/>
+        <connection handle="1" to="O45" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Association" version="0" id="O84">
+      <attribute name="obj_pos">
+        <point val="31.4059,43.5481"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="29.9559,39.9331;38.5644,45.1481"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="31.4059,43.5481"/>
+        <point val="31.4059,42.7481"/>
+        <point val="37.1144,42.7481"/>
+        <point val="37.1144,41.3831"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string>#has a#</string>
+      </attribute>
+      <attribute name="direction">
+        <enum val="2"/>
+      </attribute>
+      <attribute name="ends">
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string/>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+        <composite>
+          <attribute name="role">
+            <string/>
+          </attribute>
+          <attribute name="multiplicity">
+            <string/>
+          </attribute>
+          <attribute name="arrow">
+            <boolean val="false"/>
+          </attribute>
+          <attribute name="aggregate">
+            <enum val="0"/>
+          </attribute>
+        </composite>
+      </attribute>
+      <connections>
+        <connection handle="1" to="O45" connection="6"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O85">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.2067,-6.65;59.1284,1.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3"/>
+        <point val="58.0567,-3"/>
+        <point val="58.0567,1"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O3" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O86">
+      <attribute name="obj_pos">
+        <point val="96,28"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="95.95,26.15;116.332,45.05"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="96,28"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="20.2824"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="17"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Index#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O87">
+      <attribute name="obj_pos">
+        <point val="107,2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="106.95,0.15;132.05,25.05"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="107,2"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="25"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="23"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::DB#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - Class" version="0" id="O88">
+      <attribute name="obj_pos">
+        <point val="106,29"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="105.95,28.95;110.88,31.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="106,29"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.8299"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Abstract#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O89">
+      <attribute name="obj_pos">
+        <point val="102,34"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="101.95,33.95;108.698,36.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="102,34"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.6479"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#AbstractSeq#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O90">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.4284,-6.65;103.321,28.8856"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-2.96442"/>
+        <point val="102.471,-2.96442"/>
+        <point val="102.471,28.0356"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O91">
+      <attribute name="obj_pos">
+        <point val="108.415,31.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="104.474,30.35;109.265,34.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="108.415,31.2"/>
+        <point val="108.415,33"/>
+        <point val="105.324,33"/>
+        <point val="105.324,34"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O88" connection="6"/>
+        <connection handle="1" to="O89" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O92">
+      <attribute name="obj_pos">
+        <point val="119,7"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="118.95,6.95;121.941,9.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="119,7"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.8907"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#SeqI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O93">
+      <attribute name="obj_pos">
+        <point val="114,22"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="113.95,21.95;119.213,24.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="114,22"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.1632"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GenBank#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O94">
+      <attribute name="obj_pos">
+        <point val="108,22"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="107.95,21.95;112.91,24.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="108,22"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.8602"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GenPept#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O95">
+      <attribute name="obj_pos">
+        <point val="113.32,12"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="113.27,11.95;119.805,14.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="113.32,12"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.4358"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#WebDBSeqI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O96">
+      <attribute name="obj_pos">
+        <point val="110,17"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="109.95,16.95;116.395,19.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="110,17"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.3449"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#NCBIHelper#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O97">
+      <attribute name="obj_pos">
+        <point val="113.172,19.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="112.322,18.35;117.432,22.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="113.172,19.2"/>
+        <point val="113.172,20.8"/>
+        <point val="116.582,20.8"/>
+        <point val="116.582,22"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O96" connection="6"/>
+        <connection handle="1" to="O93" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O98">
+      <attribute name="obj_pos">
+        <point val="113.172,19.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="109.58,18.35;114.022,22.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="113.172,19.2"/>
+        <point val="113.172,20.8"/>
+        <point val="110.43,20.8"/>
+        <point val="110.43,22"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O96" connection="6"/>
+        <connection handle="1" to="O94" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O99">
+      <attribute name="obj_pos">
+        <point val="116.537,14.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="112.322,13.35;117.387,17.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="116.537,14.2"/>
+        <point val="116.537,15.3"/>
+        <point val="113.172,15.3"/>
+        <point val="113.172,17"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O95" connection="6"/>
+        <connection handle="1" to="O96" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O100">
+      <attribute name="obj_pos">
+        <point val="120.445,9.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="115.687,8.35;121.295,12.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="120.445,9.2"/>
+        <point val="120.445,11"/>
+        <point val="116.537,11"/>
+        <point val="116.537,12"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O92" connection="6"/>
+        <connection handle="1" to="O95" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O101">
+      <attribute name="obj_pos">
+        <point val="116,3"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="115.95,2.95;124.546,5.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="116,3"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.4962"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#RandomAccessI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O102">
+      <attribute name="obj_pos">
+        <point val="120.248,5.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="119.398,4.35;121.295,7.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="120.248,5.2"/>
+        <point val="120.248,6"/>
+        <point val="120.445,6"/>
+        <point val="120.445,7"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O101" connection="6"/>
+        <connection handle="1" to="O92" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O103">
+      <attribute name="obj_pos">
+        <point val="117.4,16.6"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="117.35,16.55;120.462,18.85"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="117.4,16.6"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.0119"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GDB#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O104">
+      <attribute name="obj_pos">
+        <point val="116.537,14.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="115.687,13.35;119.756,17.45"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="116.537,14.2"/>
+        <point val="116.537,15.3"/>
+        <point val="118.906,15.3"/>
+        <point val="118.906,16.6"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O95" connection="6"/>
+        <connection handle="1" to="O103" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O105">
+      <attribute name="obj_pos">
+        <point val="121.6,16.6"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="121.55,16.55;127.328,18.85"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="121.6,16.6"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.6783"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#SwissProt#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O106">
+      <attribute name="obj_pos">
+        <point val="128.2,16.6"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="128.15,16.55;131.868,18.85"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="128.2,16.6"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.6179"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#EMBL#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O107">
+      <attribute name="obj_pos">
+        <point val="116.537,14.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="115.687,13.35;125.289,17.45"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="116.537,14.2"/>
+        <point val="116.537,15.3"/>
+        <point val="124.439,15.3"/>
+        <point val="124.439,16.6"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O95" connection="6"/>
+        <connection handle="1" to="O105" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O108">
+      <attribute name="obj_pos">
+        <point val="116.537,14.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="115.687,13.35;130.859,17.45"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="116.537,14.2"/>
+        <point val="116.537,15.3"/>
+        <point val="130.009,15.3"/>
+        <point val="130.009,16.6"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O95" connection="6"/>
+        <connection handle="1" to="O106" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O109">
+      <attribute name="obj_pos">
+        <point val="122.1,12"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="122.05,11.95;130.374,14.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="122.1,12"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="8.2235"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#UpdateableSeqI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O110">
+      <attribute name="obj_pos">
+        <point val="120.445,9.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="119.595,8.35;127.062,12.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="120.445,9.2"/>
+        <point val="120.445,11"/>
+        <point val="126.212,11"/>
+        <point val="126.212,12"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O92" connection="6"/>
+        <connection handle="1" to="O109" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O111">
+      <attribute name="obj_pos">
+        <point val="98.5621,38.925"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="98.5121,38.875;102.23,41.175"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="98.5621,38.925"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.6179"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#EMBL#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O112">
+      <attribute name="obj_pos">
+        <point val="104,39"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="103.95,38.95;107.456,41.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="104,39"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.4058"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Fasta#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O113">
+      <attribute name="obj_pos">
+        <point val="109.827,38.925"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="109.777,38.875;115.04,41.175"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="109.827,38.925"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.1632"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#GenBank#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O114">
+      <attribute name="obj_pos">
+        <point val="99.8771,42.475"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="99.8271,42.425;105.545,44.725"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="99.8771,42.475"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.6177"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Swissprot#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O115">
+      <attribute name="obj_pos">
+        <point val="105.812,42.475"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="105.762,42.425;111.995,44.725"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="105.812,42.475"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.1328"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#SwissPfam#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O116">
+      <attribute name="obj_pos">
+        <point val="105.324,36.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="99.521,35.35;106.174,39.775"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="105.324,36.2"/>
+        <point val="105.324,38"/>
+        <point val="100.371,38"/>
+        <point val="100.371,38.925"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O89" connection="6"/>
+        <connection handle="1" to="O111" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O117">
+      <attribute name="obj_pos">
+        <point val="105.324,36.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="104.474,35.35;106.553,39.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="105.324,36.2"/>
+        <point val="105.324,38"/>
+        <point val="105.703,38"/>
+        <point val="105.703,39"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O89" connection="6"/>
+        <connection handle="1" to="O112" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O118">
+      <attribute name="obj_pos">
+        <point val="105.324,36.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="104.474,35.35;113.259,39.775"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="105.324,36.2"/>
+        <point val="105.324,38"/>
+        <point val="112.409,38"/>
+        <point val="112.409,38.925"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O89" connection="6"/>
+        <connection handle="1" to="O113" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O119">
+      <attribute name="obj_pos">
+        <point val="105.324,36.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="101.836,35.35;106.174,43.325"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="105.324,36.2"/>
+        <point val="105.324,38"/>
+        <point val="102.686,38"/>
+        <point val="102.686,42.475"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O89" connection="6"/>
+        <connection handle="1" to="O114" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O120">
+      <attribute name="obj_pos">
+        <point val="105.324,36.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="104.474,35.35;109.405,43.125"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="105.324,36.2"/>
+        <point val="105.324,38"/>
+        <point val="108.555,38"/>
+        <point val="108.555,42.275"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O89" connection="6"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O121">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.4284,-6.65;120.35,2.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3"/>
+        <point val="119.5,-3"/>
+        <point val="119.5,2"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O87" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - LargePackage" version="0" id="O122">
+      <attribute name="obj_pos">
+        <point val="75,2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="74.95,0.15;102.088,13.3775"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="75,2"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="27.0383"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="11.3275"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::AlignIO#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+    <object type="UML - Class" version="0" id="O123">
+      <attribute name="obj_pos">
+        <point val="85.352,2.6501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="85.302,2.6001;89.6865,4.9001"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="85.352,2.6501"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.2845"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#AlignIO#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O124">
+      <attribute name="obj_pos">
+        <point val="77.2003,6.90074"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="77.1503,6.85074;81.2015,9.15074"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="77.2003,6.90074"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.9512"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#bl2seq#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O125">
+      <attribute name="obj_pos">
+        <point val="82.301,6.85074"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="82.251,6.80074;87.09,9.10074"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="82.301,6.85074"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.739"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#clustalw#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O126">
+      <attribute name="obj_pos">
+        <point val="88.402,6.55069"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="88.352,6.50069;91.5851,8.80069"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="88.402,6.55069"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.1331"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#fasta#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O127">
+      <attribute name="obj_pos">
+        <point val="93.703,6.65071"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="93.653,6.60071;97.1285,8.90071"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="93.703,6.65071"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.3755"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#mase#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O128">
+      <attribute name="obj_pos">
+        <point val="75.4,10.5513"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="75.35,10.5013;78.068,12.8013"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="75.4,10.5513"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="2.618"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#msf#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O129">
+      <attribute name="obj_pos">
+        <point val="85.302,10.2512"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="85.252,10.2012;89.8789,12.5012"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="85.302,10.2512"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="4.5269"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#prodom#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O130">
+      <attribute name="obj_pos">
+        <point val="90.602,10.2512"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="90.552,10.2012;93.9669,12.5012"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="90.602,10.2512"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.3149"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#selex#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O131">
+      <attribute name="obj_pos">
+        <point val="80.501,10.5513"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="80.451,10.5013;83.7447,12.8013"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="80.501,10.5513"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="3.1937"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#pfam#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O132">
+      <attribute name="obj_pos">
+        <point val="95.103,10.3513"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="95.053,10.3013;100.983,12.6013"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="95.103,10.3513"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="5.8298"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#stockholm#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O133">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="86.6443,4.0001;88.4155,11.1012"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="87.5655,6.10062"/>
+        <point val="87.5655,10.2512"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O129" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O134">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="83.8205,4.0001;88.3443,7.70074"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="84.6705,6.10062"/>
+        <point val="84.6705,6.85074"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O125" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O135">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="78.3259,4.0001;88.3443,7.75074"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="79.1759,6.10062"/>
+        <point val="79.1759,6.90074"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O124" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O136">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="86.6443,4.0001;90.8186,7.40069"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="89.9686,6.10062"/>
+        <point val="89.9686,6.55069"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O126" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O137">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="86.6443,4.0001;96.2407,7.50071"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="95.3907,6.10062"/>
+        <point val="95.3907,6.65071"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O127" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O138">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="86.6443,4.0001;93.1094,11.1012"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="92.2595,6.10062"/>
+        <point val="92.2595,10.2512"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O130" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O139">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="86.6443,4.0001;98.8679,11.2013"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="98.0179,6.10062"/>
+        <point val="98.0179,10.3513"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O132" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O140">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="81.2479,4.0001;88.3443,11.4013"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10062"/>
+        <point val="82.0979,6.10062"/>
+        <point val="82.0979,10.5513"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O131" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O141">
+      <attribute name="obj_pos">
+        <point val="87.4943,4.8501"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="75.859,4.0001;88.3443,11.4013"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="87.4943,4.8501"/>
+        <point val="87.4943,6.10047"/>
+        <point val="76.709,6.10047"/>
+        <point val="76.709,10.5513"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O123" connection="6"/>
+        <connection handle="1" to="O128" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O142">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="57.4284,-6.65;89.3691,2.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3"/>
+        <point val="88.5191,-3"/>
+        <point val="88.5191,2"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O122" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Class" version="0" id="O143">
+      <attribute name="obj_pos">
+        <point val="34,7"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="33.95,6.95;40.4252,9.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="34,7"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.3752"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::RangeI#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Class" version="0" id="O144">
+      <attribute name="obj_pos">
+        <point val="38,21"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="37.95,20.95;44.1525,23.25"/>
+      </attribute>
+      <attribute name="elem_corner">
+        <point val="38,21"/>
+      </attribute>
+      <attribute name="elem_width">
+        <real val="6.1025"/>
+      </attribute>
+      <attribute name="elem_height">
+        <real val="2.2"/>
+      </attribute>
+      <attribute name="name">
+        <string>#Bio::Range#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <attribute name="abstract">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_attributes">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="suppress_operations">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="visible_attributes">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="visible_operations">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="attributes"/>
+      <attribute name="operations"/>
+      <attribute name="template">
+        <boolean val="false"/>
+      </attribute>
+      <attribute name="templates"/>
+    </object>
+    <object type="UML - Generalization" version="0" id="O145">
+      <attribute name="obj_pos">
+        <point val="37.1876,9.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="36.3376,8.35;41.9013,21.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="37.1876,9.2"/>
+        <point val="37.1876,18"/>
+        <point val="41.0513,18"/>
+        <point val="41.0513,21"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O143" connection="6"/>
+        <connection handle="1" to="O144" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Generalization" version="0" id="O146">
+      <attribute name="obj_pos">
+        <point val="58.2784,-5.8"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="36.3376,-6.65;59.1284,7.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="58.2784,-5.8"/>
+        <point val="58.2784,-3.01386"/>
+        <point val="37.1876,-3.01386"/>
+        <point val="37.1876,7"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="name">
+        <string/>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+      <connections>
+        <connection handle="0" to="O5" connection="6"/>
+        <connection handle="1" to="O143" connection="1"/>
+      </connections>
+    </object>
+    <object type="UML - Dependency" version="0" id="O147">
+      <attribute name="obj_pos">
+        <point val="119,10.2"/>
+      </attribute>
+      <attribute name="obj_bb">
+        <rectangle val="104.15,9.15;119.85,34.85"/>
+      </attribute>
+      <attribute name="orth_points">
+        <point val="119,10.2"/>
+        <point val="119,10"/>
+        <point val="105,10"/>
+        <point val="105,34"/>
+      </attribute>
+      <attribute name="orth_orient">
+        <enum val="1"/>
+        <enum val="0"/>
+        <enum val="1"/>
+      </attribute>
+      <attribute name="draw_arrow">
+        <boolean val="true"/>
+      </attribute>
+      <attribute name="name">
+        <string>#implements#</string>
+      </attribute>
+      <attribute name="stereotype">
+        <string/>
+      </attribute>
+    </object>
+  </layer>
+</diagram>
