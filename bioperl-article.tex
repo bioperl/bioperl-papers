@@ -13,6 +13,9 @@
 
 % Things that have not been discussed
 
+% EWAN - Let's Add Pfam, Sanger, and EnsEMBL examples 
+% in here if possible
+
 \usepackage {
  fullpage,fancyheadings,lscape,rotating,
  float,longtable,epsfig,psfig,layouts, bioinformatics
@@ -20,7 +23,6 @@
 
 \begin{document}
 
-\begin{twocolumn}
 \title{The Bioperl Toolkit}
 % Not sure how to do this - some people should be in the title?
 \author{The Bioperl Core, http://www.bioperl.org }
@@ -66,6 +68,7 @@ BioCORBA bridge.
 of charge at http://www.bioperl.org/.
 
 \end{abstract}
+\begin{twocolumn}
 
 \section{Introduction}
 
@@ -187,13 +190,13 @@ Ace, GCG, SCF, GAME, BSML, and raw format.
 \item Sequence database indexing and retrieval. 
 \item Feature representation and annotation.
 \item Generic annotation.
-\item Multiple alignment representation and input/output.
+\item Multiple alignment representation.
 \item Sequence variations and mutations.
 \item Parser for sequence analysis tools.
-\item Phylogenetic trees
-\item Protein structure data
-\item Generic biological maps (genetic, physical)
-\item Distributed Annotation Sever (DAS) toolkit and database
+\item Phylogenetic trees.
+\item Protein structure data.
+\item Generic biological maps (genetic, physical).
+\item Distributed Annotation Sever (DAS) toolkit and database \cite{das}.
 \end{itemize}
 
 \subsection{Design principles}
@@ -234,7 +237,7 @@ factory object that would instantiate his own classes.
 \end{itemize}
 
 In BioPerl we followed these two design principles [Shall we call this
-`design patterns' instead?] throughout the library wherever
+'design patterns' instead?] throughout the library wherever
 possible.  Most classes come as an interface, with a capital 'I'
 appended to the object name (e.g., Bio::SeqI and Bio::Seq), together
 with a ready-to-use fully functional implementation.  [A good example
@@ -262,7 +265,7 @@ outlined scenarios where XML has been useful in a biological context
 \cite{xml_bioinformatics}.  
 
 The Common Object Request Broker Architecture (CORBA) allows a
-programmer to develop client/server applications in different
+programmer to develop client-server applications in different
 languages and to build components of a program, or objects in separate
 languages.  These objects live in the space of a running process on a
 machine, but a programmer can execute methods on objects on different
@@ -318,25 +321,31 @@ their research.
 \begin{itemize}
 \item Local Index and sequence retrieval
 
+\begin{scriptsize}
 \begin{verbatim}
 use Bio::Index::Fasta;
 use Bio::SeqIO;
 # build the index
-my $index = new Bio::Index::Fasta(-write_flag => 1,
-				  -filename   => 'nr.idx');
+my $index = new Bio::Index::Fasta
+         (-write_flag => 1,
+          -filename   => 'nr.idx');
 
-$index->id_parser(\&ncbi_idparse); # use a custom ID parser
+# use a custom ID parser
+$index->id_parser(\&ncbi_idparse); 
 $index->make_index('/data/seqs.fa');
 
 # retrieve seqs
 
-my $seqout = new Bio::SeqIO(-format => 'fasta',
-			    -fh   => \*STDOUT);
+my $seqout = new Bio::SeqIO
+                 (-format => 'fasta',
+                  -fh   => \*STDOUT);
 
 foreach ( qw(NP_009225 YPKA_YERPS)) {
     my $seq = $index->fetch($_);
-    next unless defined $seq; # skip if seq not found
-    $seqout->write_seq($seq); # write it out to the screen
+    # skip if seq not found
+    next unless defined $seq; 
+    # write it out to STDOUT
+    $seqout->write_seq($seq); 
 }
 
 sub ncbi_idparse { 
@@ -346,18 +355,53 @@ sub ncbi_idparse {
  return ( $ids[1],$acc,$ids[3]);	
 }
 \end{verbatim}
+\end{scriptsize}
 
 \item Remote db retrieval
-
+\begin{scriptsize}
 \begin{verbatim}
+
 use Bio::DB::GenBank;
+use Bio::SeqIO;
 
 my $db = new Bio::DB::GenBank();
 my $seq = $db->get_Seq_by_acc('NP_009225');
-my $seqout = new Bio::SeqIO(-format => 'genbank,
-			    -fh   => \*STDOUT);
-$seqout->write_seq($seq) if defined $seq;
+if (defined $seq) {
+   $seqout->write_seq($seq);
+}
 \end{verbatim}
+\end{scriptsize}
+
+\item BLAST and FASTA parsing
+\begin{scriptsize}
+\begin{verbatim}
+use Bio::SearchIO;
+# Let's parse a NCBI blast XML-ified report  
+my $search = new Bio::SearchIO
+         (-format => 'blastxml',
+          -file   => 'report.xml');
+my @HitsToSave;
+my $cutoffe = 0.001;
+my $cutofflen = 120;
+while( my $result = $search->next_result ) {
+  printf "query is %s\n", $result->query_name;
+  HIT: while( my $hit = $result->next_hit ) {
+   printf "hit is %s\n", $hit->name;
+   while( my $hsp = $hit->next_hsp ) {
+    if( $hsp->evalue < $cutoffe &&
+       $hsp->length('total') >= $cutofflen ) 
+       {
+	    push @HitsToSave, $hit;
+	    next HIT;
+       } 
+   }
+  }
+}
+
+# now one might process hits that meet criteria
+
+\end{verbatim}
+\end{scriptsize}
 
 \item Heikki's get flanking seq for SNP stuff
 
@@ -378,15 +422,15 @@ through the extensive .
 \section{Acknowledgements}
 
 The Bioperl Core is Jason Stajich, Hilmar Lapp, Heikki Lehvaslaiho,
-and Ewan Birney.  The project has seen signifigant
-contributions from the following people David Block, Kris Boulez
-Steven Brenner, Brad Chapman, Steve Chervitz, Michele Clamp, Chris
-Dagdigian, Andrew Dalke, Allen Day, Arne Elofsson, Mark Fiers, Georg
-Fuellen, James Gilbert, Roger Hall, Ian Holmes, Joseph Insana, Nicolas
-Joly, Ian Korf, Aaron Mackey, Brad Marshall, Chad Matsalla, Chris
-Mungall, Matthew Pockock, Todd Richmond, Peter Schattner, Lincoln
-Stein, Elia Stupka, Gert Thijs, Mark Wilkinson, Helge Weissig, Alex
-Zelensky.
+and Ewan Birney.  The project has seen signifigant contributions from
+the following people David Block, Kris Boulez, Steven Brenner, Brad
+Chapman, Steve Chervitz, Michele Clamp, Tony Cox, Chris Dagdigian,
+Andrew Dalke, Allen Day, Arne Elofsson, Mark Fiers, Georg Fuellen,
+James Gilbert, Roger Hall, Ian Holmes, Joseph Insana, Nicolas Joly,
+Ian Korf, Aaron Mackey, Brad Marshall, Chad Matsalla, Chris Mungall,
+Brian Osborne, Matthew Pockock, Todd Richmond, Peter Schattner,
+Lincoln Stein, Elia Stupka, Gert Thijs, Mark Wilkinson, Helge Weissig,
+Alex Zelensky.
 
  
 [FIXME do we announce Open Bioinformatics Foundation here as well?]
