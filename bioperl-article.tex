@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.37 2002-07-27 23:54:19 jason Exp $
+% $Id: bioperl-article.tex,v 1.38 2002-07-29 20:03:36 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.37  2002/07/27 23:54:19  jason
+% applied changes suggested by Georg
+%
 % Revision 1.36  2002/07/25 22:11:29  jason
 % Brian O's updates
 %
@@ -132,7 +135,7 @@
 % Ewan Birney
 
 \author{Jason E Stajich$^{1}$$^*$ 
-\and David Block$^{2}$ 
+\and David Block$^{2}$ $^{18}$ 
 \and Kris Boulez$^{3}$
 \and Steven E Brenner$^{4}$ 
 \and Stephen A Chervitz$^{5}$ 
@@ -183,7 +186,7 @@ conclude with a discussion of how the open source nature of the
 project has contributed to the development effort.
 
 Bioperl is available as open source software free of charge and
-licensed under the Perl Artistic License
+is licensed under the Perl Artistic License
 (\url{http://www.perl.com/pub/a/language/misc/Artistic.html}).  It is
 available for download at \url{http://www.bioperl.org}.  
 Support inquiries should be addressed to \url{bioperl-l@bioperl.org}.
@@ -194,7 +197,7 @@ $^1$ \small{\textit{University Program in Genetics, Duke University,
 Durham, NC 27710 USA}} \\
 $^2$ \small{\textit{National Research Council of Canada, Plant
 Biotechnology Institute, 110 Gymansium Pl, Saskatoon, SK S7N OW9 Canada}} \\
-$^3$ \small{\textit{AlgoNomics, Gent, B 9052 Belgium}} \\
+$^3$ \small{\textit{AlgoNomics, Technologiepark 4, B 9052 Gent, Belgium}} \\
 $^4$ \small{\textit{Department of Plant \& Molecular Biology,
 111 Koshland Hall, University of California, Berkeley, CA 94720-3102 USA}} \\
 $^5$ \small{\textit{Affymetrix, Inc., 6550 Vallejo St., Suite 100,
@@ -221,6 +224,8 @@ $^{16}$ \small{\textit{Cold Spring Harbor Laboratory, 1 Bungtown Rd,
 Cold Spring Harbor, NY 11724 USA}}\\
 $^{17}$ \small{\textit{Institute of Molecular and Cell Biology, 117609
 Singapore}}\\
+$^{18}$ \small{\textit{Present address: Genomics Institute of the
+Novartis Research Foundation (GNF), San Diego, CA 92121 USA}} \\
 
 \end{abstract}
 
@@ -341,7 +346,7 @@ to drawing (Figure 1).  The Bio::Perl module itself is a simplified
 API that provides access to the most-commonly used Bioperl functions.
 
 When designing Bioperl objects we sought to provide a
-programming interface that is very easy to use but that at the same
+programming interface that is very easy to use but at the same
 time could be easily extended in its capabilities and behavior through
 code reuse.  Using an object-oriented paradigm we followed certain
 design principles.
@@ -382,27 +387,31 @@ the entire package in a consistent way.  This design choice also
 provides a single location for applying improvements to the shared
 methods.  
 
+
 \item Employ the Factory and Strategy patterns \cite{gangoffour} as
-much as possible. A Strategy pattern defines one or more operations a
-particular implementation must support.  As an example, Bio::SeqIO
-defines that implementations support the operation
-\textit{next\_seq()}, returning the next sequence in the stream as a
-Bio::PrimarySeqI compliant object.  Various parsers for the different
-sequence formats implement this method, thereby providing one
-consistent interface to sequence streams irregardless of the format.
-The Factory pattern is a general way to write a module which will
-create specific modules of a related type.  It can serve as an
-aggregator for a set of modules which implement the same Strategy.
-For example, the Bio::SeqIO acts as a Factory which produces specific
-sequence file parsers for different sequence formats.  When the user
-asks Bio::SeqIO to parse a particular sequence file, Bio::SeqIO
-determines the correct parser to instantiate and invoke, thereby
-shielding application code from the technical details of the sequence
-file format and the Bio::SeqIO object hierarchy. Application code can
-be written generally to handle sequence input without worrying about
-whether it is processing a sequence file in GenBank, EMBL, SwissProt,
-or BSML format, or indeed whether the sequence data is local, or being
-retrieved dynamically from a remote database via the Internet.
+much as possible.  A Strategy pattern defines one or more operations
+that a particular implementation must support.  For example,
+Bio::SeqIO employs a Strategy pattern by specifying that Bio::SeqIO
+modules must support the operation \textit{next\_seq()}.  Various
+parsers implement their own parsing algorithms but each parser has a
+\textit{next\_seq()} method which provides consistency and eases
+usage.  Example usage of the Bio::SeqIO module can be seen in Figure 3.
+
+The Factory pattern is a design pattern used when a module must create
+an object but cannot know what specific subtype must be created.  It can
+serve as an aggregator for a set of modules which implement the same
+Strategy.  For example, the Bio::SeqIO module acts as a Factory which
+produces specific sequence file parsers for different sequence
+formats.  When the user asks Bio::SeqIO to parse a particular
+sequence file, Bio::SeqIO determines the correct parser to instantiate
+and invoke, thereby shielding application code from the technical
+details of the sequence file format and the Bio::SeqIO object
+hierarchy.  Application code can be written generally to handle
+sequence input without worrying about whether it is processing a
+sequence file in GenBank, EMBL, SwissProt, or BSML format, or indeed
+whether the sequence data is local, or being retrieved dynamically
+from a remote database via the Internet.
+
 \end{itemize}
 
 
@@ -450,25 +459,26 @@ HTML.  We have used the Pdoc (\url{http://pdoc.sourceforge.net}) tool to
 generate colored and hyperlinked documentation in HTML for easy
 online browsing available at \url{http://doc.bioperl.org}.
 
-Our development process usually starts when someone presents an idea
-for a needed tool on our mailing list.  Typically a prototype or
-example code is posted and we discuss ideas for implementation and
-common scenarios for where the functionality is needed.  We then
-develop an interface for the proposed module which describes the basic
-routines the module will implement.  Whenever a module is written we
-require a set of regression tests to be written for it.  This is
-designed to ensure that the module satisfies its declared interface
-and can be easily tested later on when other modules which may
-interact with it have been updated.  Bioperl 1.0 has over 3000 such
-tests which were passed on multiple platforms before the toolkit was
-declared ready for release.  Finally, all Bioperl code is subject to
-ongoing code review by and with the core developer group.  This
-methodology is derived in large part from the software development
-strategy called "Extreme Programming" \cite{xprogramming}.  This
-process is highly iterative and modules are often revisited and improved
-depending on the needs of the developer.  We attempt to always
-maintain a backwards compatibility so that code that depend on an
-earlier version of the module will continue to work.    
+Our development process often starts when someone presents an idea for
+a needed tool on our mailing list.  Ideally a prototype or example
+code is posted and we discuss ideas for implementation and common
+scenarios for where the functionality is needed. The developer then
+writes, or prepares from code she already has, an interface for the
+proposed module which describes the basic routines the module will
+implement.  For the new module, we require a set of regression tests
+to be written for it.  This is intended to ensure that the module
+satisfies its declared interface and can be easily tested later on
+when other modules which may interact with it have been updated.
+Bioperl 1.0 has over 3000 such tests which passed on multiple
+platforms before the toolkit was declared ready for release.  Finally,
+all Bioperl code is subject to ongoing code review by and with the
+core developer group.  This methodology is derived in large part from
+the software development strategy called "Extreme Programming"
+\cite{xprogramming}.  This process is highly iterative and modules are
+often revisited and improved depending on the needs of the developer.
+We attempt to always maintain a backwards compatibility so that code
+that depends on an earlier version of the module will continue to
+work.
 
 To support multiple developers in different time zones and
 institutions, the entire Bioperl source code is hosted by the Open
@@ -483,9 +493,9 @@ from our server is available at the project website
 
 Bioperl has over 20 active developers led by a core of 5 primary developers
 who ensure that standards are met, prepare code releases, and set the
-vision for the project.  At the time of publication the mailing lists
-for the project include 1300 subscribers and an average of 10,000
-unique visitors to our website each month.  The project has been used
+vision for the project.  At the time of writing the mailing lists
+for the project include 1300 subscribers and our website recieves an
+average of 10,000 unique visitors each month.  The project has been used
 in a variety of endeavors including genome sequencing, annotation,
 sequence variation elucidation, disease gene discovery, and
 comparative genomics.  An example using Bioperl modules to complete
@@ -553,7 +563,7 @@ Query Service (BQS; \url{http://industry.ebi.ac.uk/openBQS/}) and
 Entrez Pubmed XML format \cite{entrez}.  By supporting these XML-based
 formats, programs using Bioperl are able to process data from a
 growing number of data sources that have adopted them as their standard.
-Furthermore, the extensible nature of XML allow new features to be added
+Furthermore, the extensible nature of XML allows new features to be added
 to the data formats without breaking existing parsers and code.
 
 Software can interoperate not only through the invocation of external
@@ -618,17 +628,17 @@ for new developers to join the project.
 
 A number of previous collaborative projects to develop comprehensive
 libraries for the life sciences have produced unsatisfactory results,
-or been aborted prior to fruition.  We believe that in many of these
-cases, ongoing development was stymied by a lack of commitment to open
-source principles.  For example, BioWidgets, an early attempt to
-create a Java-based biological toolkit, did not adopt an open source
-methodology at its inception.  This left it open to intellectual
-property disputes, and ultimately the project dissolved as early
-contributors withdrew their software from the project (N. Goodman,
-personal communication).  In contrast, none of the software placed in
-Bioperl can be withdrawn from the project because it has been
-explicitly donated to the community using a license that expressly
-permits copying and modification.
+or have been aborted prior to fruition.  We believe that in many of
+these cases, ongoing development was stymied by a lack of commitment
+to open source principles.  For example, BioWidgets, an early attempt
+to create a Java-based biological toolkit, did not adopt an open
+source methodology at its inception.  This left it open to
+intellectual property disputes, and ultimately the project dissolved
+as early contributors withdrew their software from the project
+(N. Goodman, personal communication).  In contrast, none of the
+software placed in Bioperl can be withdrawn from the project because
+it has been explicitly donated to the community using a license that
+expressly permits copying and modification.
 
 Another example of a non-open source project that has failed to live
 up to its potential is the NCBI toolkit
@@ -640,7 +650,7 @@ closed.  By limiting the development process to NCBI personnel, the
 toolkit has evolved to work best within the NCBI environment and to
 address NCBI-specific operating procedures.  Outside of the NCBI, the
 toolkit is used to run BLAST while other functionality lies fallow.
-In contrast, Bioperl has a large and active userbase because of
+In contrast, Bioperl has a large and active user base because of
 extensive interaction between the developers and the users of the
 library.  We allow users to contribute bug fixes and documentation
 improvements directly to the project, thereby keeping the project
@@ -677,8 +687,8 @@ contributions that includes a commitment to comprehensive
 documentation, and high standards for released code.  When necessary,
 we gracefully retire unmaintained components by providing deprecation
 warnings to the community, and at all times endeavor to ensure that
-there is a clear migration paths from deprecated modules to new
-modules that provide equivalent functionality.
+there is a clear migration path from deprecated modules to new modules
+that provide equivalent functionality.
 
 
 In the future, Bioperl will continue to evolve, addressing more domains
@@ -693,8 +703,8 @@ the toolkit can read and write.
 
 \section{Acknowledgments}
 
-The Bioperl Core is comprised of, given in alphabetical order: Ewan
-Birney, Hilmar Lapp, Heikki Lehv\"{a}slaiho, Jason Stajich, and
+The current Bioperl Core is comprised of, given in alphabetical order:
+Ewan Birney, Hilmar Lapp, Heikki Lehv\"{a}slaiho, Jason Stajich, and
 Lincoln Stein.  The authors would like to acknowledge contributions
 from the following people, given in alphabetical order: Brad Chapman,
 Michele Clamp, Tony Cox, James Cuff, Andrew Dalke, Allen Day, Arne
@@ -720,13 +730,19 @@ and its leaders Thomas Down and Matthew Pocock.
 
 % alternative that we won't use at this point
 % 
+
 We would like to especially acknowledge the former project
 coordinators, in chronological order: Steven Brenner, Chris Dagdigian,
 Georg Fuellen, Steve Chervitz, and Ewan Birney as well as initial
 contributors Jong Park and Richard Resnick who provided help
-establishing the project.  Thanks to Brian Osborne and Peter Schattner
-for their documentation and tutorial work, and Chris Dagdigian for his
-tremendous support as computer systems administrator for the OBF.
+establishing the project.  Our group owes its early organizational
+support to its association with the VSNS-BCD BioComputing Courses,
+\url{http://www.techfak.uni-bielefeld.de/bcd/welcome.html}, funded by
+the Association for the Promotion of Science and Humanities in Germany
+(Stifterverband fur die Deutsche Wissenschaft).  Thanks to Brian
+Osborne and Peter Schattner for their documentation and tutorial work,
+and Chris Dagdigian for his tremendous support as computer systems
+administrator for the OBF.
 
 The Bioperl project and its sister projects (commonly referred to as
 the Bio\{*\} projects) are supported under the umbrella of the Open
@@ -735,9 +751,9 @@ received hardware donations from Compaq and Sun Microsystems, and we
 graciously accept donated bandwidth and computer server space from
 Wyeth Research.
 
-J.E.S is supported by an NIH Genetics training grant.  Thanks to
-F.Dietrich, M.DeLong, M.Hahn, and two anonymous reviewers for their
-comments on this manuscript.
+J.E.S is supported by NIH Genetics training grant \#T32GM07754-22.
+Thanks to F.Dietrich, M.DeLong, M.Hahn, and two anonymous reviewers
+for their comments on this manuscript.
 
 \bibliography{bioperl}
 \bibliographystyle{genomeres} 
