@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.28 2002-04-16 20:36:10 jason Exp $
+% $Id: bioperl-article.tex,v 1.29 2002-04-19 03:56:04 lapp Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.28  2002/04/16 20:36:10  jason
+% remove personal communication
+%
 % Revision 1.27  2002/04/16 20:32:11  jason
 % added figure 2 back in and simplified caption, also fixed a couple of typos and a added some flow to the discussion
 %
@@ -113,7 +116,7 @@ overall architecture of the toolkit, the problem domains which it
 addresses, and gives specific examples of how the toolkit can be used
 to solve common life sciences problems.  We conclude with a discussion
 of how the open source nature of the project has contributed to the
-evelopment effort.
+development effort.
 
 Bioperl is available as open source software free of charge and
 licensed under the Perl artistic license at \url{http://www.bioperl.org/}.  
@@ -454,7 +457,7 @@ in the confines of a single laboratory where a single individual or
 group is responsible for the continued vitality of a project.  The
 original Bioperl project team has been completely replaced over the
 last 7 years as members leave the project and new contributors join,
-however the direction and focus of the project has continue to expand.
+however the direction and focus of the project has continued to expand.
 
 Throughout the development process we learned a great deal about
 appropriate software practices for a diverse group of contributors.
@@ -462,33 +465,34 @@ The extreme programming methods, which include defining use cases for
 our software, establishing a comprehensive regression test suite, and
 utilizing code reviews or audits of contributed source code, helped
 the community develop code that is compatible and consistent.  The
-principals of good design and good documentation have made it easier
+principles of good design and good documentation have made it easier
 for new developers to join the project.
 
-Any collaborative software projects faces challenges and
-bioinformatics project face additional challenges because of the large
+Any collaborative software projects faces challenges, and
+bioinformatics projects face additional challenges because of the complex
 problem domain.  Often in bioinformatics, the developers are pursing
 their own research and software production is a side project to assist
 in a specific task.  Previous collaborative efforts have produced
-unsatisfactory results due mostly to lack of commitment of open
-sourcing principals for the softare.  BioWidgets, an early attempt to
-create a toolkit was ultimate unsuccesful because the particpants did
-not commit to open source policies from the software.  Software was
+unsatisfactory results due mostly to lack of commitment to open source
+principles for the development.  BioWidgets, an early attempt to
+create a toolkit was ultimately unsuccesful because the particpants did
+not commit to open source policies for the software.  Software was
 eventually withdrawn from the project because of intellectual property
 disputes (N. Goodman, personal communication).  The NCBI tookit
 \cite{ncbitoolkit}, a powerful and highly functional C-language based
-toolkit, but does not have the widespread usage that it deserves
-because of acknowledged deficiencies in it documentation and closed
+toolkit, does not have the widespread usage that it deserves
+because of acknowledged deficiencies in its documentation and a closed
 development process.  Bioperl does not suffer from these weaknesses
 because it cannot be withdrawn from the public domain and it cannot
-become a commericial entity which requires licensing fees.
+become a commercial entity which requires users to pay licensing fees.
 
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
 a diverse group of individuals to participate in a collaborative effort.
 We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
-new functionality for the benefit of all users. This collaboration and
+new functionality for the benefit of all users. Contributors come from
+academia as well as industry. This collaboration and
 the guiding principle to get working software written in an extensible
 manner have made Bioperl an excellent platform for Perl bioinformatics
 software development.  The open sharing and discussion of ideas that
@@ -509,7 +513,7 @@ the toolkit can read and write.
 
 \section{Acknowledgments}
 
-The Bioperl Core is Ewan Birney, Hilmar Lapp, Heikki Lehv\"{a}slaiho,
+In alphabetical order, the Bioperl Core is Ewan Birney, Hilmar Lapp, Heikki Lehv\"{a}slaiho,
 Jason Stajich, and Lincoln Stein.  The project has seen significant
 contributions from the following people, given in alphabetical order:
 David Block, Kris Boulez, Steven Brenner, Brad Chapman, Steve
@@ -525,7 +529,7 @@ and Alex Zelensky.
 Additional ideas and help came from other OBF project team members
 including Jeff Chang, Thomas Down, Keith James, and all of the Bioperl
 mailing list members.  Some parts of the object model, especially
-locations were adopted from the excellent work of the Biojava project
+locations, were adopted from the excellent work of the Biojava project
 and its leaders Thomas Down and Matthew Pocock.
 
 We would like to especially acknowledge Steve Chervitz for his
@@ -632,8 +636,8 @@ horizontal maps.
 Figure 2. This figure shows a portion of the Bioperl object model
 including the interfaces for sequences PrimarySeqI, SeqI, RichSeqI and
 their implementations PrimarySeq (general sequence), Seq (sequence
-with features), RichSeq (sequence with features and additional
-annotation), LargePrimarySeq (large sequence not held in memory),
+with features), RichSeq (sequence with features and rich
+annotation), LargePrimarySeq (large sequence that cannot be held in memory),
 LargeSeq (LargePrimarySeq with features).  Also included in the
 diagram is the sequence feature interface (SeqFeatureI) and its
 implementations Similarity (manage similarity information),
@@ -641,7 +645,7 @@ FeaturePair (paired feature information), and SimilarityPair (paired
 similarity information such as a pairwise alignment information).
 Additionally the location objects which manage simple (start, end, and
 strand information), split (multiple start and end spots on a sequence
-such as a set exons), and so-called fuzzy location ( start,end or span
+such as a set of exons), and so-called fuzzy locations (start, end or span
 is not exact) for sequence features.
 
 \newpage
@@ -707,7 +711,7 @@ use Bio::SearchIO;
 # Let's parse a BLAST report 
 my $search = new Bio::SearchIO( -format => 'blast',
                                 -file   => 'report.bls');
-my @HitsToSave;
+my @HitsToSave = ();
 my $cutoff_Evalue = 0.001; # max e-value is 0.001
 my $cutoff_Len    = 120;   # min length of 120 residues
 # iterate over each query sequence
