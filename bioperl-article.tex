@@ -1,6 +1,10 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.24 2002-04-12 05:37:28 lapp Exp $
+% $Id: bioperl-article.tex,v 1.25 2002-04-12 18:39:38 lstein Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.24  2002/04/12 05:37:28  lapp
+% Corrected a few more typos and errors. Rest for tomorrow's phone
+% conference.
+%
 % Revision 1.23  2002/04/12 03:12:09  jason
 % caption text fixes and fixed small bug in the figure 2 code
 %
@@ -67,16 +71,16 @@
 \doublespacing
 
 \title{The Bioperl Toolkit: Perl modules for the life sciences}
-\author{Jason E Stajich$^1$ \and
+\author{Jason E Stajich$^1$$^*$ \and
 Hilmar Lapp$^2$ \and
 Heikki Lehv\"{a}slaiho$^3$ \and 
 Lincoln D Stein$^4$ \and Ewan Birney$^3$ \\
 $^1$ \small{\textit{University Program in Genetics, Duke University,  Durham, NC USA}} \\
 $^2$ \small{\textit{Genomics Institute of the Novartis Research
-Foundation (GNF), San Diego, CA USA}} \\
+Foundation (GNF), San Diego, CA 92121 USA}} \\
 $^3$ \small{\textit{European Bioinformatics Institute, Welcome Trust
 Genome Campus, Hinxton, Cambridge UK}} \\
-$^4$ \small{\textit{Cold Spring Harbor Laboratories, Cold Spring Harbor, NY USA }}\\
+$^4$ \small{\textit{Cold Spring Harbor Laboratories, Cold Spring Harbor, NY 11724 USA}}\\
 }
 \maketitle
 \begin{abstract}
@@ -97,15 +101,19 @@ or the EMBOSS suite.  Interoperation with modules written in Python
 and Java is supported through the evolving BioCORBA bridge.
 Furthermore, Bioperl provides access to a common sequence data storage
 by fully supporting the standards of the Open Bioinformatics Database
-Access project.  We outline how the open source nature of the project
-has driven and will continue to influence the development effort.
+Access project.  This paper describes the overall architecture of the toolkit, the
+problem domains which it addresses, and gives specific examples of how
+the toolkit can be used to solve common life sciences problems.
+We conclude with a discussion of how the open source nature of the project
+has contributed to the evelopment effort.
 
 Bioperl is available as open source software free of charge and
-licensed under the Perl artistic license at \url{http://www.bioperl.org/}.
+licensed under the Perl artistic license at \url{http://www.bioperl.org/}.  
+Support inquiries should be addressed to \url{bioperl-l@bioperl.org}.
 
 \textbf{Keywords:} Bioinformatics Software Perl
 
-\textbf{Contact:} Bioperl project list \url{bioperl-l@bioperl.org}.
+$^*$To whom correspondence should be addressed.
 
 \end{abstract}
 
@@ -144,13 +152,13 @@ nature of the Bioperl project reduced the time for solutions and new
 tools to reach the community \cite{waterston}.
 
 However, to be adopted by the community our software has to be user
-friendly.  To that end we have both provided extensive documentation
+friendly.  To that end we have provided extensive documentation
 of all the methods in each module, a graphical diagram of the objects
 in the toolkit, and tutorials with simple solutions to common tasks.
-Additionally we have written a module named Bio::Perl which provides
-simple procedural functions, such as \textit{read\_sequence} to read
-in sequences from a file, for users who do not want to study the
-entire module hierarchy.  The goal of Bioperl is to help a user focus
+Additionally we have created a module which provides
+simplified functions, such as \textit{read\_sequence} to read
+in sequences from a file, to provide entry-level access to the toolkit.
+The goal of Bioperl is to help a user focus
 on her specific problem at hand, such as the logic needed to filter
 hits in a BLAST \cite{blast} report by certain criteria, rather than
 on the actual mechanics of \textit{parsing} that BLAST report.
@@ -213,7 +221,8 @@ embedded documentation.  The Perl modules, illustrated in Table
 \ref{modules}, are organized by logical names so that, for example,
 the Bio::Search hierarchy contains modules related to database
 searches and Bio::Graphics contains modules that are related to
-drawing.
+drawing.  The Bio::Perl module itself is a simplified API that
+provides access to the most-commonly used Bioperl functions.
 
 When designing Bioperl objects we sought to provide a
 programming interface that is very easy to use but that at the same
@@ -234,7 +243,7 @@ interface definitions we used a capital 'I' appended to the object
 name.
 
 For example, Bio::SeqFeatureI describes the `contract' for all classes
-which are Sequence Features.  For Features this includes methods for
+which are sequence features.  For Features this includes methods for
 start, end, strand, and access to the annotation table via tag/value
 pairs.  All modules in the Bio::SeqFeature hierarchy implement this
 interface.  The power of this design is that operations which expect a
@@ -285,8 +294,10 @@ operating systems.  Descriptions of these version-specific problems
 and their solutions are available from the Bioperl website.
 
 In addition to pure Perl solutions to bioinformatics problems, Bioperl
-can take advantage of external data analysis packages.  Currently the
-toolkit supports interactions with applications in the EMBOSS
+can take advantage of external data analysis packages.  Bioperl is
+capable of parsing the output from local installations of BLAST (both
+NCBI and WUBLAST versions), Phylip, XXXX, and XXXX others.
+In addition, it can launch remote analyses using the EMBOSS
 \cite{emboss} suite, NCBI BLAST, and the multiple sequence alignment
 programs ClustalW \cite{clustalw} and T-Coffee \cite{tcoffee}.  In
 some cases, when an external package is not available, Bioperl will
@@ -304,10 +315,10 @@ minimal standards before release.  These standards include a complete
 set of regression tests, well formed embedded documentation for each
 method, and a concise example code in the SYNOPSIS section of each
 module's documentation.  We use the Perl embedded documentation format
-(called POD, or Plain Old Documentation) to provide annotation within
+(called POD, or Plain Old Documentation) to interleave documentation and
 the source code.  This documentation can be converted to text, TeX, or
-HTML.  We have used the Pdoc \url{http://pdoc.sourceforge.net} tool to
-generate colored and easily navigable documentation in HTML for easy
+HTML.  We have used the Pdoc (\url{http://pdoc.sourceforge.net}) tool to
+generate colored and hyperlinked documentation in HTML for easy
 online browsing.
 
 The development process involves integrated and comprehensive
@@ -339,7 +350,7 @@ in a variety of endeavors including genome sequencing, annotation,
 sequence variation elucidation, disease gene discovery, and
 comparative genomics.  An example using Bioperl modules to complete
 the simple task of retrieving sequences from a remote database is
-shown in Figure 1, and an example of parsing a BLAST report is
+shown in Figure 1, and an example of parsing a BLAST report can be
 seen in Figure 2.
 
 By far the most advanced use of the Bioperl toolkit has come through
@@ -389,12 +400,12 @@ community.  Previous work has outlined scenarios
 where XML has been useful in a biological context
 \cite{xmlbioinformatics}.  XML standards supported by Bioperl
 include the sequence markup formats Bioinformatics Sequence Markup
-Language (\url{http://www.bsml.org}) and BGDP's
+Language (BSML; \url{http://www.bsml.org}) and Berkeley Drosophila Genome Project's
 (\url{http://www.fruitfly.org}) Genome Annotation Markup Elements
-(\url{http://www.bioxml.org/dtds/index.html}), NCBI BLAST XML for
-BLAST reports, and the Bibliographic standards Medline XML provided
+(GAME; \url{http://www.bioxml.org/dtds/index.html}), NCBI BLAST XML for
+BLAST reports, and the bibliographic standards Medline XML provided
 by the European Bioinformatics Institute's Bibliographic 
-Query Service (BQS) (\url{http://industry.ebi.ac.uk/openBQS/}) and 
+Query Service (BQS; \url{http://industry.ebi.ac.uk/openBQS/}) and 
 Entrez Pubmed XML format \cite{entrez}.
 
 Software can interoperate with other software not only through the
@@ -406,8 +417,8 @@ way.  The Common Object Request Broker Architecture (CORBA)
 \cite{corba} provides an architecture for enabling this technology.
 This technology has been applied to biological data at the EBI in
 their Radiation Hybrid \cite{rhdb} and EMBL Nucleotide Databases
-\cite{embl-corba}.  Implementations are available from commercial
-vendors (e.g., Inprise's VisiBroker, IONA's ORBacus) as well as open
+\cite{embl-corba}.  CORBA implementations are available from commercial
+vendors (e.g., Inprise's VisiBroker, IONA's ORBacus) as well as from open
 source projects (e.g. ORBit, MICO).  Bioperl is compliant with the
 BioCORBA project (\url{http://www.biocorba.org}), one of the proposed
 standards for CORBA components for biological processes.  BioCORBA is
@@ -417,7 +428,7 @@ under consideration for adoption by the Object Management Group's Life
 Science Research group (\url{http://lsr.ebi.ac.uk}) and is included
 in the proposed OBDA standard for sequence data access.
 
-\section{Conclusions}
+\section{Discussion}
 
 In the future, Bioperl will continue to evolve to address more domains
 of bioinformatics.  We plan to create objects to manage sequence
@@ -435,7 +446,7 @@ a diverse group of individuals to participate in a collaborative effort.
 We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
 new functionality for the benefit of all users. This collaboration and
-the guiding principal to get working software written in an extensible
+the guiding principle to get working software written in an extensible
 manner have made Bioperl an excellent platform for Perl bioinformatics
 software development.  The open sharing and discussion of ideas that
 embodies the scientific spirit has proven to be successful in the
@@ -568,9 +579,8 @@ report from a file called 'report.bls' and saves, in an array called
 an e-value and length threshold.  In this case, any hit with e-value
 greater than 0.001 or length less than 120 residues will be excluded.
 Once the array is built, the names of each of the hits which had a HSP
-that met the criteria are printed out.  The Bio::SearchIO system is
-designed so that to parse a FASTA \cite{fasta} report file one must
-simply change the format specification from 'blast' to 'fasta'.
+that met the criteria are printed out.  To parse a FASTA \cite{fasta} 
+report file one simply changes the format specification from 'blast' to 'fasta'.
 
 \newpage
 
@@ -601,8 +611,11 @@ my $search = new Bio::SearchIO( -format => 'blast',
 my @HitsToSave;
 my $cutoff_Evalue = 0.001; # max e-value is 0.001
 my $cutoff_Len    = 120;   # min length of 120 residues
+# iterate over each query sequence
 while(my $result   = $search->next_result) {
+ # iterate over each hit on the query sequence
  while(my $hit = $result->next_hit) {
+   # iterate over each HSP in a hit
    while( my $hsp  = $hit->next_hsp ) {
     if( $hsp->evalue < $cutoff_Evalue && 
         $hsp->length('total') >= $cutoff_Len ) { 
