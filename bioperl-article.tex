@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.18 2002-04-07 20:47:05 jason Exp $
+% $Id: bioperl-article.tex,v 1.19 2002-04-09 19:44:34 lstein Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.18  2002/04/07 20:47:05  jason
+% merged in most of Hilmar's comments with some edits.  I think 3 main things are left to polish: Abstract, Conclusion, and Interoperability
+%
 % Revision 1.17  2002/04/07 08:30:41  heikki
 % minor fixes
 %
@@ -67,10 +70,10 @@ $^4$ \small{\textit{Cold Spring Harbor Laboratories, Cold Spring Harbor, NY USA 
 The Bioperl project is an international open source collaboration of
 biologists, bioinformaticians, and computer scientists that has
 evolved over the last 7 years into the most comprehensive library of
-Perl modules for managing and manipulating life science information.
+Perl modules available for managing and manipulating life science information.
 Bioperl provides an easy-to-use, stable, and consistent programming
 interface for bioinformatics application programmers.  The Bioperl
-modules have been successfully and repeatedly used to achieve
+modules have been successfully and repeatedly used to reduce
 otherwise complex tasks with only a few lines of code.  The Bioperl
 object model has been proven to be flexible enough to support
 enterprise-level applications such as EnsEMBL while maintaining an
@@ -80,7 +83,7 @@ or the EMBOSS suite.  Interoperation with modules written in Python
 and Java is supported through the evolving BioCORBA bridge.
 Furthermore, Bioperl provides access to a common sequence data storage
 by fully supporting the standards of the Open Bioinformatics Database
-Access project.  We conclude by outling how the open source nature of
+Access project.  We conclude by outlining how the open source nature of
 the project will continue to influence the development effort.
 
 [ Bioperl is available as open source software free of charge and
@@ -108,10 +111,10 @@ sequence analysis pipelines, converting file formats, and extracting
 information from the output of analysis programs and other text files.
 
 Much of the Perl software in bioinformatics is specific to a
-particular lab or institution and is not written in a generic manner
-so that it can be used by others.  The Bioperl toolkit brings together
+particular lab or institution.  As such, it is written for immediately utility, 
+not reusibility.  The Bioperl toolkit brings together
 reusable Perl modules containing generalized routines specific to
-biological and life science information.  A primary motivation behind
+life science information.  A primary motivation behind
 writing the toolkit is the authors' desire to focus energies on a
 solution whose components could be shared rather than duplicating
 effort.  In our minds, once a routine is written for parsing and
@@ -171,9 +174,9 @@ This scenario naturally lends itself to the principle of
 object-oriented programming, which Perl emulates with modules.
 
 Object-oriented programming is the practice of grouping related tasks
-together into logical and broadly applicable components such as a DNA
-Sequence component which could contain methods such as retrieve the
-accession number, reverse complement, or translated protein sequence.
+together into logical and broadly applicable components.  For example, a DNA
+Sequence component could contain methods to retrieve the sequence's
+accession number, reverse complement the DNA, or translate it into a protein sequence.
 
 The mission of Bioperl is to provide an easy-to-use object-oriented
 Perl library that contains data structures and operations commonly
@@ -209,17 +212,19 @@ of accepted arguments.  Similar in concept to interfaces in Java, we
 built interfaces as collections of methods which describe the expected
 behavior of a module, but do not do any of the work.  Child classes
 implement the interfaces, providing specializations of their parents
-to perform specific tasks.  
+to perform specific tasks.  To help distinguish implementation classes from
+interface definitions we used a capital 'I' appended to the object
+name.
 
 For example, Bio::SeqFeatureI describes the 'contract' for all classes
 which are Sequence Features.  For Features this includes methods for
-start, end, strand, and access to annotation via tag/value pairs.  All
+start, end, strand, and access to the annotation table via tag/value pairs.  All
 modules in the Bio::SeqFeature hierarchy implement this interface.
 The power of this design is that operations which expect a
 Bio::SeqFeatureI, such as operations in the Bio::Graphics modules, can
 operate on anything which implemets the Bio::SeqFeatureI interface.
 In this manner, sequence annotation that is retrieved from a DAS
-server, a local file, or a database server can all be drawn as an
+server \cite{das}, a local file, or a database server can all be drawn as an
 image with the same methods in the Bio::Graphics modules.
 
 \item Generalize common routines into a single module providing a base
@@ -231,7 +236,7 @@ the entire package in a consitent way.  This design choice also
 provides a single location for applying improvements to the shared
 methods.
 
-\item Employ the Factory and Strategy patterns as much as possible. A
+\item Employ the Factory and Strategy patterns \cite{gangoffour} as much as possible. A
 strategy pattern defines one or more operations a particular
 implementation must support. As an example, Bio::SeqIO defines that
 implementations support the operation \textit{next\_seq()}, returning
@@ -248,22 +253,18 @@ implementing a particular contract for a desired specialization.
 
 \end{itemize}
 
-In Bioperl we followed these two design patterns \cite{gangoffour}
-wherever possible.  To help distinguish implementation classes from
-interface definitions we used a capital 'I' appended to the object
-name.  As an example, the interface for a full-featured sequence object
-is defined in Bio::SeqI and the implementing class is named Bio::Seq.
-
 Bioperl is written purely in Perl and requires at least version 5.005
 of the Perl interpreter (the current stable version of Perl as of the
 time of writing is 5.6.1).  The toolkit has been validated for
 cross-platform compatibility on most UNIX and UNIX-like operating
 systems.  In addition, Bioperl has been tested and runs on Macintosh
-OS X and Microsoft Windows operating systems.  Since the toolkit is
-run through the Perl interpreter, specific issues are often due to
-compatibility between different versions of Perl.  Descriptions of
-operating-system specific problems and their solutions are available
-from the Bioperl website.
+OS X and Microsoft Windows operating systems.  
+
+Since the Bioperl toolkit depends on the Perl interpreter, there are a
+rare number of cases where its behavior is not consistent across
+different versions of Perl or between versions of Perl on certain
+operating systems.  Descriptions of these version-specific problems
+and their solutions are available from the Bioperl website.
 
 In addition to pure Perl solutions to bioinformatics problems, Bioperl
 can take advantage of external data analysis packages.  Currently the
@@ -367,7 +368,7 @@ community.  Previous work as has outlined scenarios
 where XML has been useful in a biological context
 \cite{xmlbioinformatics}.  XML standards supported by Bioperl
 including sequence markup formats Bionformatic Sequence Markup
-Language (\url{http://www.bsml.org}) ad BGDP's
+Language (\url{http://www.bsml.org}) and BGDP's
 (\url{http://www.fruitfly.org}) Genome Annotation Markup Elements
 (\url{http://www.bioxml.org/dtds/index.html}), NCBI BLAST XML for
 BLAST reports, and the Bibliographic standards Medline XML provided
@@ -384,7 +385,7 @@ way.  The Common Object Request Broker Architecture (CORBA)
 \cite{corba} provides an architecture for enabling this technology.
 This technology has been applied to biological data at the EBI in
 their Radition Hybrid \cite{rhdb} and EMBL Nucleotide
-Databases \cite{embl-corba} in addition to and implementations are
+Databases \cite{embl-corba}. Implementations are
 available from commercial vendors (e.g., Inprise's VisihBroker, IONA's
 ORBacus) as well as open source projects (e.g. ORBit, MICO).  Bioperl
 is compliant with one of the proposed standards for CORBA components
