@@ -1,5 +1,15 @@
 \documentclass{article}
 
+% conventions -
+% Interfaces are in italics
+% Module names in Bold
+% method names in bold italics
+% when describing the bioperl objects, list all
+% the applicable interfaces and objects at the beginning
+% of the subsection like
+% Objects: Object1 Object2
+% Interfaces: Interface1 Interface2
+
 \usepackage {
  fullpage,fancyheadings,lscape,rotating,
  float,longtable,epsfig,psfig,layouts
@@ -9,7 +19,8 @@
 
 \begin{twocolumn}
 \title{The Bioperl Project}
-\author{The BioPerl Project Team, http://bio.perl.org}
+% Not sure how to do this - some people should be in the title?
+\author{The BioPerl Project, http://bio.perl.org}
 \maketitle
 
 \begin{abstract}
@@ -94,8 +105,6 @@ leadership was expanded to a core group of 4 developers and a sysadmin
 Stajich)
 
 
-\section{Design}
-
 \section{Development Process}
 
 The open-source model has lent itself to be extremely complementary to
@@ -107,6 +116,148 @@ to extend them for specialized cases.  Since anyone can contribute
 their changes back to the toolkit other developers can take advantage
 of their ideas and help maintain the code changes. 
 
+\section{Design}
+
+% Jason needs to rework!! --jason
+Bioperl is an attempt to provide a fully Object-Oriented (OO) library of
+perl modules for retrieving, storing, and manipulating life science
+data especially in the sequence analysis corner of bioinformatics.
+Attempts to make the toolkit fully OO have required the objects to be
+defined as interfaces.  Since perl does not explictly have a
+methodology for this we require all interface definitions in Bioperl
+to be of the form ObjectI where 'I' indicates interface.  This can be
+confusing when one tries to define a database interface without
+indicating a subclass of the DBI module.  This document will italicize
+all interface names and boldface all module names to help make clear
+the distinction to the reader.  A preeceeding Bio:: indicating the
+package namespace of all the Bioperl objects should be assumed for all
+objects and interfaces discussed within this document.  
+  
+\par
+
+We chose an OO design for the bioperl toolkit because it allows us to
+properly assign tasks to objects and segregate functionality into
+specialized objects rather than tackling all problems at once.
+Utilizing interfaces one can separate the object's design from its
+implementation.  This is particularly useful if one needs multiple
+implementations of the same basic funcationality.  A good example of
+this is the Sequence object in Bioperl. The \i{SeqI} interface
+defines sequence objects which have associated sequence features.  It
+is implemented by the \b{Seq} and \b{Seq::RichSeq} implementations
+which serve as a simple and decorated implementation of the underlying
+sequence.  Additionally the Ensembl project's VirtualContig object
+implements the \i{SeqI} interface and represents a sequence
+assemblies of a genome.  By implementing this in an Object-Oriented
+bioperl methods can operate on the \b{Seq}, \b{Seq::RichSeq}, and
+\b{EnsEMBL::Virtual::Contig} object in a uniform manner without
+knowledge of which implementation is being processed.
+
+\subsection{Sequence Objects}
+Interfaces: \i{PrimarySeqI}, \i{SeqI}, \i{Seq::RichSeqI}
+\\
+Objects: \b{PrimarySeq}, \b{Seq}, \b{Seq::RichSeq}
+
+Bioperl defines 2 types of Sequence objects, a \i{PrimarySeqI} and \i{SeqI}.
+The \i{PrimarySeqI} (implemented by the class \b{PrimarySeq}) is a basic
+sequence object containing a the DNA/RNA/Protein sequence as a perl
+string.  The object also defines basic methods like 
+\b{\i{length()}} - length of the sequence, 
+\b{\i{moltype()}} - molecule type, 
+\b{\i{recom}} - reverse complement of a DNA dnastring, 
+\b{\i{trunc()}} - a new PrimarySeq object truncated which is 
+a specified subsequence of the parent sequence, 
+\b{\i{substr()}} - similar to trunc() except it only returns the sequence string rather than an
+entire PrimarySeq object.  
+\par 
+The SeqI inherits from PrimarySeqI and is implemented by the Seq
+object.  The object defines methods for storing, retrieving, and
+removing sequence features (SeqFeatureI) and annotations (Annotation).
+
+\subsection{Sequence Features and Annotations}
+
+Interfaces: SeqFeatureI, AnnotationI
+Objects: SeqFeature::Generic, SeqFeature
+
+Sequence Features are conceptualized annotations with locations on a
+sequence.  Sequence feature can be attached to a sequence via the
+add_SeqFeature method in Bio::SeqI 
+
+\subsubsection{Sequence Feature Locations}
+Interfaces: LocationI, Location::SplitLocationI,
+Location::FuzzyLocationI, Location::CoordinatePolicyI
+\\
+Objects: Location::Simple, Location::Split, Location::Fuzzy,
+Location::NarrowestCoordPolicy, Location::WidestCoordPolicy,
+Location::AvWithinCoordPolicy
+\\
+Sequence feature locations are a difficult entity to model.  Start and
+stop points of an annotation can be unknown, a feature can be located
+as a collection of small pieces of non-contiguous locations, or a
+feature could be referenced only relative to another feature's
+location.  These are difficult concepts to model in software which is
+oriented towards absolute values rather than fuzzy ranges.   The
+Location packages attempt to localize this into a set of classes which
+can handle simple (start/end/strand), fuzzy (unclear or relative
+start/end points), and split( a collection of non-contiguous fuzzy or simple
+locations).
+  
+
+\subsection{Sequence File Parsing}
+
+The SeqIO package was written to provide flexible parsing of sequence
+files.  Supported formats include Fasta, GenBank, EMBL, SwissProt,
+GCC, AceDB, PIR, Raw sequence, SCF, and GAME XML. 
+% nice to get PIR back in here when the module works again...
+
+The objects are accessed by creating a new SeqIO object and iterating
+through available sequences via the next\_seq() method.  A simple
+demonstration of using the object to convert between sequence formats
+can be found in Figure XX.
+
+
+
+\section{Sequence Databases}
+
+Interfaces: DB::SeqI, DB::RandomAccessI
+
+\subsection{Local Sequence Databases}
+Objects: Index::Abstract, Index::AbstractSeq, Index::Fasta,
+Index::EMBL, Index::GenBank, Index::SwissPfam, Index::Swissprot
+
+\subsection{Remote Sequence Databases}
+
+Objects: DB::GenBank, DB::GenPept, DB::EMBL, DB::SwissProt
+
+\subsection{Parsing Analysis Results}
+
+\subsubsection{Sequence Database Searching and Report Parsing}
+
+Objects: Tools::Blast, Tools::BPlite, Tools::Fasta,
+Tools::HMMER
+Interfaces: SeqAnalysisParserI, Factory::SeqAnalysisParserFactoryI
+
+Parsing result files from Sequence database searches is a common need
+in bioinformatics.  Typically BLAST and FASTA are used to generate
+thousands of reports of which a researcher may only want to see a
+small fraction.  Parsing these reports into queriable objects allows
+programmers to write software to select only the reports that meet a
+user's criteria.
+\\
+The Bio::SeqAnalysisParserI is a generic interface that defines one
+method - \bold{\i{next\_feature}}.  This method returns a Bio::SeqFeatureI object
+and allows a programmer to write software which iterates through an
+analysis report which may be from Blast (NCBI or WU-Blast), Bl2seq,
+PsiBlast, HMMER, or Fasta. 
+
+\subsubsection{Multiple Sequence Alignment}
+
+% Heikki to help write
+
+\section{Sequence Variation Toolkit}
+
+\subsection{Sequence Variation Toolkit}
+
+\subsection{LiveSeq Toolkit} 
 \section{Use Cases}
 
 We believe the Bioperl toolkit is useful in a variety of settings,
@@ -138,22 +289,9 @@ projects have been started.
 
 The primary contributors of the Bioperl project include the following
 people along with others listed at http://bio.perl.org.
-% I don't know where the contributor list should go or who should be
-% on it, here is the start -jason
 
-% Ewan Birney, David Block, Steve Brenner, Kris Boulez, Brad Chapman,
-% Steve Chervitz, Chris Dagdigian, Georg Fullen, James Gilbert, Joseph
-% Insana, Arek K., Hilmar Lapp, Heikki Lehvaslaiho, Aaron Mackey, 
-% Matthew Pocock, Richard Resnick, Peter Schattner, 
-% Jason Stajich, Lincoln Stein, Elia Stupka, Peter van Heuston, Mark Wilkinson
-
-% other original contributors
-% Lorenz? 
-% (new) Arne?
+%-- see the AUTHORS file --%
 
 \end{twocolumn}
 
 \end{document}
-
-
-
