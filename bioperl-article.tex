@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.23 2002-04-12 03:12:09 jason Exp $
+% $Id: bioperl-article.tex,v 1.24 2002-04-12 05:37:28 lapp Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.23  2002/04/12 03:12:09  jason
+% caption text fixes and fixed small bug in the figure 2 code
+%
 % Revision 1.22  2002/04/11 15:53:05  jason
 % small editorial changes and tense correction
 %
@@ -150,7 +153,7 @@ in sequences from a file, for users who do not want to study the
 entire module hierarchy.  The goal of Bioperl is to help a user focus
 on her specific problem at hand, such as the logic needed to filter
 hits in a BLAST \cite{blast} report by certain criteria, rather than
-on than the actual mechanics of \textit{parsing} that BLAST report.
+on the actual mechanics of \textit{parsing} that BLAST report.
 
 \section{Methods}
 
@@ -199,7 +202,7 @@ alignments, and databases, we have been able to add features to a
 specific module without necessarily affecting the rest of the toolkit
 library.  This separation is a key aspect of object-oriented
 programming and permits us to produce generic components with a stable
-interface for the programmer (the so called API).  
+interface for the programmer (the so-called API).  
 
 At present the components and operations in Bioperl center around
 biological sequence analysis and annotation.  In the last year the
@@ -230,7 +233,7 @@ to perform specific tasks.  To help distinguish implementation classes from
 interface definitions we used a capital 'I' appended to the object
 name.
 
-For example, Bio::SeqFeatureI describes the 'contract' for all classes
+For example, Bio::SeqFeatureI describes the `contract' for all classes
 which are Sequence Features.  For Features this includes methods for
 start, end, strand, and access to the annotation table via tag/value
 pairs.  All modules in the Bio::SeqFeature hierarchy implement this
@@ -332,7 +335,7 @@ who ensure that standards are met, prepare code releases, and set the
 vision for the project.  At the time of publication the mailing lists
 for the project include 1300 subscribers and an average of 10,000
 unique visitors to our website each month.  The project has been used
-in variety of endeavors including genome sequencing, annotation,
+in a variety of endeavors including genome sequencing, annotation,
 sequence variation elucidation, disease gene discovery, and
 comparative genomics.  An example using Bioperl modules to complete
 the simple task of retrieving sequences from a remote database is
@@ -382,10 +385,10 @@ by other programs so that they can perform their analyses.
 
 Bioperl also supports a number of Extensible Markup Language (XML) 
 standard data exchange formats accepted in the Bioinformatics
-community.  Previous work as has outlined scenarios
+community.  Previous work has outlined scenarios
 where XML has been useful in a biological context
 \cite{xmlbioinformatics}.  XML standards supported by Bioperl
-including sequence markup formats Bioinformatics Sequence Markup
+include the sequence markup formats Bioinformatics Sequence Markup
 Language (\url{http://www.bsml.org}) and BGDP's
 (\url{http://www.fruitfly.org}) Genome Annotation Markup Elements
 (\url{http://www.bioxml.org/dtds/index.html}), NCBI BLAST XML for
@@ -411,7 +414,7 @@ standards for CORBA components for biological processes.  BioCORBA is
 also supported by the Biojava (\url{http://www.biojava.org}) and
 Biopython (\url{http://www.biopython.org}) projects.  The standard is
 under consideration for adoption by the Object Management Group's Life
-Science Research group (\url{http://lsr.ebi.ac.uk}) and is is included
+Science Research group (\url{http://lsr.ebi.ac.uk}) and is included
 in the proposed OBDA standard for sequence data access.
 
 \section{Conclusions}
@@ -428,7 +431,7 @@ the toolkit can read and write.
 
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
-a diverse group of individuals to participate in collaborative effort.
+a diverse group of individuals to participate in a collaborative effort.
 We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
 new functionality for the benefit of all users. This collaboration and
@@ -562,7 +565,7 @@ Web.
 Figure 2. Report parsing with Bio::SearchIO.  This code parses a BLAST
 report from a file called 'report.bls' and saves, in an array called
 @HitsToSave, only the hits which have High Scoring Pairs (HSPs) meeting
-an e-value and length threshold.  In this case, any hit with evalue
+an e-value and length threshold.  In this case, any hit with e-value
 greater than 0.001 or length less than 120 residues will be excluded.
 Once the array is built, the names of each of the hits which had a HSP
 that met the criteria are printed out.  The Bio::SearchIO system is
@@ -599,17 +602,17 @@ my @HitsToSave;
 my $cutoff_Evalue = 0.001; # max e-value is 0.001
 my $cutoff_Len    = 120;   # min length of 120 residues
 while(my $result   = $search->next_result) {
- HIT:while(my $hit = $result->next_hit) {
+ while(my $hit = $result->next_hit) {
    while( my $hsp  = $hit->next_hsp ) {
     if( $hsp->evalue < $cutoff_Evalue && 
         $hsp->length('total') >= $cutoff_Len ) { 
         push @HitsToSave, $hit;
-        next HIT;
+        last;
       } 
     }
   }
 }
-# process hits that meet criteria
+# process hits that met criteria
 print "Hits:\n";
 foreach my $hit ( @HitsToSave ) {
   print $hit->name, "\n";	
