@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.36 2002-07-25 22:11:29 jason Exp $
+% $Id: bioperl-article.tex,v 1.37 2002-07-27 23:54:19 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.36  2002/07/25 22:11:29  jason
+% Brian O's updates
+%
 % Revision 1.35  2002/07/25 20:06:56  jason
 % advanced advanced -> advanced, fixed Brian's zip code
 %
@@ -168,9 +171,9 @@ easy learning curve for novice Perl programmers.  Bioperl is capable
 of executing analyses and processing results from programs such as
 BLAST, ClustalW, or the EMBOSS suite.  Interoperation with modules
 written in Python and Java is supported through the evolving BioCORBA
-bridge.  Bioperl provides access to legacy data stores such as Genbank
+bridge.  Bioperl provides access to data stores such as Genbank
 and Swissprot via a flexible series of sequence input/output modules,
-and to the emerging common sequence data storage format of Open
+and to the emerging common sequence data storage format of the Open
 Bioinformatics Database Access project.
 
 This paper describes the overall architecture of the toolkit, the
@@ -261,7 +264,7 @@ To that end Bioperl provides extensive documentation of all the
 routines in each module, a graphical diagram of the objects in the
 toolkit, and a set of tutorials that lead the reader through the
 solutions to common tasks.  Additionally we have created a simplified
-interface to Bioperl that provides entry-level acess to the toolkit.
+interface to Bioperl that provides entry-level access to the toolkit.
 The goal of Bioperl is to help a user focus on her specific problem at
 hand, such as the logic needed to filter hits in a BLAST \cite{blast}
 report by certain criteria, rather than on the actual mechanics of
@@ -305,12 +308,12 @@ together into logical and broadly applicable components.  For example,
 a DNA Sequence component could contain methods to retrieve the
 sequence's accession number, reverse complement the DNA, or translate
 it into a protein sequence.  Object-oriented programming methodology
-allows accurate modelling of the problem domain leading to more
+allows accurate modeling of the problem domain leading to more
 robust, valid, and reusable code. Instead of attacking a problem by
-brute force the problem is analysed and models are constucted to
+brute force the problem is analysed and models are constructed to
 represent the entities in the problem and solution domains. The
 entities are represented in code through the use of Perl modules and,
-where appropriate, form elements in an inheritance heirarchy.  The use
+where appropriate, form elements in an inheritance hierarchy.  The use
 of inheritance and polymorphism in Bioperl implements the well
 established principles of information hiding, modularity, and module
 cohesion \cite{tremblay}.
@@ -354,7 +357,7 @@ implement the interfaces, providing specializations of their parents
 to perform specific tasks.  To help distinguish implementation modules
 from interface definitions we used a capital 'I' appended to the
 object name.  This principle is based on the well-established
-methodology of specifying a given modules's Abstract Data Type by
+methodology of specifying a given module's Abstract Data Type by
 defining how a given module will behave without specifying the
 mechanism by which it achieves this end.
 
@@ -381,13 +384,17 @@ methods.
 
 \item Employ the Factory and Strategy patterns \cite{gangoffour} as
 much as possible. A Strategy pattern defines one or more operations a
-particular implementation must support. As an example, Bio::SeqIO
+particular implementation must support.  As an example, Bio::SeqIO
 defines that implementations support the operation
 \textit{next\_seq()}, returning the next sequence in the stream as a
-Bio::PrimarySeqI compliant object. Various parsers for the different
+Bio::PrimarySeqI compliant object.  Various parsers for the different
 sequence formats implement this method, thereby providing one
 consistent interface to sequence streams irregardless of the format.
-Bio::SeqIO acts as a Factory for sequence file parsers.  When the user
+The Factory pattern is a general way to write a module which will
+create specific modules of a related type.  It can serve as an
+aggregator for a set of modules which implement the same Strategy.
+For example, the Bio::SeqIO acts as a Factory which produces specific
+sequence file parsers for different sequence formats.  When the user
 asks Bio::SeqIO to parse a particular sequence file, Bio::SeqIO
 determines the correct parser to instantiate and invoke, thereby
 shielding application code from the technical details of the sequence
@@ -414,21 +421,21 @@ and their solutions are available from the Bioperl website.
 
 In addition to pure Perl solutions to bioinformatics problems, Bioperl
 can take advantage of external data analysis packages.  Bioperl is
-capable of parsing the output from a variety of programs including BLAST (both
-NCBI and WUBLAST \cite{wublast} versions), HMMer \cite{hmmer}, 
-ClustalW \cite{clustalw}, T-Coffee \cite{tcoffee}, 
-Phylip \cite{phylip}, many EMBOSS \cite{emboss} programs, 
-Genscan \cite{genscan}, and 18 others.
-In addition, it can launch remote analyses using the EMBOSS
-suite, NCBI BLAST, and the multiple sequence alignment
-programs ClustalW and T-Coffee.  In
-some cases, when an external package is not available, Bioperl will
-fall back to using a slower method, either by emulating the package in
-pure Perl or by invoking a network-based analysis service such as the
-NCBI BLAST analysis queue.  Additional work is in progress to
-incorporate into the project access to remote analysis services at the
-European Bioinformatics Institute (EBI) (\url{http://www.ebi.ac.uk}) and
-Pasteur Institute (\url{http://www.pasteur.fr}).
+capable of parsing the output from a variety of programs including
+BLAST (both NCBI and WUBLAST \cite{wublast} versions), HMMer
+\cite{hmmer}, ClustalW \cite{clustalw}, T-Coffee \cite{tcoffee},
+Phylip \cite{phylip}, many EMBOSS \cite{emboss} programs, Genscan
+\cite{genscan}, and 18 others.  In addition, it can launch remote
+analyses using the EMBOSS suite, NCBI BLAST, and the multiple sequence
+alignment programs ClustalW and T-Coffee.  In some cases, when an
+external package is not available, Bioperl will fall back to using a
+slower method, either by emulating the package in pure Perl or by
+invoking a network-based analysis service such as the NCBI BLAST
+analysis queue.  Additional work is in progress to incorporate into
+the project access to remote analysis services at the European
+Bioinformatics Institute (EBI)
+(Novella: \url{http://industry.ebi.ac.uk/novella}) and Pasteur Institute
+(Pise: \url{http://bioweb.pasteur.fr}).
 
 In order for us to produce uniform software code, we established
 coding guidelines that are extensions of widely accepted
@@ -443,17 +450,25 @@ HTML.  We have used the Pdoc (\url{http://pdoc.sourceforge.net}) tool to
 generate colored and hyperlinked documentation in HTML for easy
 online browsing available at \url{http://doc.bioperl.org}.
 
-Our development process begins by generating a set of "use cases" that
-describe common scenarios for how the software is used.  We then
-develop the interface for the proposed modules, followed by a
-comprehensive set of regression tests designed to ensure that the
-module satisfies its declared interface under a diverse set of
-conditions.  Bioperl 1.0 has over 3000 such tests which were passed on
-multiple platforms before the toolkit was declared ready for release.
-Finally, all Bioperl code is subject to ongoing code review by and
-with the core developer group.  This methodology is derived in large
-part from the software development strategy called "Extreme
-Programming" \cite{xprogramming}.
+Our development process usually starts when someone presents an idea
+for a needed tool on our mailing list.  Typically a prototype or
+example code is posted and we discuss ideas for implementation and
+common scenarios for where the functionality is needed.  We then
+develop an interface for the proposed module which describes the basic
+routines the module will implement.  Whenever a module is written we
+require a set of regression tests to be written for it.  This is
+designed to ensure that the module satisfies its declared interface
+and can be easily tested later on when other modules which may
+interact with it have been updated.  Bioperl 1.0 has over 3000 such
+tests which were passed on multiple platforms before the toolkit was
+declared ready for release.  Finally, all Bioperl code is subject to
+ongoing code review by and with the core developer group.  This
+methodology is derived in large part from the software development
+strategy called "Extreme Programming" \cite{xprogramming}.  This
+process is highly iterative and modules are often revisited and improved
+depending on the needs of the developer.  We attempt to always
+maintain a backwards compatibility so that code that depend on an
+earlier version of the module will continue to work.    
 
 To support multiple developers in different time zones and
 institutions, the entire Bioperl source code is hosted by the Open
@@ -474,7 +489,7 @@ unique visitors to our website each month.  The project has been used
 in a variety of endeavors including genome sequencing, annotation,
 sequence variation elucidation, disease gene discovery, and
 comparative genomics.  An example using Bioperl modules to complete
-the simple task of retrieving sequences from a remote database is
+the task of retrieving sequences from a remote database is
 shown in Figure 3, and an example of parsing a BLAST report can be
 seen in Figure 4.
 
@@ -483,8 +498,9 @@ the EnsEMBL \cite{ensembl-nar} project.  The basic sequence handling,
 file format parsing, and sequence features for annotation model have
 been used as building blocks for automatically annotating the
 \textit{Danio rerio}, \textit{Drosophila melanogastor},
-\textit{Takifugu rubripes}, \textit{Homo sapiens}, and \textit{Mus
-musculus} genomes (\url{http://www.ensembl.org}).
+\textit{Takifugu rubripes}, \textit{Homo sapiens}, \textit{Anopheles
+gambiae}, and \textit{Mus musculus} genomes
+(\url{http://www.ensembl.org}).
 
 Additionally the Genquire \cite{genquire} annotation package is built
 on top of the Bioperl object model and stores sequence and annotation
@@ -537,7 +553,7 @@ Query Service (BQS; \url{http://industry.ebi.ac.uk/openBQS/}) and
 Entrez Pubmed XML format \cite{entrez}.  By supporting these XML-based
 formats, programs using Bioperl are able to process data from a
 growing number of data sources that have adopted them as their standard.
-Furthermore, the extensible nature XML allow new features to be added
+Furthermore, the extensible nature of XML allow new features to be added
 to the data formats without breaking existing parsers and code.
 
 Software can interoperate not only through the invocation of external
@@ -644,7 +660,6 @@ software development.  The open sharing and discussion of ideas that
 embodies the scientific spirit has proven to be successful in the
 world of scientific software development as well.  
 
-
 The open source development model also has some drawbacks which came
 to light throughout the lifetime of the project.  One drawback is that
 component development is only focused on what contributors find useful
@@ -657,11 +672,11 @@ portion of the project for which the original developer was
 responsible.  As a result, some parts of the project have been
 temporarily neglected, and in some cases phased out.
 
-We have addressed these issues by establishing guideines for
+We have addressed these issues by establishing guidelines for
 contributions that includes a commitment to comprehensive
 documentation, and high standards for released code.  When necessary,
 we gracefully retire unmaintained components by providing deprecation
-warnings to the community, and at all times endeavour to ensure that
+warnings to the community, and at all times endeavor to ensure that
 there is a clear migration paths from deprecated modules to new
 modules that provide equivalent functionality.
 
@@ -750,6 +765,8 @@ Annotation Markup Elements. \\
 Institute. \\ 
 \url{http://www.pasteur.fr}, L'Institut Pasteur (Pasteur Institute). \\
 \url{ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/}, NCBI Toolkit. \\
+\url{http://industry.ebi.ac.uk/novella/}, EBI Novella project \\
+Institute. \\ 
 \url{http://obda.open-bio.org}, Open Bioinformatics Database Access. \\
 \url{http://www.open-bio.org}, Open Bioinformatics Foundation. \\
 \url{http://lsr.ebi.ac.uk}, Object Management Group's Life Science Research group. \\
@@ -774,13 +791,12 @@ Initiative - Open Source definition. \\
 \hline
 Bio::Seq &  Sequences and their properties \\
 Bio::SeqIO & Sequence data input/output \\
-Bio::Index & Local sequence database indexing and retrieval \\ 
+Bio::Index & Flat-file sequence database indexing and retrieval \\ 
 Bio::DB & Remote database access for sequences and references via HTTP \\
-Bio::DB::GFF & Local GFF database for DAS and GBrowse backends \\
+Bio::DB::GFF & SQL GFF database for DAS and GBrowse backends \\
 Bio::SeqFeature & Feature representation and annotation \\
 Bio::Annotation & Generic annotation \\
-Bio::SimpleAlign, Bio::AlignIO  & Multiple alignment representation
-and Input/Output \\
+Bio::AlignIO, Bio::SimpleAlign   & Multiple sequence alignments and their Input/Output \\
 Bio::LiveSeq, Bio::Variation & Sequence variations and mutations \\
 Bio::SearchIO, Bio::Search  & Sequence database searches and their Input/Output \\
 Bio::Tools &  Miscellaneous analysis tools \\
@@ -802,14 +818,16 @@ Bio::Graphics & Graphical displays of sequences \\
 \rhead{Stajich\_Figure1\_caption}
 
 Figure 1.  Rendering a sequence graphically with Bio::Graphics.  This
-image represents a 20 kb segment of the \textit{C. elegans} genome
+image represents a 20 Kb segment of the \textit{C. elegans} genome
 containing annotated genes, a cross-species alignment
 (\textit{C. elegans} to \textit{C. briggsae}), EST alignments, SNPs,
 PCR primer pairs, and a GC content histogram.  The module's flexible
 glyph-based architecture allows the application programmer to
-precisely adjust how to display biological objects.  The module is
-also suitable for illustrating the extent of protein domains, physical
-(clone) maps, and horizontal maps.
+precisely adjust how to display biological objects.  Glyphs allow the
+programmer to define different symbols for different data types or
+data sources and each are drawn as a separate track in the image.  The
+module is also suitable for illustrating the extent of protein
+domains, physical (clone) maps, and horizontal maps.
 
 \newpage
 
@@ -911,7 +929,7 @@ while(my $result   = $search->next_result) {
       if( $hsp->evalue < $cutoff_Evalue && 
         $hsp->length('total') >= $cutoff_Len ) { 
         push @HitsToSave, $hit;
-        last;
+        last; # Only want to process each Hit once
       } 
     }
   }
