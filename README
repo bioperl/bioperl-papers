@@ -1,0 +1,4 @@
+Some systems do not have pcxfonts - this is not a necessary pkg for TeX
+only for rending the PDF in a manner suitable for the PDF parser at
+submit.genome.org to process the fonts (It renders the fonts as Type I).
+
