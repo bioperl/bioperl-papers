@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.35 2002-07-25 20:06:56 jason Exp $
+% $Id: bioperl-article.tex,v 1.36 2002-07-25 22:11:29 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.35  2002/07/25 20:06:56  jason
+% advanced advanced -> advanced, fixed Brian's zip code
+%
 % Revision 1.34  2002/07/25 18:34:53  jason
 % revisions incorporating Lincoln and Chad's changes
 %
@@ -303,7 +306,7 @@ a DNA Sequence component could contain methods to retrieve the
 sequence's accession number, reverse complement the DNA, or translate
 it into a protein sequence.  Object-oriented programming methodology
 allows accurate modelling of the problem domain leading to more
-robust, valid, and resusable code. Instead of attacking a problem by
+robust, valid, and reusable code. Instead of attacking a problem by
 brute force the problem is analysed and models are constucted to
 represent the entities in the problem and solution domains. The
 entities are represented in code through the use of Perl modules and,
@@ -385,7 +388,7 @@ Bio::PrimarySeqI compliant object. Various parsers for the different
 sequence formats implement this method, thereby providing one
 consistent interface to sequence streams irregardless of the format.
 Bio::SeqIO acts as a Factory for sequence file parsers.  When the user
-ask Bio::SeqIO to parse a particular sequence file, Bio::SeqIO
+asks Bio::SeqIO to parse a particular sequence file, Bio::SeqIO
 determines the correct parser to instantiate and invoke, thereby
 shielding application code from the technical details of the sequence
 file format and the Bio::SeqIO object hierarchy. Application code can
@@ -533,7 +536,7 @@ provided by the European Bioinformatics Institute's Bibliographic
 Query Service (BQS; \url{http://industry.ebi.ac.uk/openBQS/}) and
 Entrez Pubmed XML format \cite{entrez}.  By supporting these XML-based
 formats, programs using Bioperl are able to process data from a
-growing number data sources that have adopted them as their standard.
+growing number of data sources that have adopted them as their standard.
 Furthermore, the extensible nature XML allow new features to be added
 to the data formats without breaking existing parsers and code.
 
@@ -604,7 +607,7 @@ cases, ongoing development was stymied by a lack of commitment to open
 source principles.  For example, BioWidgets, an early attempt to
 create a Java-based biological toolkit, did not adopt an open source
 methodology at its inception.  This left it open to intellectual
-property disputes, and ultimately the project disolved as early
+property disputes, and ultimately the project dissolved as early
 contributors withdrew their software from the project (N. Goodman,
 personal communication).  In contrast, none of the software placed in
 Bioperl can be withdrawn from the project because it has been
@@ -773,7 +776,7 @@ Bio::Seq &  Sequences and their properties \\
 Bio::SeqIO & Sequence data input/output \\
 Bio::Index & Local sequence database indexing and retrieval \\ 
 Bio::DB & Remote database access for sequences and references via HTTP \\
-Bio::DB::GFF & Local GFF database for DAS and GBrowse backend \\
+Bio::DB::GFF & Local GFF database for DAS and GBrowse backends \\
 Bio::SeqFeature & Feature representation and annotation \\
 Bio::Annotation & Generic annotation \\
 Bio::SimpleAlign, Bio::AlignIO  & Multiple alignment representation
@@ -806,7 +809,7 @@ PCR primer pairs, and a GC content histogram.  The module's flexible
 glyph-based architecture allows the application programmer to
 precisely adjust how to display biological objects.  The module is
 also suitable for illustrating the extent of protein domains, physical
-(clone) maps, and horizontalmaps.
+(clone) maps, and horizontal maps.
 
 \newpage
 
@@ -839,7 +842,7 @@ the sequence out in GenBank format to the terminal.  One could replace
 Bio::DB::EMBL with Bio::DB::GenBank and instead retrieve the sequence
 from NCBI just as easily since the software can read and write both
 EMBL and GenBank formats and is able to connect to both services
-through the World Wide Web.  he retrieved sequence can then be passed
+through the World Wide Web.  The retrieved sequence can then be passed
 to Bio::Graphics for graphical rendering, to the Bio::SeqIO interface
 for writing to a file, or to the ODBA interfaces for storage in a
 relational database.
