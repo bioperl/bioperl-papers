@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.19 2002-04-09 19:44:34 lstein Exp $
+% $Id: bioperl-article.tex,v 1.20 2002-04-09 20:38:30 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.19  2002/04/09 19:44:34  lstein
+% Minor grammar and typographical fixes from lincoln
+%
 % Revision 1.18  2002/04/07 20:47:05  jason
 % merged in most of Hilmar's comments with some edits.  I think 3 main things are left to polish: Abstract, Conclusion, and Interoperability
 %
@@ -193,10 +196,11 @@ biological sequence analysis and annotation.  In the last year the
 project has expanded to address new areas including phylogenetics,
 maps, protein structure, and bibliographic references.  The project
 has over 300 modules and comprises more than 160,000 lines of code and
-embedded documentation.  The Perl modules are organized by logical
-names so that, for example, the Bio::Search hierarchy contains modules
-related to database searches and Bio::Graphics contains modules that
-are related to drawing.
+embedded documentation.  The Perl modules, illustrated in Table
+\ref{modules}, are organized by logical names so that, for example,
+the Bio::Search hierarchy contains modules related to database
+searches and Bio::Graphics contains modules that are related to
+drawing.
 
 When designing Bioperl objects our objective was to provide a
 programming interface that is very easy to use but that at the same
@@ -319,7 +323,10 @@ for the project include 1300 subscribers and an average of 10,000
 unique visitors to our website each month.  The project has been used
 in variety of endeavors including genome sequencing, annotation,
 sequence variation elucidation, disease gene discovery, and
-comparative genomics.
+comparative genomics.  An example using Bioperl modules to complete
+the simple task of retrieving sequences from a remote database is
+shown in Figure 1, and an example of parsing a BLAST report is
+seen in Figure 2.
 
 By far the most advanced use of the Bioperl toolkit has come through
 the EnsEMBL\cite{ensembl-nar} project.  The basic sequence handling,
@@ -399,15 +406,15 @@ the proposed OBDA standard for sequence data access.
 
 \section{Conclusions}
 
-In the future, Bioperl will continue to evolve to address
-more domains of bioinformatics.  We plan to create objects to
-manage sequence assembly information, haplotype maps, gene expression,
-and protein interaction data.  Additionally, projects focusing on
-multi-species comparisons will build Perl modules to manage the
-alignment and syntenic information.  We will create software layers
-to interact with OBDA databases, develop a generic analysis pipeline
-system to provide automated analysis components, and expand the supported
-file formats the toolkit can read and write.
+In the future, Bioperl will continue to evolve to address more domains
+of bioinformatics.  We plan to create objects to manage sequence
+assembly information, haplotype maps, gene expression, and protein
+interaction data.  Additionally, projects focusing on multi-species
+comparisons will build Perl modules to manage alignment and syntenic
+information.  We will create software layers to interact with OBDA
+databases, develop a generic analysis pipeline system to provide
+automated analysis components, and expand the supported file formats
+the toolkit can read and write.
 
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
@@ -553,7 +560,6 @@ Pairs (HSPs) that met the criteria
 \singlespacing
 
 \rhead{Stajich\_Figure1}
-
 \begin{verbatim}
 use Bio::DB::EMBL;
 use Bio::SeqIO;
@@ -565,13 +571,11 @@ if (defined $seq) { # in case DB doesn't return anything
    $seqout->write_seq($seq);
 }
 \end{verbatim}
-
 % $
 
 \newpage
 
 \rhead{Stajich\_Figure2}
-
 \begin{verbatim}
 use Bio::SearchIO;
 # Let's parse a BLAST report 
