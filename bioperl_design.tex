@@ -1,0 +1,485 @@
+\documentclass{article}
+
+\usepackage {
+ url,graphicx,fancyheadings,fullpage,
+ graphics
+% float,layouts
+}
+
+\begin{document}
+\pagenumbering{roman}
+\begin{titlepage}
+
+\title{Using Perl for Bioinformatics\\ Module 2: BioPerl}
+\author{Jason Stajich, jason.stajich@duke.edu}
+
+\end{titlepage}
+\maketitle
+
+\newpage
+
+\tableofcontents
+\newpage
+\setcounter{page}{0}
+\pagenumbering{arabic}
+
+\section{This Document}
+This document contains a description of the Bioperl toolkit from a
+software design perspective.  Classes will be denoted like 
+Interfaces are denoted \emph{Bio::Root::RootI} while implementations
+are denoted \emph{\bf Bio::Seq}. Function names will be denoted {\bf \it
+new()} while perl built-in functions denoted {\it split}.  
+
+The objects and interfaces will be described in general
+terms, for detailed lists of methods and their descriptions please see
+the documentation embedded in the module files available through the
+perldoc command or online at \url{http://bio.perl.org/Doc/Latest/Core/}.
+\par
+The bioperl toolkit is constantly evolving and this document describes a
+snapshot of the current object model with disucssion of ideas in upcoming
+releases.  The code released in the future will be a derivative of
+the current code base but may not have the same limitations or
+conventions as the 0.7 stable branch or 0.9 developer release
+series.
+
+\section{Bioperl Basics}
+
+The Bioperl toolkit is one of the oldest open source bioinformatics
+toolkit projects and the first Open Bioinformatics Foundation Bio\{*\}
+project.  It was started in 1995 by a group of scientists tired of
+rewriting BLAST and sequence parsers for various formats.  The
+project has since grown to a 600+ subscriber email list, 10-15 main
+developers coordinated by a core group of 4 developers, and deployment
+in a variety of industry, academic, and govermental environments.  It
+currently has modules focused on sequence format parsing, sequence
+analysis report parsing, and annotation with an object model to
+support most types of data formats in these realms.  It is an ever
+growing and expanding project approaching a mature and stable 1.0
+release by the end Q4 in 2001.
+
+\par
+Being an open-source project, anyone can jump in and make
+contributions to improve the system.  Simply sign up on the mailing
+list, introduce yourself and your idea of a new module or an
+improvement to an existing one and we'll try and make suggestions to
+help steer you in the direction to help sustain the consistency of the
+toolkit and get your ideas implemented. 
+
+\par
+
+This course will dive into the basics of the Bioperl Toolkit, give you
+experience using some of the modules, and help you approach some of
+your own problems with a new set of tools at your disposal.  It is
+assumed that you understand basic perl programing, know how to ``use''
+modules in your code, and can take a stab at writing your own module.
+
+
+\subsection{Bioperl Semantics}
+
+Perl is not an inherently Object Oriented (OO) language.  In fact one has
+to be fairly careful to make perl behave like an object oriented
+system.  This requires a diligent programmer and some fairly
+straightforward rules.  The Bioperl package takes advantages of the OO
+constructs to create a consistent, well documented, and somewhat well
+thought out object model for interacting with biological data in the
+life sciences.  
+
+\subsubsection{Bioperl Name space}
+In perl namespaces are not enforced, but help the programmer and user
+make sense of where things are installed.  The bioperl package
+installs everything in the Bio:: namespace.  (In perl sub-name spaces
+are the same as a directory structure and are separated by :: and are
+equivalent to the way hierarchies are built in java with '.'.
+
+\subsubsection{Interfaces}
+For those familiar with software design, an Interface is a definition
+for a set of methods that a class must implement.  Perl does not have
+an explict system for forcing interfaces on to a class, but there are
+some basic tricks one can play to enforce that a class implement an interface. 
+
+\par
+In Bioperl the \emph{Bio::Root::RootI} is the top-level Interface that all
+Bioperl objects derive from.  It contains methods for debugging and
+throwing errors ({\it \bf throw}, {\it \bf warn}), parsing named input
+parameters ({\it \bf \_rearrange}), and the ability to build chained
+constructor and destructor methods (for help with OO inheritance).
+
+\par
+Each class of data or function has its own interfaces defined.  For
+example, Sequence data has the \emph{Bio::PrimarySeqI} interface while
+annotated sequence data has the \emph{Bio::SeqI} interface which
+is derived from the \emph{Bio::PrimarySeqI} interface.  Not all
+classes in Bioperl have a properly defined inteface file as of the
+0.7.x releases because sometime it takes some experience with the data
+to derive a proper summary object to represent it. The 1.0 release
+should have well defined interfaces for all ajor components of the toolkit. 
+
+\section{Sequence Analysis}
+
+Most of the work in Bioperl has been centered around supporting
+sequence analysis.  Therefore a well defined set of objects has been
+created to handle sequence, annotation, parsing and producing sequence
+files, alignment, and analysis of sequence data.  
+
+\subsection{Sequence Objects}
+
+The \emph{Bio::PrimarySeqI} interface defines the basic methods for
+interacting with sequence data.  Methods such as {\it \bf seq()} to
+get and set the sequence string, {\it \bf trunc()} to return a truncated
+version of the sequence, {\it \bf revcom} to get the reverse complement,
+and {\it \bf translate} to get the protein for a RNA or DNA sequence.  The
+interface is implemented by the \emph{\bf Bio::PrimarySeq} object
+which represents sequences as in-memory strings.  The
+\emph{\bf Bio::Seq::LargePrimarySeq} implements the
+\emph{Bio::PrimarySeqI} interface as well but stores the sequence data
+as a file since it is designed to handle sequences that are too large
+to fit completely in memory.  Because of OO inheritance one can use
+both of these implementations identically and not worry about how the
+underlying methods are implemented.   
+
+\par
+The \emph{Bio::SeqI} interface inherits from \emph{Bio::PrimarySeqI}
+and defines additional methods for storing and retrieving sequence
+annotation in the form of sequence features (\emph{Bio::SeqFeatureI})
+and annotation objects (\emph{\bf Bio::Annotation}).  The methods for
+manipulating sequence features include {\it \bf top\_SeqFeatures()}, 
+{\it\bf all\_SeqFeatures()}, {\it \bf feature\_count()}.  The {\it \bf
+annotation()} provides access to get and set the associated Annotation
+object.  The {\it \bf primaryseq()} hints at the delegation
+pattern of the \emph{Bio::SeqI} objects which delegate all the sequence related
+methods to an underlying \emph{Bio::PrimarySeqI} object.  The {\it \bf
+species()} method allows one to associate a \emph{\bf Bio::Species}
+object with a Sequence.  
+
+\par The afforementioned \emph{\bf Bio::Seq::PrimarySeq} implements
+the \emph{Bio::PrimarySeqI} interface and manages the large sequence
+strings as files.  The \emph{\bf Bio::Seq::LargeSeq} is analgous to
+the \emph{\bf Bio::Seq} object in that it manages the annotation but
+delegates the sequence data specific methods to a \emph{\bf
+Bio::Seq::LargePrimarySeq} object.  
+
+\par
+The \emph{Bio::Seq::RichSeqI} defines additional methods for
+properly storing all the related sequence data in the GenBank/EMBL
+data format.  It is implemented by the \emph{\bf Bio::Seq::RichSeq}
+object.
+
+\subsection{Sequence Annotation} 
+
+The \emph{Bio::SeqFeatureI} interface represents the concept of an
+annotated sequence feature which has a location on a sequence.  Most
+sequence features are generic to be handled by \emph{\bf
+Bio::SeqFeature::Generic}.  Essentially anything that can be stored in
+the GFF format can be represented by this object.  However, more
+complicated objects such as HSP's from BLAST or FASTA reports need to
+contain information about the Query sequence location and the Subject
+(Hit) location and so must be the composition of two SeqFeatures.  To
+this end there are \emph{\bf Bio::SeqFeature::FeaturePair} objects for
+paired Features and a subclass of these called \emph{\bf
+Bio::SeqFeature::SimilarityPair} which can handle the notion that two
+Features have similarity information about each other.  These object
+will continue to evolve as the Bioperl project defines more general
+objects to handle all types of sequence database searches.  
+
+\par
+The \emph{\bf Bio::Annotation} object handles the representation of
+DBlinks, Literature References, and miscelaneous comments.
+\emph{Annotations} are different than \emph{SeqFeatures} because
+annotations do not have the concept of a location, they are a
+description that apply to the entire sequence.  Annotations are also
+more specialized to handle the concept of linking unique ids for a
+sequence to databases.
+
+\subsection{Sequence Input/Output}
+
+Input and output or IO of sequence data can be the bane of biologists
+trying to interact with bioinformatics tools.  The \emph{Bio::SeqIO}
+system was designed to make getting and storing sequences to and from
+the myriad of formats as easy as possible.  To created \emph{\bf
+Bio::Seq} object from a sequence file in genbank, one can do this in
+just a few lines of perl code using the Bioperl toolkit.
+Figure~\ref{seqio} demonstrates this below.
+
+\begin{verbatim}
+use Bio::SeqIO;
+my $seqio = new Bio::SeqIO('-format' => 'genbank', '-file' => 'filename.gb');
+my $seqout = new Bio::SeqIO('-format' => 'embl', '-file' => '>filename.embl');
+while( my $seq = $seqio->next_seq) { $seqout->write_seq($seq) }
+\end{verbatim}
+%$
+\label{seqio}
+\centerline{Figure~\ref{seqio}: A 3 line sequence converter}
+
+\par The sequence parsing system will read rich sequence formats like
+EMBL or GenBank and will create the associated features that are annotated
+on a sequence.  Additionally the full set of features may be written
+back out in the same or different format.  Obviously formats which do
+not support the notion of features (FASTA, GCG, Raw) will not contain
+as much information as an EMBL flatfile for the same sequence.
+Table~\ref{formats} lists the available formats in the Bioperl 0.7
+release series.
+
+\begin{itemize}
+\item Ace     - AceDB format
+\item EMBL    - European Molecular Biology Laboratories sequence format
+\item Fasta   - Bill Pearson's FASTA sequence database format
+\item GAME    - Genomic Annotation Marker Environment an XML format
+for BDGP
+\item GenBank - NCBI sequnce format
+\item GCG     - GCG sequence format
+\item largefasta - for reading in FASTA files of very long sequences
+(>100MB)
+\item raw     - raw sequence
+\item scf     - SCF chromatagram format
+\item swiss   - SwissProt format
+\end{itemize}
+\label{formats}
+\centerline{Table~\ref{formats}: Supported sequence formats by the \emph{Bio::SeqIO} system}
+
+\section{Sequence Databases}
+
+When processing many sequences, one often needs to store and retrieve
+these sequences from databases rather than a collection of flatfiles.
+The bioperl project provides interfaces for storing and and retrieving
+from locally indexed databases (indexing speeds up the accessing of
+the data but requires building a file larger than the data itsself)
+and from remote sequence databases such as EMBL, GenBank, and SwissProt.
+
+\subsection{Bioperl database interfaces}
+The Bioperl DB interface is encapsulated in the \emph{Bio::DB::SeqI}
+interface which describes mechanisms for retriving a sequence from a
+database, either by accession number, id number, or as a
+\emph{Bio::SeqIO} data stream.
+
+\subsubsection{Local databases and Index files}
+The \emph{Bio::Index::Abstract} object describes how one can build
+local indexes of sequence data.  The indexing system uses the DBM
+database system for building local indexes.  The Index objects defived
+from the \emph{Bio::DB::SeqI} interface which allows the indexes to be
+queries exactly like any other database.
+
+\subsection{Remote databases}
+One may also want to query a remote database such as NCBI's GenBank.
+The module \emph{\bf Bio::DB::GenBank} allows queries for sequences
+based on a single or multiple accession numbers or genbank ids.
+Additionally there are similar modules written to query the NCBI's
+GenPept database of proteins, EMBL's database of nucelotide and
+protein sequence, and SwissProt's database of curated protein sequences.
+
+\subsection{SQL databases}
+
+The bioperl-db project (to be renamed biosql project) is a perl layer
+on top of a relational database which allows access to a database of
+sequence data.  The open-source database mysql was
+chosen at the first implementation but a postgres, sybase, oracle, or
+any other RBD could substitute.  The database is intended to be able
+to store and fetch sequences and effectively represent annotation and
+related information as rich as the GenBank/EMBL format.  Additional
+work is being done .  More details available at the bioperl website
+and the code is available under the bioperl-db cvs module name. 
+
+\section{Sequence Analysis: Parsing and Running}
+
+Parsing sequences and annotation is useful for a certain class of
+analysis such as looking for simple patterns or small custom written
+analyses, but typically one will want to rely on other software such
+as BLAST or ClustalW to do sophisticated analysis.  Bioperl provides
+mechanisms for both parsing the output from these programs and for
+certain applications an interface for executing the programs within a
+perl script.
+
+\subsection{Parsing Analysis}
+
+Parsing sequence analysis is critical for linking together results
+from a collection of analyses and building suitable pipelines for
+analysis.  Due to the nature of the bioperl development done by
+different developers solving their own specific tasks, the interfaces
+for analysis parsing are still evolving.  The current state of the
+parsers are that each type is typically its own beast and it requires
+the users to read the documentation before beginning to use a parser.
+Hopefully this guide and the descriptions below will make this process
+easier for new users wanting to parse their results.
+  
+\subsubsection{BLAST parsing}
+
+BLAST is the staple of every bioinformatician's toolchest so a
+suitable parser for the format is a necessity.  Currently two modules
+attempt to address this need.  An older, complex module called
+\emph{\bf Bio::Tools::Blast} is an extensible and robust object that
+handles a wide variety of tasks including parsing and writing
+HTML-ified Blast reports, and \emph{\bf Bio::Tools::BPlite} a simplier
+less sophisticated parser that handles NCBI and WuBlast results.
+Modules BPbl2seq and BPpsilite use objects from the BPlite system
+handle bl2seq and psi-blast results respectively.   
+
+\par The author recommends the BPlite module for those just starting
+out with BLAST parsing.  The example in Figure~\ref{blastparsing}
+should give the reader a good idea of how to get started.  
+
+\begin{verbatim}
+use Bio::Tools::BPlite;
+
+my $parser = new Bio::Tools::BPlite('-file' => 'blast.report');
+my $pvalue = 1e-3;
+SBJCT: while( my $sbjct = $parser->nextSbjct ) {
+    my  ($id) = split(/\s+/, $sbjct->name);
+    while( my $hsp = $sbjct->nextHSP ) { 
+	if( $hsp->P > $pvalue) {	
+	    # skip Sbjcts that don't meet the minimum P value
+	    print STDERR "skipping $id with a HSP with pvalue=", $hsp->P, "\n";
+	    next SBJCT;    
+	} 
+	print "Sbjct length is ", $hsp->subject->length, "\n";	
+    }
+
+    # parse the ids if this a blast hit against an 
+    # NCBI formatted library 
+    my @ids = split(/\|/, $id);
+    # in NCBI libs the last one is the accession number
+    print "id is ", pop @ids, "\n";
+
+}   
+\end{verbatim}
+%$
+\label{blastparsing}
+\centerline{Figure\ref{blastparsing}: Using \emph{\bf Bio::Tools::BPlite} for
+blast parsing}
+
+\subsection{Multiple Sequence Alignment Parsing}
+
+Multiple sequence alignments are also a staple of bioinformatics
+research.  Bioperl offers the \emph{Bio::AlignIO} system for reading
+and writing MSA reports produced by a variety of sources include
+ClustalW and GCG.  The system is analagous to the \emph{Bio::SeqIO}
+system and provides a simple interface to parsing the data.  The {\it
+\bf next\_aln()} method returns a \emph{\bf Bio::SimpleAlign} object
+which encapsulates the MSA alignment.  One can ask for slices of the
+alignment at certain columns, overal statistics, or for the references
+to the individual sequences that make up the alignment.  Future work
+in this area will establish an interface definition for this object
+ and build a specialized version of the inteface for sequence
+assemblies.  Figure~\ref{msaparsing} demonstrates the use of the
+system to obtain alignments and query them.  Table~\ref{alignio}
+describes the supported alignment formats the current
+\emph{Bio::AlignIO} system.
+
+\begin{itemize}
+\item bl2seq
+\item clustalw
+\item fasta
+\item mase
+\item meme
+\item msf
+\item nexus
+\item pfam
+\item phylip
+\item prodom
+\item selex
+\item stockholm
+\end{itemize}
+\label{alignio}
+\centerline{Table~\ref{alignio}: \emph{Bio::AlignIO} supported formats}
+
+\begin{verbatim}
+use Bio::AlignIO;
+my $alignio = new Bio::AlignIO(-format => 'clustalw',
+			       -file => 'alignment1.aln');
+
+while( my $aln = $alignio->next_aln ) {
+ print "len=", $aln->length, 
+ " # residures=", $aln->no_residues, " ",
+ " percent id=", $aln->percentage_identity, "\n";
+ print "seqs are :\n";
+ foreach my $seq ($aln->each_seq) {
+     print "\t '", $seq->display_id(), "'\n";
+ }
+ print "---\n";
+}
+\end{verbatim}
+\label{msaparsing}
+%$
+\centerline{Figure~\ref{msaparsing}: The \emph{Bio::AlignIO} system in use}
+
+\subsubsection{Gene prediction parsing}
+
+Bioperl has also written parsers for a few standard gene prediction
+programs: genscan and mzef.  These parsers can then produce \emph{\bf
+Bio::SeqFeature::GeneStructure} objects which can represent all the
+gene information returned by a prediction program.  Future work is
+being done to write parsers for more formats and build gene objects
+from annotations in sequence files.  For examples of using the parsers
+the reader is directed towards the POD and the bioperl tutorial
+available from the bioperl website.
+
+\subsection{Generalize Parsing of Analysis}
+
+The \emph{Bio::SeqAnalysisParserI} interface describes a simple way to
+retrieve features from a parser for analyses that produce lists of
+features.  It has a single iterator method {\it \bf next\_feature()}
+which must return a \emph{Bio::SeqFeatureI} object.  This is a limited
+interface which is still under developmemt as the bioperl project is
+still trying to expand to handling a richer set of analysis types.
+Some of the objects described do not comply to the
+\emph{Bio::SeqAnalysisParserI} interface but may in the near future.
+\par For those that do comply we have created a Factory object which
+simplifies the code for a user.  The \emph{\bf
+Bio::Factory::SeqAnalysisParserFactory} allows users to create an
+analysis parser with just one line of code and handle the creation
+of the specific parser object for you.  The code in
+Figure~\ref{analysisfactory} should show a good example of how to use
+it. 
+
+\begin{verbatim}
+use Bio::Factory::SeqAnalysisParserFactory;
+# initialize an object implementing this interface, e.g.
+$factory = Bio::Factory::SeqAnalysisParserFactory->new();
+# find out the methods it knows about
+print "registered methods: ",
+    join(', ', keys(%{$factory->driver_table()})), "\n";
+# obtain a parser object
+my $inputobj = 'seq.genscan';
+my @params = ();
+my $method = 'genscan';
+$parser = $factory->get_parser(-input=>$inputobj,
+			       -params=>[@params],
+			       -method => $method);
+# $parser is an object implementing Bio::SeqAnalysisParserI
+# annotate sequence with features produced by parser
+while(my $feat = $parser->next_feature()) {
+    print "feature is ", $feat->gff_string(), "\n";
+    # if you had the sequence object
+    #$seq->add_SeqFeature($feat);
+    
+}
+\end{verbatim}
+\label{analysisfactory}
+\centerline{Figure~\ref{analysisfactory}:
+\emph{\bf Bio::Factory::SeqAnalysisParserFactory} in action}
+
+\subsection{Running Analyses}
+
+\subsection{BLAST}
+Support for running BLAST locally and remotely is built-in to bioperl
+through the modules \emph{\bf Bio::Tools::Run::StandAloneBlast} and
+\emph{\bf Bio::Tools::Run::RemoteBlast}.  These modules allow one to
+either submit jobs to the NCBI blast queue or utilize a local blast
+executable and databases.   Running BLAST locally requires setting
+some environment variables which are documented in the POD included
+with the module.
+
+\subsection{ClustalW and TCoffee}
+Multiple sequence alignment can be run locally on a set of sequences
+using the \emph{\bf Bio::Tools::Run::Alignment::Clustal} and
+\emph{\bf Bio::Tools::Run::Alignment::TCoffee} modules.  These modules
+require the setting of an environment variable and local copies of the
+executables which is documented in the POD.  
+
+\section{Summary}
+
+The bioperl toolkit is a collection of perl modules for bioinforatics
+programming.  The dynamic nature of the toolkit's development may
+cause some of the information in this document to be out of date.
+Please join the mailing list if you find you want to learn more or
+consider joining the development team.
+
+\end{document}
