@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.26 2002-04-16 15:06:38 jason Exp $
+% $Id: bioperl-article.tex,v 1.27 2002-04-16 20:32:11 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.26  2002/04/16 15:06:38  jason
+% rough changes to discussion -- need a rework
+%
 % Revision 1.25  2002/04/12 18:39:38  lstein
 % Edits following conference call between Jason, Lincoln and Hilmar.
 %
@@ -74,17 +77,14 @@
 \doublespacing
 
 \title{The Bioperl Toolkit: Perl modules for the life sciences}
-\author{Jason E Stajich$^1$$^*$ \and
-Hilmar Lapp$^2$ \and
-Heikki Lehv\"{a}slaiho$^3$ \and 
-Lincoln D Stein$^4$ \and Ewan Birney$^3$ \\
+\author{Jason E Stajich$^1$$^*$ \and Hilmar Lapp$^2$ \and Heikki Lehv\"{a}slaiho$^3$ \and Lincoln D Stein$^4$ \and Ewan Birney$^3$ \\
 $^1$ \small{\textit{University Program in Genetics, Duke University,
 Durham, NC 27710 USA}} \\
 $^2$ \small{\textit{Genomics Institute of the Novartis Research
 Foundation (GNF), San Diego, CA 92121 USA}} \\
 $^3$ \small{\textit{European Bioinformatics Institute, Welcome Trust
-Genome Campus, Hinxton, Cambridge UK}} \\
-$^4$ \small{\textit{Cold Spring Harbor Laboratories, Cold Spring Harbor, NY 11724 USA}}\\
+Genome Campus, Hinxton, Cambridge CB10 1SD, UK}} \\
+$^4$ \small{\textit{Cold Spring Harbor Laboratory, Cold Spring Harbor, NY 11724 USA}}\\
 }
 \maketitle
 \begin{abstract}
@@ -132,8 +132,8 @@ designed to read and write data specific to the biological domain.
 The day-to-day work in a typical bioinformatics lab consists largely
 of writing program logic to achieve this data integration.
 
-One programming language, Perl, is by far the most widely used
-programming language for these tasks, and is commonly thought of as
+One programming language, Perl, is one of the most widely used
+programming languages for these tasks, and is commonly thought of as
 the language most easily grasped by newcomers to the field.  Perl has
 been extremely successful for connecting software applications together into
 sequence analysis pipelines, converting file formats, and extracting
@@ -145,7 +145,7 @@ utility, not reusability.  The Bioperl toolkit brings together
 reusable Perl modules containing generalized routines specific to life
 science information.  A primary motivation behind writing the toolkit
 is the authors' desire to focus energies on a solution whose
-components could be shared rather than duplicating effort.  In our
+components can be shared rather than duplicating effort.  In our
 minds, once a routine is written for parsing and interpreting sequence
 from EMBL and Genbank format sequence files, no one else should have
 to worry about writing their own.  In this spirit we chose to make our
@@ -238,7 +238,7 @@ design principles.
 
 \begin{itemize}
 
-\item Separating the interface from the implementation.  The key
+\item Separate the interface from the implementation.  The key
 information about a component is the method names and their list
 of accepted arguments.  Similar in concept to interfaces in Java, we
 built interfaces as collections of methods which describe the expected
@@ -443,47 +443,42 @@ the proposed Open Bioinformatics Database Access (OBDA;
 \section{Discussion}
 
 Open source development has proven to be a valuable and productive
-mechanism for creation of the toolkit.  The original Bioperl project
-team has been completely replaced over the last 7 years as members
-leave the project and new contributors join, however the direction and
-focus of the project has continue to expand.  No single individual
-owns the project, rather it is owned by the community of contributors.
-The community approach prevents the death of a project due to loss of
+mechanism for creation of the toolkit.  No single individual owns the
+project, rather it is owned by the community of contributors.  The
+community approach prevents the death of a project due to loss of
 interest by the sole developer and does not permit project stagnation
 in the confines of a single laboratory where a single individual or
-group is responsible for the continued vitality of a project.
+group is responsible for the continued vitality of a project.  The
+original Bioperl project team has been completely replaced over the
+last 7 years as members leave the project and new contributors join,
+however the direction and focus of the project has continue to expand.
 
-Through the development process we learned a great deal about
+Throughout the development process we learned a great deal about
 appropriate software practices for a diverse group of contributors.
 The extreme programming methods, which include defining use cases for
 our software, establishing a comprehensive regression test suite, and
 utilizing code reviews or audits of contributed source code, helped
-the community develop code that is compatible and consistent.
+the community develop code that is compatible and consistent.  The
+principals of good design and good documentation have made it easier
+for new developers to join the project.
 
-In comparison to other collaborative bioinformatics toolkits we feel
-that our practices and efforts have produced a product which is easy
-to use, extensible, and directly applicable to much of the
-current bioinformatics and life sciences programming work.  
 Any collaborative software projects faces challenges and
 bioinformatics project face additional challenges because of the large
 problem domain.  Often in bioinformatics, the developers are pursing
-their own research and the software production is a project on the
-side to assist.  Previous collaborative efforts have produced
+their own research and software production is a side project to assist
+in a specific task.  Previous collaborative efforts have produced
 unsatisfactory results due mostly to lack of commitment of open
-sourcing principals for the softare.  The GCG \cite{Devereux1984}
-suite of programs is a commerical package that grew out of an academic 
-
-BioWidgets, an early attempt to create a toolkit was ultimate
-unsuccesful because the particpants did not commit to open source
-policies from the software.  Software was eventually withdrawn from
-the project because of intellectual property disputes \cite{goodman}.
-The NCBI toolkit \cite{ncbitoolkit}, a powerful and highly functional
-C-language based toolkit does not have the widespread usage that it
-deserves because acknowledged deficiencies in it documentation and
-closed development process.  Bioperl does not suffer from these
-weaknesses because it cannot be withdrawn from the public the public
-domain and it will not become a commericial entity which require
-people licensing fees.
+sourcing principals for the softare.  BioWidgets, an early attempt to
+create a toolkit was ultimate unsuccesful because the particpants did
+not commit to open source policies from the software.  Software was
+eventually withdrawn from the project because of intellectual property
+disputes \cite{goodman}.  The NCBI tookit \cite{ncbitoolkit}, a
+powerful and highly functional C-language based toolkit, but does not
+have the widespread usage that it deserves because of acknowledged
+deficiencies in it documentation and closed development process.
+Bioperl does not suffer from these weaknesses because it cannot be
+withdrawn from the public domain and it cannot become a commericial
+entity which requires licensing fees.
 
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
@@ -616,7 +611,6 @@ Bio::Graphics & Graphical displays of sequences \\
 \end{table}
 
 \newpage
-\setcounter{figure}{1}
 
 \rhead{Stajich\_Figure1\_caption}
 
@@ -628,27 +622,24 @@ histogram, and other features.  The module is also suitable for
 illustrating the extent of protein domains, physical maps, and other
 horizontal maps.
 
-
 \newpage
 
 \rhead{Stajich\_Figure2\_caption}
 
 Figure 2. This figure shows a portion of the Bioperl object model
-including the interfaces for sequences Bio::PrimarySeqI, Bio::SeqI,
-Bio::Seq::RichSeqI and their implementations Bio::PrimarySeq (general
-sequence), Bio::Seq (sequence with features), Bio::Seq::RichSeq
-(sequence with features and additional annotation),
-Bio::Seq::LargePrimarySeq (large sequence not held in memory),
-Bio::Seq::LargeSeq (LargePrimarySeq with features).  Also included in
-the diagram is the sequence feature interface (Bio::SeqFeatureI) and
-its implementations Bio::SeqFeature::Similarity (manage similarity
-information), Bio::SeqFeature::FeaturePair (paired feature
-information), and Bio::SeqFeature::SimilarityPair (paired similarity
-information such as a pairwise alignment information).  Additionally
-the location objects which manage simple (start, end, and strand
-information), split (multiple start and end spots on a sequence such
-as a set exons), and so-called fuzzy location ( start,end or span is
-not exact) for sequence features.
+including the interfaces for sequences PrimarySeqI, SeqI, RichSeqI and
+their implementations PrimarySeq (general sequence), Seq (sequence
+with features), RichSeq (sequence with features and additional
+annotation), LargePrimarySeq (large sequence not held in memory),
+LargeSeq (LargePrimarySeq with features).  Also included in the
+diagram is the sequence feature interface (SeqFeatureI) and its
+implementations Similarity (manage similarity information),
+FeaturePair (paired feature information), and SimilarityPair (paired
+similarity information such as a pairwise alignment information).
+Additionally the location objects which manage simple (start, end, and
+strand information), split (multiple start and end spots on a sequence
+such as a set exons), and so-called fuzzy location ( start,end or span
+is not exact) for sequence features.
 
 \newpage
 
@@ -680,6 +671,14 @@ specification from 'blast' to 'fasta'.
 \newpage
 
 \singlespacing
+
+\newpage
+
+\rhead{Stajich\_Figure2}
+
+\begin{figure}[ht]
+\centerline{\epsfig{file=objectdiagram.pdf, width=8in}}
+\end{figure}
 
 \newpage
 
