@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.22 2002-04-11 15:53:05 jason Exp $
+% $Id: bioperl-article.tex,v 1.23 2002-04-12 03:12:09 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.22  2002/04/11 15:53:05  jason
+% small editorial changes and tense correction
+%
 % Revision 1.21  2002/04/10 03:31:13  jason
 % spelling changes, updated title
 %
@@ -543,24 +546,28 @@ Bio::Graphics & Graphical displays of sequences \\
 
 \rhead{Stajich\_Figure1\_caption}
 
-Figure 1. Sequence retrieval from the Remote GenBank Database at EMBL.
+Figure 1. Sequence retrieval from a Remote Database.
 This code retrieves an mRNA sequences in the EMBL format from the EBI
 EMBL databank with the accession number U14680 and writes the sequence
 out in GenBank format to the terminal.  One could replace Bio::DB::EMBL
 with Bio::DB::GenBank and instead retrieve the sequence from NCBI just
 as easily since the software can read and write both EMBL and GenBank
-formats.
+formats and is able to connect to both services through the World Wide
+Web.
 
 \newpage
 
 \rhead{Stajich\_Figure2\_caption}
 
-Figure 2. BLAST parsing. A BLAST report is parsed and only hits meeting
-an e-value and length threshold are saved in the array @HitsToSave.  
-In this case any hit with evalue greater than 0.001 or length less 
-than 120 residues will be excluded.  Once the list of hits is built 
-one can print out the name of each of the Hits which had High Scoring
-Pairs (HSPs) that met the criteria
+Figure 2. Report parsing with Bio::SearchIO.  This code parses a BLAST
+report from a file called 'report.bls' and saves, in an array called
+@HitsToSave, only the hits which have High Scoring Pairs (HSPs) meeting
+an e-value and length threshold.  In this case, any hit with evalue
+greater than 0.001 or length less than 120 residues will be excluded.
+Once the array is built, the names of each of the hits which had a HSP
+that met the criteria are printed out.  The Bio::SearchIO system is
+designed so that to parse a FASTA \cite{fasta} report file one must
+simply change the format specification from 'blast' to 'fasta'.
 
 \newpage
 
@@ -595,7 +602,7 @@ while(my $result   = $search->next_result) {
  HIT:while(my $hit = $result->next_hit) {
    while( my $hsp  = $hit->next_hsp ) {
     if( $hsp->evalue < $cutoff_Evalue && 
-        $hsp->length('total') >= $cutofflen ) { 
+        $hsp->length('total') >= $cutoff_Len ) { 
         push @HitsToSave, $hit;
         next HIT;
       } 
