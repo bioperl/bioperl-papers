@@ -1,6 +1,13 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.16.2.1 2002-04-06 23:34:05 lapp Exp $
+% $Id: bioperl-article.tex,v 1.16.2.2 2002-04-07 01:46:05 lapp Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.16.2.1  2002/04/06 23:34:05  lapp
+% First round of review complete. Many small changes, rewrote some
+% paragraphs. There are some places left that I feel need to be changed,
+% but I didn't have an alternative at hand immediately. That'll come in
+% subsequent revisions, or maybe (hopefully) others have a good idea in
+% the meantime.
+%
 % Revision 1.16  2002/04/06 19:07:08  lapp
 % Spelled out GNF.
 %
@@ -69,25 +76,32 @@ Perl modules for managing and manipulating life science information.
 Bioperl provides an easy-to-use, stable, and consistent programming
 %%<HL inserted Bioperl
 interface for bioinformatics application programmers.  The Bioperl
-modules has been successfully and repeatedly used to achieve otherwise
-complex tasks with only a few lines of code.  The Bioperl object model
-has been proven to be flexible enough to support enterprise-level
-applications such as EnsEMBL, while at the same time keeping an easy
-learning curve for novice Perl programmers.  Bioperl is also capable
-of interoperating with other programming languages like Python and
-Java through the evolving BioCORBA bridge. 
+modules have been successfully and repeatedly used to achieve
+otherwise complex tasks with only a few lines of code.  The Bioperl
+object model has been proven to be flexible enough to support
+enterprise-level applications such as EnsEMBL, while at the same time
+keeping an easy learning curve for novice Perl programmers.  Bioperl
+is also capable of interoperating with external analysis programs as
+well as with other programming languages like Python and Java. Bioperl
+provides interfaces to the suite of programs called
+EMBOSS. Interoperation with modules written in Python and Java is
+supported through the evolving BioCORBA bridge.
 %%!HL Changed the next sentence. May not be the best suggestion either.
 Furthermore, Bioperl provides access to a common data storage by fully
 supporting the evolving BioSQL and Open Bioinformatics Database Access
-projects. 
+%%>HL added next 2 sentences
+projects. In this paper, we describe the motivations, design choices,
+and capabilities of the Bioperl toolkit. We conclude with the future
+prospects of Bioperl, and how the open source nature of the
+development will continue to influence its direction.
 %%!HL I feel this needs to be changed. We're not publishing this as an
 %%!HL open advertisement of open source, it's rather an implicit ad. GR is
 %%!HL not a software engineering journal.
 %%!HL Better suited here would be to say briefly what this paper will
 %%!HL tell about Bioperl.
-The successful development of Bioperl depended in a large
-part on the open source nature of the project. We outline how this
-approach is a valuable mechanism for collaborative projects.
+% The successful development of Bioperl depended in a large
+% part on the open source nature of the project. We outline how this
+% approach is a valuable mechanism for collaborative projects.
 
 [ Bioperl is available as open source software free of charge and
 licensed under the Perl artistic license at \url{http://www.bioperl.org/}. ]
@@ -99,15 +113,13 @@ licensed under the Perl artistic license at \url{http://www.bioperl.org/}. ]
 \section{Introduction}
 
 Computational analysis is an integral part of modern biological
-research.  Numerous computer software tools exist to perform 
-data analyses, but it is not simple to automatically
-combine data and results from multiple sources without the use of
-computer software designed to read and write data specific to the
-biological domain.  
-%%!HL I feel this statement is too broad, as it probably doesn't apply
-%%!HL to algorithm research labs.
-Bioinformatics consists largely of applying a
-particular logic to this data integration.
+research.  Numerous computer software tools exist to perform data
+analyses, but it is not simple to automatically combine data and
+results from multiple sources without the use of computer software
+designed to read and write data specific to the biological domain.
+%%>HL rewrote this sentence as the following one
+The day-to-day work in a typical Bioinformatics `lab' consists largely of
+writing program logic to achieve this data integration.
 
 %%<HL Changed wording slightly.
 The programming language Perl \cite{perlref} is by far the most widely used
@@ -131,14 +143,14 @@ energies on a solution whose components could be shared rather than
 duplicating effort.  The idea is once a routine is written for
 parsing and interpreting sequence from EMBL and Genbank format
 sequence files, no one else should have to worry about writing their
-own.  In this spirit we chose to make our code freely available and
-%%>HL Inserted open-source ref. Inserted 'and improvements'.
-Open Source \cite{open-sourc-ref} so that others could contribute
-their solutions and improvements to the project as well.  Just as the
-Human Genome Project was speeded and made more efficient by public
-sharing of data, so has the open nature of the Bioperl project reduced
-the time for solutions and new tools to reach the community
-\cite{waterston}.
+own.  In this spirit we chose to make our code freely available under
+%%>HL FIXME Inserted open-source ref. Inserted 'and improvements'.
+an Open Source\cite{open-sourc-ref} license so that others could
+contribute their solutions and improvements to the project as well.
+Just as the Human Genome Project was speeded and made more efficient
+by public sharing of data, so has the open nature of the Bioperl
+project reduced the time for solutions and new tools to reach the
+community \cite{waterston}.
 
 However, to be adopted by the community our software has to be user
 %%!HL we've -> we have
@@ -248,16 +260,23 @@ behavior of a module, but do not do any of the work.  Child classes
 %%>HL changed wording
 implement the interfaces, providing specializations of their
 %%>HL inserted comma
-parents to perform specific tasks.  
+parents to perform specific tasks.  For example, Bio::SeqFeatureI
+%%>HL added the SeqFeature example instead of the SeqIO example
+describes the `constract' for all SeqFeatureI-compliant
+implementations. It means that all such implementations are ranges
+with start, end, and strand, and they also have annotation in the form
+of tag/value pairs. All modules under the Bio::SeqFeature hierarchy
+implement this interface, among them classes like SimilarityPair,
+GeneStructure, Transcript, Exon, Intron, and so forth.
 %%>HL the following I think isn't the best example; SeqIO isn't a true
 %%>HL interface either. It's a factory, and the design pattern is a
-%%>HL strategy pattern. It could be an example for which patterns are used
+%%>HL strategy pattern. It could be an example of which patterns are used
 %%>HL in the design.
-For example, the sequence parsing factory class Bio::SeqIO describes
-methods \textit{next\_seq} and \textit{write\_seq} which are
-implemented differently by the child classes Bio::SeqIO::genbank and
-Bio::SeqIO::embl for reading and writing their specific sequence data
-format.
+% For example, the sequence parsing factory class Bio::SeqIO describes
+% methods \textit{next\_seq} and \textit{write\_seq} which are
+% implemented differently by the child classes Bio::SeqIO::genbank and
+% Bio::SeqIO::embl for reading and writing their specific sequence data
+% format.
 
 %%>HL changed second part of sentence. Also, changed a lot more of the
 %%>HL whole paragraph.
@@ -270,9 +289,25 @@ the entire package in a consistent way. This design choice also
 provides for single points of fixing and enhancing functionality.
 %%>HL I don't feel this is so important that we need to substantiate
 %%>HL it with a figure. MHO.
-Figure 1 shows a schematic view of how 2 modules which have different
-tasks inherit from a single IO module which provides a function that
-is shared.
+% Figure 1 shows a schematic view of how 2 modules which have different
+% tasks inherit from a single IO module which provides a function that
+% is shared.
+
+%%>HL added the next item
+\item Employ the Factory and Strategy patterns as much as possible. A
+strategy pattern defines one or more operations a particular
+implementation must support. As an example, Bio::SeqIO defines that
+implementations support the operation next_seq(), returning the next
+sequence in the stream as a Bio::PrimarySeqI compliant object. Various
+parsers for the different sequence formats implement this method,
+thereby providing one consistent interface to sequence streams
+irregardless of the format. At the same time, Bio::SeqIO acts as a
+factory by instantiating the parser appropriate for a particular
+format without the caller having to know which module is capable of
+parsing the desired format. We implemented the same concept for
+databank search result parsers in Bio::SearchIO. The Bio::Factory
+hierarchy contains other factories, which can instantiate classes
+implementing a particular contract for a desired specialization.
 
 \end{itemize}
 
@@ -413,7 +448,7 @@ alignment, sequence feature and feature pair objects.
 \subsection{Interoperability}
 
 %%>HL almost completely rewrote this section. To me, it's still too
-%%>HL long and should be cut to theh juicy bits in order not to lose focus
+%%>HL long and should be cut to the juicy bits in order not to lose focus
 Bioinformaticists are often faced with the situation that basically
 almost all of the individual pieces necessary to construct a good
 solution to a problem are already available, but they have been
