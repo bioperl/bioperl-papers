@@ -23,7 +23,7 @@
 \begin{twocolumn}
 \title{The Bioperl Toolkit}
 % Not sure how to do this - some people should be in the title?
-\author{The BioPerl Core Team, http://www.bioperl.org}
+\author{The Bioperl Core, http://www.bioperl.org }
 \maketitle
 
 \begin{abstract}
@@ -183,13 +183,17 @@ manager, which instantiates the appropriate driver, depending on a
 user-specified file format, or inferred from the extension of an input
 file name.  The driver itself always returns a stream of sequence
 objects.  Currently there are drivers for FASTA, EMBL, Genbank, SwissProt,
-Ace, GCG, SCF, GAME, and raw format.
+Ace, GCG, SCF, GAME, BSML, and raw format.
 \item Sequence database indexing and retrieval. 
 \item Feature representation and annotation.
 \item Generic annotation.
 \item Multiple alignment representation and input/output.
 \item Sequence variations and mutations.
 \item Parser for sequence analysis tools.
+\item Phylogenetic trees
+\item Protein structure data
+\item Generic biological maps (genetic, physical)
+\item Distributed Annotation Sever (DAS) toolkit and database
 \end{itemize}
 
 \subsection{Design principles}
@@ -240,28 +244,33 @@ for the factory pattern should follow once we have it.]
 
 % Need help cutting down
 
-While Perl is an ideal language for the neophyte programmer to the
-advanced bioinformatician hacker there are important advantages in
-other programming languages and environments.  Numerous methods are
+While Perl is an ideal language for both novice and experienced
+programmers and bioinformatics specialists one may want to take
+advantage of the properties of other languages such as the graphical
+capabilities of java or speed of C programs.  Numerous methods are
 possible for utilizing other languages depending on where one wanted
 to partition the problem and build layers into a system.  Database
-layers allow information to be processed and then
-stored in one language or environment and retrieved with a different
-language.  Additionally the network layer can be used as means for
-separating the processes, typically in a client-server or peer-to-peer
-system would allow functionality to be constructed in a different
-language.
+layers provide data abstraction while network layers can provide
+process abstraction.  These partitioning of data, objects, or
+processes is a powerful means for leveraging resources in different
+environments.  Typically this is easier done by communicating through
+a standard.  
+
+The Extensible Markup Language (XML) provides a means for creating
+data in a language and platform independent manner.  Previous work has
+outlined scenarios where XML has been useful in a biological context
+\cite{xml_bioinformatics}.  
 
 The Common Object Request Broker Architecture (CORBA) allows a
-programmer to not just client/server applications in different
-languages, but to build components of a program, or objects in
-separate languages.  These objects live in the space of a running
-process on a machine, but a programmer can utilize objects on a
-different machine, even written in a different language over a LAN or
-WAN.  CORBA was designed with distributed objects as the primary goal,
-however we can take advantage of this technology to create
-applications which utilize objects written in different languages to
-take advantage of that language functionality.
+programmer to develop client/server applications in different
+languages and to build components of a program, or objects in separate
+languages.  These objects live in the space of a running process on a
+machine, but a programmer can execute methods on objects on different
+machines, even written in a different language. CORBA was designed
+with distributed objects as the primary goal, however we can take
+advantage of this technology to create applications which utilize
+objects written in different languages to take advantage of that
+language functionality.
 
 This cross-language interoperability is leveraged by creating a common
 set of object interface definitions, written for CORBA in the
@@ -273,14 +282,15 @@ provide services which utilize these objects.
 
 For example, the bioperl project has created a robust set of sequence
 parsing routines which a C programmer may want to take advantage of
-rather than writing their own parser from scratch.  However C may be
-the optimal language for predicting secondary structure of an RNA
-sequence.  By utilizing CORBA, C code can be written to simply obtain
-a sequence object and query the object for the sequence bases as a
-string, and apply an algorithm calculating minimal energy.  Similarly
-if one was interested in integrating analysis from a new dynamic
-programming toolkit written in Java into a perl based application, one
-could build an interface.
+rather than writing their own parser from scratch.  However C is a
+more optimal language for predicting secondary structure of an RNA
+sequence or calculating sequence overlaps in a contig assembly.  By
+utilizing CORBA, C code can be written to simply obtain a sequence
+object and query the object for the sequence bases as a string, and
+apply an algorithm calculating minimal energy.  Similarly if one was
+interested in integrating analysis from a new dynamic programming
+toolkit written in Java into a perl based application, the necessary
+components can be accessed through an interface and the CORBA layer.
 
 The BioCORBA project is a sister project of BioPerl coordinated with
 BioJava and BioPython which has developed a standard IDL describing
@@ -297,35 +307,96 @@ developer can build applications utilizing objects from EnsEMBL.
 
 \section{Discussion}
 
+Open Source development has been an extremely successful mechanism in
+the creation of the Bioperl toolkit.  
+integrating biological researchers with computational applications of
+their research. 
+
 \subsection{Examples}
 
 \subsubsection{Short Scripts}
-\begin{itemized}
-\item Chaos Plot
+\begin{itemize}
+\item Local Index and sequence retrieval
+
+\begin{verbatim}
+use Bio::Index::Fasta;
+use Bio::SeqIO;
+# build the index
+my $index = new Bio::Index::Fasta(-write_flag => 1,
+				  -filename   => 'nr.idx');
+
+$index->id_parser(\&ncbi_idparse); # use a custom ID parser
+$index->make_index('/data/seqs.fa');
+
+# retrieve seqs
+
+my $seqout = new Bio::SeqIO(-format => 'fasta',
+			    -fh   => \*STDOUT);
+
+foreach ( qw(NP_009225 YPKA_YERPS)) {
+    my $seq = $index->fetch($_);
+    next unless defined $seq; # skip if seq not found
+    $seqout->write_seq($seq); # write it out to the screen
+}
+
+sub ncbi_idparse { 
+ my ($id) = @_;
+ my @ids = split(/\|/,$id);
+ my $acc = ($ids[3] =~ /(\S+)\.\d+/);	
+ return ( $ids[1],$acc,$ids[3]);	
+}
+\end{verbatim}
+
+\item Remote db retrieval
+
+\begin{verbatim}
+use Bio::DB::GenBank;
+
+my $db = new Bio::DB::GenBank();
+my $seq = $db->get_Seq_by_acc('NP_009225');
+my $seqout = new Bio::SeqIO(-format => 'genbank,
+			    -fh   => \*STDOUT);
+$seqout->write_seq($seq) if defined $seq;
+\end{verbatim}
+
 \item Heikki's get flanking seq for SNP stuff
-\end{itemized}
+
+\end{itemize}
 
 \subsubsection{EnsEMBL}
 
 By far the most advanced use of the Bioperl toolkit has come through
 the EnsEMBL project.  The basic sequence handling, file format
-parsing, and sequence features for annotation model has been tested.
+parsing, and sequence features for annotation model has been tested
+through the extensive .
+
+[FIXME: EWAN to help outline better here]
 
 
 \section{Conclusions}
 
-
 \section{Acknowledgements}
 
+The Bioperl Core is Jason Stajich, Hilmar Lapp, Heikki Lehvaslaiho,
+and Ewan Birney.  The project has seen signifigant
+contributions from the following people David Block, Kris Boulez
+Steven Brenner, Brad Chapman, Steve Chervitz, Michele Clamp, Chris
+Dagdigian, Andrew Dalke, Allen Day, Arne Elofsson, Mark Fiers, Georg
+Fuellen, James Gilbert, Roger Hall, Ian Holmes, Joseph Insana, Nicolas
+Joly, Ian Korf, Aaron Mackey, Brad Marshall, Chad Matsalla, Chris
+Mungall, Matthew Pockock, Todd Richmond, Peter Schattner, Lincoln
+Stein, Elia Stupka, Gert Thijs, Mark Wilkinson, Helge Weissig, Alex
+Zelensky.
+
+ 
 [FIXME do we announce Open Bioinformatics Foundation here as well?]
 The Bioperl project is a joint effort of many researchers in an
 open-source manner.  Our list of contributing authors is available
 from our website [and included here?]. 
 
-The Bioperl Core would like to thank Chris Dagdigian for his system
-administration of the OBF computers assisted by Jason Stajich.  We
-would like to acknowledge hardware donated by Compaq and Sun
-Microsytems...
+The Bioperl team would like to thank Chris Dagdigian for his system
+administration of the OBF computers .  We would like to acknowledge
+hardware donated by Compaq and Sun Microsytems...
 
 \bibliography{bioperl}
 \bibliographystyle{bioinformatics} 
