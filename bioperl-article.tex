@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.16 2002-04-06 19:07:08 lapp Exp $
+% $Id: bioperl-article.tex,v 1.17 2002-04-07 08:30:41 heikki Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.16  2002/04/06 19:07:08  lapp
+% Spelled out GNF.
+%
 % Revision 1.15  2002/04/05 23:15:32  jason
 % some changes to format towards GR - a few sentance reworks and transitions - cut it down to 5 main topics, pages for weblinks and each figure with captions
 %
@@ -102,26 +105,27 @@ information from the output of analysis programs and other text files.
 
 Much of the Perl software in bioinformatics is specific to a
 particular lab or institution and is not written in a general way so
-that it can be used by others.  The Bioperl toolkit brings together reusable
-Perl modules containing generalized routines specific to biological
-and life science information.  A primary
-motivation behind writing the toolkit is the authors' desire to focus
-energies on one solution whose components could be shared rather
-than duplicating effort.  In our minds, once a routine is written for
-parsing and interpreting sequence from EMBL and Genbank format sequence files, no one else should have to worry about writing their own.
-In this spirit we chose to make our code freely available and open
-source so that others could contribute their solutions to the project
-as well.  Just as the Human Genome Project was speeded and made more
-efficient by public sharing of data, so has the open nature of the
-Bioperl project reduced the time for solutions and new tools to reach the
-community \cite{waterston}.
+that it can be used by others.  The Bioperl toolkit brings together
+reusable Perl modules containing generalized routines specific to
+biological and life science information.  A primary motivation behind
+writing the toolkit is the authors' desire to focus energies on one
+solution whose components could be shared rather than duplicating
+effort.  In our minds, once a routine is written for parsing and
+interpreting sequence from EMBL and Genbank format sequence files, no
+one else should have to worry about writing their own.  In this spirit
+we chose to make our code freely available and open source so that
+others could contribute their solutions to the project as well.  Just
+as the Human Genome Project was speeded and made more efficient by
+public sharing of data, so has the open nature of the Bioperl project
+reduced the time for solutions and new tools to reach the community
+\cite{waterston}.
 
 However, to be adopted by the community our software has to be user
 friendly.  To that end we've both provided extensive documentation of
 all the methods in each module, a graphical diagram of the objects in
 the toolkit, and tutorials with examples of common problems.
 Additionally we have written a module named Bio::Perl which provides
-simple methods such as \textit{read\_sequence} which reads a sequence
+simple procedural functions  such as \textit{read\_sequence} which reads a sequence
 from a file for users who do not want to study the entire module
 hierarchy.  The goal of Bioperl is to help a user focus on their
 specific problem at hand, such as the logic needed to process a BLAST
@@ -246,7 +250,7 @@ NCBI BLAST analysis queue.  Additional work is in progress to
 incorporate into the project access to remote analysis services at the
 European Bioinformatics Institute and Pasteur Institute.
 
-In order for us to produce fairly uniform software code we established
+In order for us to produce fairly uniform software code, we established
 coding guidelines that are extensions of good object-oriented
 programming.  All modules were required to meet minimal standards
 before releasing.  These standards included a complete set of
@@ -407,7 +411,7 @@ toolkit to grow in directions pertinent to its users.
 
 The Bioperl Core is Jason Stajich, Hilmar Lapp, Heikki Lehv\"{a}slaiho,
 Lincoln Stein, and Ewan Birney.  The project has seen signifigant
-contributions from the following people David Block, Kris Boulez,
+contributions from the following people: David Block, Kris Boulez,
 Steven Brenner, Brad Chapman, Steve Chervitz, Michele Clamp, Tony Cox,
 James Cuff, Chris Dagdigian, Andrew Dalke, Allen Day, Arne Elofsson,
 Mark Fiers, Georg Fuellen, James R Gilbert, Ed Green, Roger Hall,
