@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.11 2002-03-24 20:49:13 jason Exp $
+% $Id: bioperl-article.tex,v 1.12 2002-03-25 14:17:28 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.11  2002/03/24 20:49:13  jason
+% reworking abstract, removed redundancy and greatly simplified the interoperability section.  Need to condense to probably 4-5 main sections
+%
 % Revision 1.10  2002/03/21 21:50:04  jason
 % reworked abstract for GR and moved examples around.  Reworked abstract for GR and moved examples around.  Added statistics about tests and number of modulesTable for Modules rather than list.
 %
@@ -127,7 +130,7 @@ generic scripts to treat external programs as pluggable components.
 [/POSSIBLY DELETE]
 
 The Bioperl project grew out of the following observations.  
-\begin{itemized}
+\begin{itemize}
 
 \item First, Even though file formats of different analysis programs
 are different, the information they represent is the same.  For
@@ -145,6 +148,8 @@ creating a confusing hierarchy of components.
 that are useful for a variety of tasks.  This include reading and
 writing information to a file, querying a sequence for its features,
 and translating a gene coding sequence into protein.  
+
+\end{itemize}
 
 This scenario naturally lends itself to the principle of
 object-oriented programming, which Perl emulates with modules.  A
@@ -337,7 +342,7 @@ of the Bioperl object model and stores sequence and annotation data in
 a persistent database model.  The sequence rendering capabilities are
 partitioned into a specific Bioperl package called bioperl-gui.  The
 database model used by Genquire has been updated to utilize the new
-BioSQL(\url{http://obda.open-bio.org}} sequence database design, which
+BioSQL(\url{http://obda.open-bio.org}) sequence database design, which
 will allow the other OBF toolkits to access data written by the
 Genquire system.
 
@@ -380,7 +385,7 @@ addition to the standard blast text format.  It also supports Medline
 XML (read only) provided by the European Bioinformatics Institute's
 Bibliographic Query Service (BQS) and Entrez Pubmed XML format.
 
-The Common Object Request Broker Architecture (CORBA)\cite{corba}
+The Common Object Request Broker Architecture (CORBA)
 allows a programmer to share components developed in different
 languages.  This is achieved by first agreeing upon the names of
 functions and data the components will contain.  Developers write the
