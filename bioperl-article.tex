@@ -1,6 +1,10 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.29 2002-04-19 03:56:04 lapp Exp $
+% $Id: bioperl-article.tex,v 1.30 2002-04-22 17:02:57 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.29  2002/04/19 03:56:04  lapp
+% Mostly typographical corrections. Some little polishing of the discussion
+% section about others' failures.
+%
 % Revision 1.28  2002/04/16 20:36:10  jason
 % remove personal communication
 %
@@ -479,21 +483,23 @@ create a toolkit was ultimately unsuccesful because the particpants did
 not commit to open source policies for the software.  Software was
 eventually withdrawn from the project because of intellectual property
 disputes (N. Goodman, personal communication).  The NCBI tookit
-\cite{ncbitoolkit}, a powerful and highly functional C-language based
+(\url{ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/}), a powerful and highly functional C-language based
 toolkit, does not have the widespread usage that it deserves
 because of acknowledged deficiencies in its documentation and a closed
 development process.  Bioperl does not suffer from these weaknesses
 because it cannot be withdrawn from the public domain and it cannot
-become a commercial entity which requires users to pay licensing fees.
+become a commercial entity which requires users to pay licensing
+fees.
 
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
 a diverse group of individuals to participate in a collaborative effort.
 We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
-new functionality for the benefit of all users. Contributors come from
-academia as well as industry. This collaboration and
-the guiding principle to get working software written in an extensible
+new functionality for the benefit of all users.  Contributors are part
+of academic, governmental, non-profit, pharmaceutical, and
+commerical bioinformatics groups on every continent.  This collaboration and
+the guiding principle to get working products written in an extensible
 manner have made Bioperl an excellent platform for Perl bioinformatics
 software development.  The open sharing and discussion of ideas that
 embodies the scientific spirit has proven to be successful in the
@@ -509,22 +515,20 @@ databases, develop a generic analysis pipeline system to provide
 automated analysis components, and expand the supported file formats
 the toolkit can read and write.
 
-
-
 \section{Acknowledgments}
 
-In alphabetical order, the Bioperl Core is Ewan Birney, Hilmar Lapp, Heikki Lehv\"{a}slaiho,
-Jason Stajich, and Lincoln Stein.  The project has seen significant
-contributions from the following people, given in alphabetical order:
-David Block, Kris Boulez, Steven Brenner, Brad Chapman, Steve
-Chervitz, Michele Clamp, Tony Cox, James Cuff, Chris Dagdigian, Andrew
-Dalke, Allen Day, Arne Elofsson, Mark Fiers, Georg Fuellen, James R
-Gilbert, Ed Green, Roger Hall, Peter van Heusden, Joseph Insana,
-Nicolas Joly, Ian Korf, Aaron J Mackey, Brad Marshall, Chad Matsalla,
-Chris Mungall, Emmanuel Mongin, Brian Osborne, Lorenz Pollak, Matthew
-Pockock, Todd Richmond, Martin Senger, Peter Schattner, Elia Stupka,
-Gert Thijs, Charles Tilford, Andrew Walsh, Kai Wang, Mark Wilkinson,
-and Alex Zelensky.
+In alphabetical order, the Bioperl Core is Ewan Birney, Hilmar Lapp,
+Heikki Lehv\"{a}slaiho, Jason Stajich, and Lincoln Stein.  The project
+has seen significant contributions from the following people, given in
+alphabetical order: David Block, Kris Boulez, Steven Brenner, Brad
+Chapman, Steve Chervitz, Michele Clamp, Tony Cox, James Cuff, Chris
+Dagdigian, Andrew Dalke, Allen Day, Arne Elofsson, Mark Fiers, Georg
+Fuellen, James R Gilbert, Ed Green, Roger Hall, Peter van Heusden,
+Joseph Insana, Nicolas Joly, Ian Korf, Aaron J Mackey, Brad Marshall,
+Chad Matsalla, Chris Mungall, Emmanuel Mongin, Brian Osborne, Lorenz
+Pollak, Matthew Pockock, Todd Richmond, Martin Senger, Peter
+Schattner, Elia Stupka, Gert Thijs, Charles Tilford, Andrew Walsh, Kai
+Wang, Mark Wilkinson, and Alex Zelensky.
 
 Additional ideas and help came from other OBF project team members
 including Jeff Chang, Thomas Down, Keith James, and all of the Bioperl
@@ -566,10 +570,11 @@ F.Dietrich, M.DeLong, M.Hahn for their comments on this manuscript.
 \url{http://www.bioxml.org/dtds/index.html},  GAME - Genome
 Annotation Markup Elements. \\ 
 \url{http://www.cvshome.org}, CVS Home Page. \\
+\url{http://www.ensembl.org}, EnsEMBL Project Home page. \\
 \url{http://www.ebi.ac.uk}, EMBL Outstation - European Bioinformatics
 Institute. \\ 
 \url{http://www.pasteur.fr}, L'Institut Pasteur (Pasteur Institute). \\
-\url{http://www.ensembl.org}, EnsEMBL Project Home page. \\
+\url{ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/}, NCBI Toolkit. \\
 \url{http://obda.open-bio.org}, Open Bioinformatics Database Access. \\
 \url{http://www.open-bio.org}, Open Bioinformatics Foundation. \\
 \url{http://lsr.ebi.ac.uk}, Object Management Group's Life Science Research group. \\
@@ -679,13 +684,15 @@ specification from 'blast' to 'fasta'.
 
 \singlespacing
 
-\newpage
-
-\rhead{Stajich\_Figure2}
-
-\begin{figure}[ht]
-\centerline{\epsfig{file=objectdiagram.pdf, width=8in}}
-\end{figure}
+% shrinking it may look better if they work with the original PDF 
+% so I am submitting that as a separate page
+%\newpage
+%
+%\rhead{Stajich\_Figure2}
+%
+%\begin{figure}[ht]
+%\centerline{\epsfig{file=objectdiagram.pdf, width=8in}}
+%\end{figure}
 
 \newpage
 
