@@ -1,6 +1,9 @@
 \documentclass[12pt]{article}
-% $Id: bioperl-article.tex,v 1.21 2002-04-10 03:31:13 jason Exp $
+% $Id: bioperl-article.tex,v 1.22 2002-04-11 15:53:05 jason Exp $
 % $Log: not supported by cvs2svn $
+% Revision 1.21  2002/04/10 03:31:13  jason
+% spelling changes, updated title
+%
 % Revision 1.20  2002/04/09 20:38:30  jason
 % Added reference to the figures and Table 1 -- these appear at the end of my PDF document when using pdflatex
 %
@@ -118,7 +121,7 @@ sequence analysis pipelines, converting file formats, and extracting
 information from the output of analysis programs and other text files.
 
 Much of the Perl software in bioinformatics is specific to a
-particular lab or institution.  As such, it is written for immediately
+particular lab or institution and is written for immediate
 utility, not reusability.  The Bioperl toolkit brings together
 reusable Perl modules containing generalized routines specific to life
 science information.  A primary motivation behind writing the toolkit
@@ -137,10 +140,10 @@ tools to reach the community \cite{waterston}.
 However, to be adopted by the community our software has to be user
 friendly.  To that end we have both provided extensive documentation
 of all the methods in each module, a graphical diagram of the objects
-in the toolkit, and tutorials with examples of common problems.
+in the toolkit, and tutorials with simple solutions to common tasks.
 Additionally we have written a module named Bio::Perl which provides
-simple procedural functions such as \textit{read\_sequence} which
-reads a sequence from a file for users who do not want to study the
+simple procedural functions, such as \textit{read\_sequence} to read
+in sequences from a file, for users who do not want to study the
 entire module hierarchy.  The goal of Bioperl is to help a user focus
 on her specific problem at hand, such as the logic needed to filter
 hits in a BLAST \cite{blast} report by certain criteria, rather than
@@ -193,7 +196,7 @@ alignments, and databases, we have been able to add features to a
 specific module without necessarily affecting the rest of the toolkit
 library.  This separation is a key aspect of object-oriented
 programming and permits us to produce generic components with a stable
-interface for the programmer (API).  
+interface for the programmer (the so called API).  
 
 At present the components and operations in Bioperl center around
 biological sequence analysis and annotation.  In the last year the
@@ -206,7 +209,7 @@ the Bio::Search hierarchy contains modules related to database
 searches and Bio::Graphics contains modules that are related to
 drawing.
 
-When designing Bioperl objects our objective was to provide a
+When designing Bioperl objects we sought to provide a
 programming interface that is very easy to use but that at the same
 time could be easily extended in its capabilities and behavior through
 code reuse.  Using an object-oriented paradigm we followed certain
@@ -238,7 +241,7 @@ as an image with the same methods in the Bio::Graphics modules.
 \item Generalize common routines into a single module providing a base
 framework for the respective operations.  As an example we centralized
 the basic Input/Output (IO) operations into an IO object, called
-Bio::Root::IO.  Because all modules that need IO data access uses
+Bio::Root::IO.  Because all modules that need IO data access use
 operations from the IO module, these operations are implemented across
 the entire package in a consistent way.  This design choice also
 provides a single location for applying improvements to the shared
@@ -334,7 +337,7 @@ shown in Figure 1, and an example of parsing a BLAST report is
 seen in Figure 2.
 
 By far the most advanced use of the Bioperl toolkit has come through
-the EnsEMBL\cite{ensembl-nar} project.  The basic sequence handling,
+the EnsEMBL \cite{ensembl-nar} project.  The basic sequence handling,
 file format parsing, and sequence features for annotation model have
 been used as building blocks for automatically annotating the
 \textit{Danio rerio}, \textit{Drosophila melanogastor},
@@ -390,24 +393,23 @@ Entrez Pubmed XML format \cite{entrez}.
 
 Software can interoperate with other software not only through the
 invocation of external programs, but also through invoking methods on
-remote components possibly written in a different programming language
-than the calling component.  Such a mechanism constitutes the tightest
+remote components possibly written in a programming language different
+from the calling component.  Such a mechanism constitutes the tightest
 integration of re-usable software components in a language-independent
 way.  The Common Object Request Broker Architecture (CORBA)
 \cite{corba} provides an architecture for enabling this technology.
 This technology has been applied to biological data at the EBI in
-their Radiation Hybrid \cite{rhdb} and EMBL Nucleotide
-Databases \cite{embl-corba}. Implementations are
-available from commercial vendors (e.g., Inprise's VisiBroker, IONA's
-ORBacus) as well as open source projects (e.g. ORBit, MICO).  Bioperl
-is compliant with one of the proposed standards for CORBA components
-for biological processes, namely the BioCORBA
-(\url{http://www.biocorba.org}) project.  BioCORBA is also supported
-by the Biojava (\url{http://www.biojava.org}) and Biopython
-(\url{http://www.biopython.org}) projects, as well as the Object
-Management Group's Life Science Research group
-(\url{http://lsr.ebi.ac.uk}).  The BioCORBA standard is included in
-the proposed OBDA standard for sequence data access.
+their Radiation Hybrid \cite{rhdb} and EMBL Nucleotide Databases
+\cite{embl-corba}.  Implementations are available from commercial
+vendors (e.g., Inprise's VisiBroker, IONA's ORBacus) as well as open
+source projects (e.g. ORBit, MICO).  Bioperl is compliant with the
+BioCORBA project (\url{http://www.biocorba.org}), one of the proposed
+standards for CORBA components for biological processes.  BioCORBA is
+also supported by the Biojava (\url{http://www.biojava.org}) and
+Biopython (\url{http://www.biopython.org}) projects.  The standard is
+under consideration for adoption by the Object Management Group's Life
+Science Research group (\url{http://lsr.ebi.ac.uk}) and is is included
+in the proposed OBDA standard for sequence data access.
 
 \section{Conclusions}
 
@@ -424,14 +426,14 @@ the toolkit can read and write.
 We feel that much of the success of the Bioperl toolkit can be
 attributed to the open source nature of the project which has allowed
 a diverse group of individuals to participate in collaborative effort.
-We have successfully encouraging users of the toolkit to assist in the
+We have successfully encouraged users of the toolkit to assist in the
 development by contributing bug fixes, documentation enhancements, and
-new functionality for the benefit of all users. This and the guiding
-principal to get working software written in an extensible manner has
-made Bioperl an excellent platform for Perl bioinformatics software
-development.  The open sharing and discussion of ideas that embodies
-the scientific spirit has proven to be successful in the world of
-scientific software development as well.
+new functionality for the benefit of all users. This collaboration and
+the guiding principal to get working software written in an extensible
+manner have made Bioperl an excellent platform for Perl bioinformatics
+software development.  The open sharing and discussion of ideas that
+embodies the scientific spirit has proven to be successful in the
+world of scientific software development as well.
 
 \section{Acknowledgments}
 
@@ -458,11 +460,11 @@ We would like to especially acknowledge Steve Chervitz for his
 previous role as Bioperl project leader.  Thanks also to Brian Osborne
 and Peter Schattner for their excellent documentation and tutorial
 work, and Chris Dagdigian for his tremendous support as system
-administrator for the project computers.
+administrator for the OBF.
 
 The Bioperl project and its sister projects (commonly referred to as
 the Bio\{*\} projects) are supported under the umbrella of the Open
-Bioinformatics Foundation (OBF) \url{http://www.open-bio.org}.
+Bioinformatics Foundation \url{http://www.open-bio.org}.
 OBF is supported by hardware donations from Compaq and Sun
 Microsystems, and we graciously accept donated bandwidth and computer
 server space from Wyeth.
@@ -482,7 +484,7 @@ F.Dietrich, M.DeLong, M.Hahn for their comments on this manuscript.
 \url{http://www.biojava.org}, Biojava Project. \\
 \url{http://www.bioperl.org}, Bioperl Project. \\
 \url{http://www.biopython.org}, Biopython Project. \\
-\url{http://www.fruitfly.org}), Berkeley Drosophila Genome Project.\\
+\url{http://www.fruitfly.org}, Berkeley Drosophila Genome Project.\\
 \url{http://www.bioxml.org/dtds/index.html},  GAME - Genome
 Annotation Markup Elements. \\ 
 \url{http://www.cvshome.org}, CVS Home Page. \\
@@ -542,9 +544,9 @@ Bio::Graphics & Graphical displays of sequences \\
 \rhead{Stajich\_Figure1\_caption}
 
 Figure 1. Sequence retrieval from the Remote GenBank Database at EMBL.
-This code retrieve an mRNA sequences in the EMBL format from the EBI
-EMBL databank with the accession number U14680 and write the sequence
-out in GenBank format to the screen.  One could replace Bio::DB::EMBL
+This code retrieves an mRNA sequences in the EMBL format from the EBI
+EMBL databank with the accession number U14680 and writes the sequence
+out in GenBank format to the terminal.  One could replace Bio::DB::EMBL
 with Bio::DB::GenBank and instead retrieve the sequence from NCBI just
 as easily since the software can read and write both EMBL and GenBank
 formats.
