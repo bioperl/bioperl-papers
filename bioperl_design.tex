@@ -200,6 +200,7 @@ Bio::Seq} object from a sequence file in genbank, one can do this in
 just a few lines of perl code using the Bioperl toolkit.
 Figure~\ref{seqio} demonstrates this below.
 
+\begin{table}
 \begin{verbatim}
 use Bio::SeqIO;
 my $seqio = new Bio::SeqIO('-format' => 'genbank', '-file' => 'filename.gb');
@@ -208,7 +209,8 @@ while( my $seq = $seqio->next_seq) { $seqout->write_seq($seq) }
 \end{verbatim}
 %$
 \label{seqio}
-\centerline{Figure~\ref{seqio}: A 3 line sequence converter}
+\caption{A 3 line sequence converter}
+\end{table}
 
 \par The sequence parsing system will read rich sequence formats like
 EMBL or GenBank and will create the associated features that are annotated
@@ -218,7 +220,7 @@ not support the notion of features (FASTA, GCG, Raw) will not contain
 as much information as an EMBL flatfile for the same sequence.
 Table~\ref{formats} lists the available formats in the Bioperl 0.7
 release series.
-
+\begin{table}
 \begin{itemize}
 \item Ace     - AceDB format
 \item EMBL    - European Molecular Biology Laboratories sequence format
@@ -234,7 +236,8 @@ for BDGP
 \item swiss   - SwissProt format
 \end{itemize}
 \label{formats}
-\centerline{Table~\ref{formats}: Supported sequence formats by the \emph{Bio::SeqIO} system}
+\caption{Supported sequence formats by the \emph{Bio::SeqIO} system}
+\end{table}
 
 \section{Sequence Databases}
 
@@ -316,6 +319,7 @@ handle bl2seq and psi-blast results respectively.
 out with BLAST parsing.  The example in Figure~\ref{blastparsing}
 should give the reader a good idea of how to get started.  
 
+\begin{table}[h]
 \begin{verbatim}
 use Bio::Tools::BPlite;
 
@@ -342,8 +346,8 @@ SBJCT: while( my $sbjct = $parser->nextSbjct ) {
 \end{verbatim}
 %$
 \label{blastparsing}
-\centerline{Figure\ref{blastparsing}: Using \emph{\bf Bio::Tools::BPlite} for
-blast parsing}
+\caption{Using \emph{\bf Bio::Tools::BPlite} forblast parsing}
+\end{table}
 
 \subsection{Multiple Sequence Alignment Parsing}
 
@@ -363,6 +367,7 @@ system to obtain alignments and query them.  Table~\ref{alignio}
 describes the supported alignment formats the current
 \emph{Bio::AlignIO} system.
 
+\begin{table}[h]
 \begin{itemize}
 \item bl2seq
 \item clustalw
@@ -378,8 +383,10 @@ describes the supported alignment formats the current
 \item stockholm
 \end{itemize}
 \label{alignio}
-\centerline{Table~\ref{alignio}: \emph{Bio::AlignIO} supported formats}
+\caption{\emph{Bio::AlignIO} supported formats}
+\end{table}
 
+\begin{table}[h]
 \begin{verbatim}
 use Bio::AlignIO;
 my $alignio = new Bio::AlignIO(-format => 'clustalw',
@@ -398,7 +405,8 @@ while( my $aln = $alignio->next_aln ) {
 \end{verbatim}
 \label{msaparsing}
 %$
-\centerline{Figure~\ref{msaparsing}: The \emph{Bio::AlignIO} system in use}
+\caption{The \emph{Bio::AlignIO} system in use}
+\end{table}
 
 \subsubsection{Gene prediction parsing}
 
@@ -429,6 +437,7 @@ of the specific parser object for you.  The code in
 Figure~\ref{analysisfactory} should show a good example of how to use
 it. 
 
+\begin{table}[h]
 \begin{verbatim}
 use Bio::Factory::SeqAnalysisParserFactory;
 # initialize an object implementing this interface, e.g.
@@ -453,8 +462,8 @@ while(my $feat = $parser->next_feature()) {
 }
 \end{verbatim}
 \label{analysisfactory}
-\centerline{Figure~\ref{analysisfactory}:
-\emph{\bf Bio::Factory::SeqAnalysisParserFactory} in action}
+\caption{\emph{\bf Bio::Factory::SeqAnalysisParserFactory} in action}
+\end{table}
 
 \subsection{Running Analyses}
 
